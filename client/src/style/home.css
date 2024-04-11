@@ -1,0 +1,38 @@
+.navContainer {
+  display: flex;
+  height: 100px;
+  max-width: 1280px;
+  margin: 0 auto;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 600;
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.logo {
+  width: 150px;
+  object-fit: conver;
+}
+
+.linkWrap {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.active {
+  color: #a40000;
+  border-bottom: 3px solid #a40000;
+}
+
+.link {
+  padding: 0 4px 6px;
+}
+
+.button {
+  border: none;
+  background-color: #aaa;
+  color: white;
+  padding: 7px 1rem;
+  border-radius: 1rem;
+}
