@@ -1,23 +1,7 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
 
-const joinSchema = mongoose.Schema({
-  group: {
-    type: [string],
-    default: []
-  },
-  groupMeeting: {
-    type: [string],
-    default: []
-  },
-  PT: {
-    type: [string],
-    default: []
-  }
-})
-
 const userSchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
   userId: {
     type: String,
     trim: true,
@@ -56,7 +40,20 @@ const userSchema = mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  join: joinSchema,
+  join: {
+    group: {
+      type: [String],
+      default: []
+    },
+    groupMeeting: {
+      type: [String],
+      default: []
+    },
+    PT: {
+      type: [String],
+      default: []
+    }
+  },
   personalInfo: {
     height: Number,
     weight: Number,
@@ -68,8 +65,8 @@ const userSchema = mongoose.Schema({
     trainerId: mongoose.Schema.Types.ObjectId,
     askedAt: Date,
     wantAt: Date,
-    time: string,
-    location: string
+    time: String,
+    location: String
   }],
   coupon: [{
     couponId: mongoose.Schema.Types.ObjectId,

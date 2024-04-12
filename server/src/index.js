@@ -2,7 +2,9 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+
 const authRouter = require("./routes/auth");
+// const userRouter = require("./routes/user");
 
 const PORT = 3000;
 
@@ -18,7 +20,9 @@ mongoose
   .then(() => console.log(`MongoDB is connected`))
   .catch((err) => console.error(err));
 
-// app.use("/auth", authRouter);
+
+app.use("/api/auth", authRouter);
+// app.use("/api/user", userRouter);
 
 // 서버 에러 처리
 app.use((err, req, res, next) => {
