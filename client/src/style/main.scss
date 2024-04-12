@@ -1,0 +1,25 @@
+main {
+	display: flex;
+	align-self: flex-start;
+}
+
+.menus {
+	position: relative;
+	width: 420px;
+	height: 224px;
+    padding: clamp(20px, 3vw, 32px);
+    background: var(--bg-white);
+    line-height: 140%;
+    border-radius: var(--rounded-normal);
+	box-shadow: 0.4rem 0.2rem 0.5rem rgb(177, 177, 177);
+}
+.contents {
+	align-content: center;
+}
+.button {
+	width: 214px;
+	height: 48px;
+}
+.list-account__icon {
+    margin-bottom: 1.5em;
+}

@@ -1,0 +1,188 @@
+@import url(//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSansNeo.css);
+* { font-family: 'Spoqa Han Sans Neo', 'sans-serif'; }
+
+:root {
+  --button-rounded: 8px;
+  --button-rounded-full: 72px;
+  --button-height: 48px;
+  --button-pad: 24px;
+  --button-bg: var(--color-primary);
+  --button-color: var(--color-white);
+  --button-color-border: var(--bg-primary);
+  --height-input: 48px;
+  --pad-input: 16px;
+  --bg-input: #fff;
+  --bg-input-hover: #f3f3f3;
+  --color-input: #222;
+  --border-input: #e9e9e9;
+  --bg-checkbox: #d3d3d3;
+  --bg-checkbox-true: #222;
+  --sf-height: 48px;
+  --sf-bg: var(--bg-3rd);
+  --hf-bg: var(--bg-primary);
+  --font-1: apercu, sans-serif;
+  --color-primary: #222;
+  --color-primary-rgb: 34, 34, 34;
+  --color-link: #222;
+  --color-white: #fff;
+  --color-white-rgb: 255, 255, 255;
+  --color-orange: #FA5D29;
+  --color-errors: #FA5D29;
+  --color-featured: #f8f0ee;
+  --color-underlined: var(--color-primary-rgb);
+  --color-connect: #FF602C;
+  --color-connect-2: #FFAE94;
+  --color-connect-3: #FFC5B1;
+  --color-inspire: #AAEEC4;
+  --color-inspire-2: #C8E4D3;
+  --color-inspire-3: #E2F4E9;
+  --color-awards: #502bd8;
+  --color-awards-2: #6749d1;
+  --color-awards-3: #917eda;
+  --color-read: #c0ab3c;
+  --color-read-2: #CDC38B;
+  --color-read-3: #DBD6C0;
+  --color-learn: #FFF083;
+  --color-learn-2: #FFF9D0;
+  --color-learn-3: #fffbe2;
+  --color-jobs: #74bcff;
+  --color-jobs-2: #99ccfc;
+  --color-jobs-3: #b4d7f8;
+  --text-size-small: 12px;
+  --text-size-primary: 16px;
+  --text-size-medium: 18px;
+  --text-size-large: 24px;
+  --border-gray: #e9e9e9;
+  --color-dotteds-rgb: 34, 34, 34;
+  --bg-primary: #F8F8F8;
+  --bg-primary-rgb: 248, 248, 248;
+  --bg-secondary: #222;
+  --bg-3rd: #e9e9e9;
+  --bg-4rd: #f3f3f3;
+  --bg-white: white;
+  --header-height: 71px;
+  --gutter: 20px;
+  --pad-inner: 52px;
+  --color-odd-rows: #f3f3f3;
+  --avatar-bg: #F8F8F8;
+  --border-table: #222;
+  --alert-green: #e0f4d9;
+  --alert-green-rgb: 224, 244, 217;
+  --alert-yellow: #FFF083;
+  --alert-yellow-rgb: 255, 240, 131;
+  --modal-alpha: 0.7;
+  --rounded-small: 4px;
+  --rounded-normal: 8px;
+  --rounded-large: 1rem;
+  --img-resizing-site: 16 / 12;
+  --img-resizing-paronamic: 2 / 1;
+  --img-resizing-desktop: 19 / 10;
+  --pad-grid: clamp(20px, 5vw, 92px);
+  --min-width-col: 200px;
+  --grid-gutter: 36px var(--gutter);
+}
+@media (max-width: 576px){:root {
+  --pad-inner: 16px;
+  --rounded-large: 8px;
+  --text-size-large: 20px;
+}}
+@media (max-width: 1023px){:root {
+--pad-inner: 24px;
+}}
+@media (max-width: 1280px){:root {
+--pad-inner: 40px;
+}}
+
+
+#content {
+  unicode-bidi: isolate;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  line-height: 200%;
+}
+
+.block {
+  margin: 0;
+  padding: 0;
+  margin-top: clamp(20px, 3vw, 50px);
+  margin-bottom: clamp(50px, 20vw, 200px);
+}
+.wrapper {
+  --innerWidth: 1280px;
+  width: 100%;
+  max-width: var(--innerWidth);
+  padding: 0 var(--pad-inner);
+  margin-left: auto;
+  margin-right: auto;
+  height: auto;
+}
+
+.switchpoint {
+  display: block;
+  grid-template-columns: minmax(var(--min-width-col), 20%) 1fr minmax(var(--min-width-col), 20%);
+  gap: var(--pad-grid);
+}
+@media (max-width: 1023px){.switchpoint {
+  display: flex;
+  flex-direction: column;
+}}
+@media (max-width: 1536px){.switchpoint {
+  --pad-grid: clamp(20px, 2vw, 30px);
+}}
+/* background-color: #EFEFEF; */
+/* A media query for a large screen */
+
+/* @media (max-width: 576px){:root {
+  --pad-inner: 16px;
+  --rounded-large: 8px;
+  --text-size-large: 20px;
+}}
+@media (max-width: 1023px){:root {
+  --pad-inner: 24px;
+}}
+@media (max-width: 1280px){:root {
+  --pad-inner: 40px;
+}}
+
+div {
+display: block;
+unicode-bidi: isolate;
+}
+
+#content {
+unicode-bidi: isolate;
+flex: 1;
+line-height: 200%;
+}
+
+.inner {
+--innerWidth: 1920px;
+width: 100%;
+max-width: var(--innerWidth);
+margin: 0 auto;
+padding: 0 var(--pad-inner);
+max-width: 90%;
+margin-left: auto;
+margin-right: auto;
+height: auto;
+@media (min-width: 1280px) {.inner {
+  max-width: 1280px;
+}
+}
+}
+
+
+.layout-3-cols {
+display: flex;
+grid-template-columns: minmax(var(--min-width-col), 20%) 1fr minmax(var(--min-width-col), 20%);
+gap: var(--pad-grid);
+
+@media (max-width: 1023px){.layout-3-cols {
+  display: flex;
+  flex-direction: column;
+}}
+@media (max-width: 1536px){.layout-3-cols {
+  --pad-grid: clamp(20px, 2vw, 30px);
+}}
+} */
