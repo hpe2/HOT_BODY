@@ -5,7 +5,7 @@ import "../style/home.css";
 
 const navLinks = [
   {
-    link: "/home",
+    link: "/",
     menuName: "홈",
   },
   {

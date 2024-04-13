@@ -32,10 +32,7 @@ const AuthProvider = ({ children }) => {
       const currentUser = await getCurrentUser();
       if (currentUser.id) {
         setUser({
-          userId: currentUser.userId,
-          name: currentUser.name,
-          email: currentUser.email,
-          isAdmin: currentUser.isAdmin,
+          ...currentUser
         });
         setIsAuthenticated(true);
         return true;
@@ -47,12 +44,11 @@ const AuthProvider = ({ children }) => {
     }
   };
 
-  useEffect(() => {
-    const cookie = localStorage.getItem("accessToken");
-    if (cookie === "[]" || cookie === null || cookie === undefined)
-      navigate("/login");
-    checkAuthUser();
-  }, []);
+  // useEffect(() => {
+  //   const cookie = localStorage.getItem("accessToken");
+  //   if (cookie === "[]" || cookie === null || cookie === undefined) navigate("/login");
+  //   checkAuthUser();
+  // }, []);
 
   const value = {
     user,
