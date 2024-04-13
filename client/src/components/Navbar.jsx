@@ -1,7 +1,8 @@
 import React from "react";
-import Logo from "../../public/images/logo.png";
+import Logo from "/images/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../style/home.css";
+import { useUserContext } from '../context/AuthContext';
 
 const navLinks = [
   {
@@ -31,17 +32,26 @@ const navLinks = [
 ];
 
 const Navbar = () => {
-  const user = undefined;
   const navigate = useNavigate();
+  const { setUser, isAuthenticated, setIsAuthenticated } = useUserContext();
+
+
+  const handleLogout = () => {
+    setUser({});
+    setIsAuthenticated(false);
+    localStorage.removeItem('accessToken');
+    window.location.reload();
+  }
 
   return (
     <>
       <nav className="navContainer">
-        <img src={Logo} alt="logo" className="logo" />
+        <img src={Logo} alt="logo" className="logo" onClick={() => navigate('/')} />
 
         <div className="linkWrap">
           {navLinks.map((nav) => (
             <NavLink
+              key={nav.menuName}
               to={`${nav.link}`}
               className={({ isActive, isPending }) =>
                 isPending ? "pending" : isActive ? "active link" : "link"
@@ -51,14 +61,11 @@ const Navbar = () => {
             </NavLink>
           ))}
         </div>
-        <button
-          className="button"
-          onClick={() => {
-            user ? navigate("/profile") : navigate("/login");
-          }}
-        >
-          {user ? "마이페이지" : "로그인 / 회원가입"}
-        </button>
+        {isAuthenticated ? (
+          <button className='button' onClick={handleLogout}>로그아웃</button>
+        ): (
+          <button className='button' onClick={() => navigate('/login')}>로그인 / 회원가입</button>
+        )}
       </nav>
     </>
   );

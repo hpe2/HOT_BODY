@@ -1,9 +1,18 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { createUserAccount } from "./API";
+import { createUserAccount, signUp } from "./API";
 
-// 쿼리 작성 예시 - 회원가입 쿼리
-export const useCreateUserAccountMutation = () => {
+
+// 회원가입 쿼리
+export const useSignUp = () => {
   return useMutation({
-    mutationFn: (user) => createUserAccount(user),
-  });
-};
+    mutationFn: (userInfo) => signUp(userInfo)
+  })
+}
+
+// 로그인 쿼리
+export const useSignIn = () => {
+  return useMutation({
+    mutationFn: (userData) => signIn(userData)
+  })
+}
+
