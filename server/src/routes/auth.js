@@ -4,6 +4,24 @@ const jwt = require('jsonwebtoken');
 const auth = require('../middleware/auth');
 const router = express.Router();
 
+// 인증된 유저 정보 get
+router.get('/', auth, async (req, res) => {
+  return res.json({
+    _id: req.user._id,
+    userId: req.user.userId,
+    name: req.user.name,
+    email: req.user.email,
+    userType: req.user.userType,
+    membership: req.user.membership,
+    point: req.user.point,
+    checkedToday: req.user.checkedToday,
+    join: req.user.join,
+    PTReservation: req.user.PTReservation,
+    coupon: req.user.coupon,
+    createdAt: req.user.createdAt,
+  })
+})
+
 // 회원가입
 router.post('/signup', async (req, res) => {
   try{
