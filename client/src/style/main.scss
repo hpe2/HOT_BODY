@@ -1,6 +1,10 @@
 main {
 	display: flex;
-	align-self: flex-start;
+	flex-wrap: nowrap;
+	
+}
+
+.list-account{
 }
 
 .menus {

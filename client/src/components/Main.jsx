@@ -51,7 +51,7 @@ const Main = () => {
                   isPending ? "pending" : isActive ? "active link" : "link"
                 }
               >
-                <li className="list-account">
+                <li className="list-accounts">
                   <div className="menus">
                     <div className="contents">
                       <div class="list-account__icon"><img src={nav.logo} alt="logo" className="logo" /></div>
