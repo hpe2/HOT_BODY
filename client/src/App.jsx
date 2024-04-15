@@ -1,6 +1,8 @@
 import { Route, Routes} from 'react-router-dom';
-import Home from './pages/home/Home';
 import RootLayout from './pages/RootLayout';
+import Home from './pages/root/Home';
+import Community from './pages/root/Community';
+import CommunityNewPost from './pages/root/community/CommunityNewPost';
 import Profile from "./pages/user/Profile";
 import Update from "./pages/user/Update";
 
@@ -11,7 +13,12 @@ const App = () => {
       <Routes>
         <Route element={<RootLayout />}>
           <Route path='/' element={<Home />} />
-          <Route path='/profile' element={<Profile />}>
+          {/* community */}
+          <Route path='/community' element={<Community />} />
+          <Route path='/community/write' element={<CommunityNewPost />} />
+
+          {/* profile */}
+          <Route path='/profile' element={<Profile />} />
           <Route path='/profile/update' element={<Update />} />
           <Route path='/profile/wrote' element={<Update />} />
           <Route path='/profile/pt' element={<Update />} />

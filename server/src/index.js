@@ -26,6 +26,7 @@ app.use("/api/auth", authRouter);
 
 // 서버 에러 처리
 app.use((err, req, res, next) => {
+  console.log(err);
   res.status(err.status || 500);
   res.send(err.message || { message: "Internet server error" });
 });

@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "/images/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../style/home.css";
+import "../style/navbar.css";
 import { useUserContext } from '../context/AuthContext';
 
 const navLinks = [
