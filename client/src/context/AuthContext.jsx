@@ -1,16 +1,8 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
 import { getCurrentUser } from "../Queries/API";
 
-export const InitialUser = {
-  userId: "",
-  name: "",
-  email: "",
-  isAdmin: false,
-};
-
 const InitialState = {
-  user: InitialUser,
+  user: {},
   isLoading: false,
   isAuthenticated: false,
   setUser: () => {},
@@ -21,8 +13,7 @@ const InitialState = {
 const AuthContext = createContext(InitialState);
 
 const AuthProvider = ({ children }) => {
-  const navigate = useNavigate();
-  const [user, setUser] = useState(InitialUser);
+  const [user, setUser] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
@@ -30,13 +21,8 @@ const AuthProvider = ({ children }) => {
     setIsLoading(true);
     try {
       const currentUser = await getCurrentUser();
-      if (currentUser.id) {
-        setUser({
-          userId: currentUser.userId,
-          name: currentUser.name,
-          email: currentUser.email,
-          isAdmin: currentUser.isAdmin,
-        });
+      if (currentUser._id) {
+        setUser(currentUser);
         setIsAuthenticated(true);
         return true;
       }
@@ -49,9 +35,7 @@ const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const cookie = localStorage.getItem("accessToken");
-    if (cookie === "[]" || cookie === null || cookie === undefined)
-      navigate("/login");
-    checkAuthUser();
+    if(cookie) checkAuthUser();
   }, []);
 
   const value = {
