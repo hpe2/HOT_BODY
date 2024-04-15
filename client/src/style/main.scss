@@ -2,6 +2,7 @@ main {
 	flex-wrap: nowrap;
 	box-sizing: border-box;
 	width: 100%;
+	min-width: 440px;
 }
 
 .list-account{
@@ -17,6 +18,7 @@ main {
 	grid-template-columns: auto;
 	grid-template-rows: repeat(5, 1fr);
 	gap: 12px;
+	min-width: 400px;
   }}
 
 .menus {

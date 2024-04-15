@@ -1,13 +1,15 @@
 import React from "react";
 import Aside from "../../components/Aside";
 import Main from "../../components/Main";
+import Wrapper from "../../components/Wrapper";
+
 
 const User = () => {
   return (
-    <>
-    <Aside/>
-    <Main />
-    </>
+    <Wrapper>
+      <Aside/>
+      <Main />
+    </Wrapper>
   )
 };
 
