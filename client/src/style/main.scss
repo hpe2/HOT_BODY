@@ -1,0 +1,50 @@
+main {
+	flex-wrap: nowrap;
+	box-sizing: border-box;
+	width: 100%;
+	min-width: 440px;
+}
+
+.list-account{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
+	gap: 12px;
+	height: auto;
+}
+  @media (max-width: 1280px){.list-account {
+	display: grid;
+	align-items: stretch;
+	grid-template-columns: auto;
+	grid-template-rows: repeat(5, 1fr);
+	gap: 12px;
+	min-width: 400px;
+  }}
+
+.menus {
+	position: relative;
+	width: 420px;
+	height: 224px;
+    padding: clamp(20px, 3vw, 32px);
+    background: var(--bg-white);
+    line-height: 140%;
+    border-radius: var(--rounded-normal);
+	box-shadow: 0.4rem 0.2rem 0.8rem rgb(177, 177, 177);
+}
+@media (max-width: 1280px){.menus {
+	width: 100%;
+  }}
+@media (max-width: 800px){.menus {
+	margin-bottom: 8px;
+
+  }}
+.contents {
+	align-content: center;
+}
+.button {
+	width: 214px;
+	height: 48px;
+}
+.list-account__icon {
+    margin-bottom: 1.5em;
+}
