@@ -1,10 +1,10 @@
 import { Route, Routes} from 'react-router-dom';
 import RootLayout from './pages/RootLayout';
 import Home from './pages/root/Home';
-import Community from './pages/root/Community';
-import CommunityNewPost from './pages/root/community/CommunityNewPost';
+import CommunityNewPost from './pages/root/community/CommunityPosting';
 import Profile from "./pages/user/Profile";
 import Update from "./pages/user/Update";
+import Community from './pages/root/community/Community';
 
 
 const App = () => {
@@ -15,7 +15,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           {/* community */}
           <Route path='/community' element={<Community />} />
-          <Route path='/community/write' element={<CommunityNewPost />} />
+          <Route path='/community/:type' element={<CommunityNewPost />} />
 
           {/* profile */}
           <Route path='/profile' element={<Profile />} />

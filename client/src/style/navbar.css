@@ -20,16 +20,16 @@
   gap: 2.5rem;
 }
 
-.active {
+.navActive {
   color: #a40000;
   border-bottom: 3px solid #a40000;
 }
 
-.link {
+.navlink {
   padding: 0 4px 6px;
 }
 
-.button {
+.navButton {
   border: none;
   background-color: #aaa;
   color: white;
