@@ -1,8 +1,20 @@
 import React from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, Link } from "react-router-dom";
 import UserNavbar from "../../components/UserNavbar";
 import Wrapper from "../../components/Wrapper";
 import "../../style/update.scss";
+import { IoEyeOutline } from "react-icons/io5";
+import { MdOutlineEdit } from "react-icons/md";
+import { IoIosArrowForward } from "react-icons/io";
+
+/* const [newNick, setNewNick] = useState();*/
+
+  function changeHandler(e) {
+    setNewUser((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }));
+  }
 
 const Update = () => {
   return (
@@ -11,19 +23,64 @@ const Update = () => {
       <div className="content">
         <div className="container">
           <div className="account">
-            <h1>계정 정보</h1>
+            <h1>계정</h1>
             <div className="boxContainer">
-              <div className="idName">
-                <strong>ID</strong><span>userId</span>
-                <strong>이름</strong><span>홍길동</span>
-              </div>
+              <form className="formField">
+                <label htmlFor="id">ID</label><span>userId</span><p></p>
+                <label htmlFor="name">이름</label><span>홍길동</span><p></p>
+                <label htmlFor="nickname">닉네임</label><input type="text" id="nickname"/><button><MdOutlineEdit /></button>
+                <label htmlFor="password">기존 비밀번호</label><input type="password" id="password"/><button><IoEyeOutline /></button>
+                <label htmlFor="newPassword">신규 비밀번호</label><input type="password" id="newPassword"/><button><IoEyeOutline /></button>
+                <label htmlFor="newPasswordCheck">신규 비밀번호(확인)</label><input type="password" id="newPasswordCheck"/><button><IoEyeOutline /></button>
+                <input type="submit" value='수정하기'/>
+              </form>
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="membership">
+            <h1>멤버십</h1>
+            <div className="boxContainer">
               <div className="formField">
-                <label htmlFor="nickname">닉네임</label><input type="text" id="nickname"/>
-                <label htmlFor="password">기존 비밀번호</label><input type="text" id="password"/>
-                <label htmlFor="newPassword">신규 비밀번호</label><input type="text" id="newPassword"/>
-                <label htmlFor="newPasswordCheck">신규 비밀번호(확인)</label><input type="text" id="newPasswordCheck"/>
+                <span>
+                  <label htmlFor="membership">Hot Body+</label>
+                  <span>
+                    {({ membership }) =>
+                      membership ? "구독중" : "미구독"
+                    }구독중</span></span>
+                <Link to="/profile/update/purchase" className="purchase"><label htmlFor="purchase">결제 내역</label><button><IoIosArrowForward /></button></Link>
               </div>
             </div>
+            <Link to="/membership" className="link"><button className="mebershipBtn">구독하기</button></Link>
+          </div>
+        </div>
+        <div className="container">
+          <div className="counsel">
+            <h1>상담 <small>*PT상담신청시에 필요한 정보입니다.</small></h1>
+            <div className="boxContainer">
+              <form className="formField">
+                <label htmlFor="height">키</label><input type="number" id="height"/>
+                <label htmlFor="weight">체중</label><input type="number" id="weight"/>
+                <label htmlFor="age">나이</label><input type="number" id="age"/>
+                <label htmlFor="gender">성별</label><select id="gender">
+                  <option value="man">남자</option>
+                  <option value="woman">여자</option>
+                </select>
+                <label htmlFor="phone">번호</label><input type="number" id="phone" placeholder="연락처를 입력하세요(000-0000-0000 형식)"/>
+                <label htmlFor="purpose">운동목적</label><select id="purpose">
+                  <option value="diet">다이어트</option>
+                  <option value="bulk">체중증가</option>
+                  <option value="diet">근력 강화(건강)</option>
+                  <option value="bulk">체력</option>
+                  <option value="diet">체형 교정</option>
+                  <option value="bulk">재활/통증 케어</option>
+                  <option value="diet">바프</option>
+                  <option value="bulk">대회 준비</option>
+                </select>
+                  
+              </form>
+            </div>
+            <Link to="/membership" className="link"><button className="mebershipBtn">구독하기</button></Link>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "../style/UserNavbar.scss";
 import { IoIosArrowBack } from "react-icons/io";
 
@@ -37,7 +37,7 @@ const UserNavbar = () => {
     <>
       <nav className="userNavContainer">
         <div className="UserNSB">
-        <NavLink key= "대쉬보드로 돌아가기" to={"/profile"} id={"goBack"}><IoIosArrowBack /> 내 정보로</NavLink>
+        <Link key= "대쉬보드로 돌아가기" to={"/profile"} id={"goBack"}><IoIosArrowBack /> 내 정보</Link>
           {userNavLinks.map((usernav) => (
             <NavLink
               key={usernav.menuName}
