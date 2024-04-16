@@ -6,12 +6,17 @@ import Update from "./pages/user/Update";
 
 
 const App = () => {
+  fetch("http://localhost:3000/api/auth")
+    .then((response) => response.json())
+    .then((data) => {
+    console.log(data);
+  });
   return (
     <>
       <Routes>
         <Route element={<RootLayout />}>
           <Route path='/' element={<Home />} />
-          <Route path='/profile' element={<Profile />}>
+          <Route path='/profile' element={<Profile />} />
           <Route path='/profile/update' element={<Update />} />
           <Route path='/profile/wrote' element={<Update />} />
           <Route path='/profile/pt' element={<Update />} />

@@ -6,13 +6,15 @@ main {
 }
 
 .list-account{
+	padding-top: 80px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: 1fr 1fr;
+	grid-template-rows: (2, minmax(200px, auto));
+	gap: 12px;
 	gap: 12px;
 	height: auto;
 }
-  @media (max-width: 1280px){.list-account {
+  @media (max-width: 900px){.list-account {
 	display: grid;
 	align-items: stretch;
 	grid-template-columns: auto;
