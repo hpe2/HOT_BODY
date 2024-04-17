@@ -15,10 +15,10 @@ const CommunityNewPost = () => {
   const { isAuthenticated } = useUserContext();
   const { type } = useParams();
   const [category, setCategory] = useState(0);
-  const [title, setTitle] = useState("");
-  const [text, setText] = useState("");
+  const [title, setTitle] = useState(null);
+  const [text, setText] = useState(null);
   const [image, setImage] = useState(null);
-  const [tags, setTags] = useState("");
+  const [tags, setTags] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -29,6 +29,9 @@ const CommunityNewPost = () => {
       image,
       tags
     };
+    if(!title && !text){
+      return alert('내용을 입력해주세요.');
+    }
     const res = await axiosInstance.post('/api/community/createPost', formData);
     if(res.status === 200){
       setCategory(0);

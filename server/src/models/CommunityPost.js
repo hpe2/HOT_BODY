@@ -5,10 +5,6 @@ const CommunityPostSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    writerName: {
-        type: String,
-        require: true
-    },    
     title: {
         type: String,
         require: true

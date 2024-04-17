@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import ImgIcon from '../../../public/images/imgFile.svg';
 
 const ImgUploader = ({image, setImage}) => {
   const [preview, setPreview] = useState(null);
@@ -28,21 +29,23 @@ const ImgUploader = ({image, setImage}) => {
 
   return (
     <div className="communityImgBox">
-      <p className="boxTitle">이미지 첨부하기</p>
-      <label htmlFor="file">
-        클릭 해서 파일 업로드하기
-      </label>
-      <input 
-        type="file" 
-        onChange={handleUploadImg} 
-        name='file'
-        id='file'
-      />
-      <h1>미리보기</h1>
-      <div className='previewImg'>
-        {preview && (
-          <img src={preview} alt="preview" className='previewImg' />
-        )}
+      <div className="imgWrap">
+        <label htmlFor="file">
+          <img src={ImgIcon} alt='imgIcon' className='imgIcon' />
+          <span>클릭 해서 이미지 첨부하기 업로드하기</span>
+        </label>
+        <input 
+          type="file" 
+          onChange={handleUploadImg} 
+          name='file'
+          id='file'
+        />
+      </div>
+
+      <div className="previewWrap">
+          {preview ? (
+            <img src={preview} alt="preview" className='previewImg' />
+          ) : <p>미리보기</p>}
       </div>
     </div>
   );
