@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import SearchIcon from '../../../public/images/searchIcon.svg';
-import PenIcon from '../../../public/images/pen.svg'
+import SearchIcon from '/images/searchIcon.svg';
+import PenIcon from '/images/pen.svg'
 
-import PostList from '../../components/community/PostList';
 
-import '../../style/community.css';
+import '../../../style/community.css'
+import PostList from '../../../components/community/PostList';
 
 const categories = [
   {category: 'all', name: '전체'},
@@ -27,6 +27,7 @@ const Community = () => {
           <ul className="category">
             {categories.map((categorylist, idx) => (
               <li 
+                key={idx}
                 onClick={() => setCategoray(idx)}
                 className={`${categorylist.category === categories[category].category && 'categoryActive'}`}
               >
@@ -58,8 +59,8 @@ const Community = () => {
               <h1>{categories[category].name} 글 보기 </h1>
               <span className='postsNum'>199</span>
             </div>
-            <button>
-              <img src={PenIcon}  alt='pen' className='penIcon' onClick={() => navigate('/community/write')} />
+            <button onClick={() => navigate('/community/create')}>
+              <img src={PenIcon}  alt='pen' className='penIcon' />
               글쓰기
             </button>
           </div>

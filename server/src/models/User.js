@@ -54,6 +54,7 @@ const userSchema = mongoose.Schema({
       default: []
     }
   },
+  wrote: [String],
   personalInfo: {
     height: Number,
     weight: Number,
