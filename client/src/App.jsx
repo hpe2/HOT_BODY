@@ -1,27 +1,24 @@
 import { Route, Routes} from 'react-router-dom';
 import Home from './pages/home/Home';
-import RootLayout from './pages/RootLayout';
 import Profile from "./pages/user/Profile";
-import Update from "./pages/user/Update";
+import Wrote from "./pages/user/Wrote";
+import Navbar from './components/Navbar';
+import Wrapper from './components/user/Wrapper';
 
 
 const App = () => {
-  fetch("http://localhost:3000/api/auth")
-    .then((response) => response.json())
-    .then((data) => {
-    console.log(data);
-  });
   return (
     <>
+      <Navbar />
       <Routes>
-        <Route element={<RootLayout />}>
-          <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home />} />
+        <Route element={<Wrapper />}>
           <Route path='/profile' element={<Profile />} />
-          <Route path='/profile/update' element={<Update />} />
-          <Route path='/profile/wrote' element={<Update />} />
-          <Route path='/profile/pt' element={<Update />} />
-          <Route path='/profile/point' element={<Update />} />
-          <Route path='/gogaek' element={<Update />} />
+          <Route path='/profile/wrote' element={<Wrote/>} />
+          <Route path='/profile/pt' element={<Profile />} />
+          <Route path='/profile/group' element={<Profile />} />
+          <Route path='/profile/point' element={<Profile />} />
+          <Route path='/gogaek' element={<Profile />} />
         </Route>
       </Routes>
     </>

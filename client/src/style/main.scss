@@ -9,9 +9,8 @@ main {
 	padding-top: 80px;
 	display: grid;
 	grid-template-columns: 1fr 1fr;
-	grid-template-rows: (2, minmax(200px, auto));
-	gap: 12px;
-	gap: 12px;
+	grid-template-rows: repeat(2, minmax(200px, auto));
+	gap: 3rem;
 	height: auto;
 }
   @media (max-width: 900px){.list-account {
@@ -19,9 +18,15 @@ main {
 	align-items: stretch;
 	grid-template-columns: auto;
 	grid-template-rows: repeat(5, 1fr);
-	gap: 12px;
+	gap: 1rem;
 	min-width: 400px;
   }}
+
+.link {
+	height: 100%;
+	margin: 0 auto;
+	padding: 0;
+}
 
 .menus {
 	position: relative;
@@ -31,7 +36,7 @@ main {
     background: var(--bg-white);
     line-height: 140%;
     border-radius: var(--rounded-normal);
-	box-shadow: 0.4rem 0.2rem 0.8rem rgb(177, 177, 177);
+	box-shadow: 0.3rem 0.2rem 0.7rem rgb(177, 177, 177);
 }
 @media (max-width: 1280px){.menus {
 	width: 100%;

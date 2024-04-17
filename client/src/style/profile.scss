@@ -43,7 +43,7 @@
 			justify-content: center;
 			align-items: center;
 			grid-template-columns: 1fr 1.2fr 0.15fr;
-			grid-template-rows: (6, minmax(200px, auto));
+			grid-template-rows: (5, minmax(200px, auto));
 			gap: 2rem;
 
 			:nth-child(19){
@@ -145,7 +145,7 @@
 			color: #000;
 			justify-content: space-between;
 		}
-		:nth-child(2):hover, :nth-child(1):hover{
+		:nth-child(2):hover {
 			background-color: #a4000021;
 			transition: all 0.2s;
 		}
@@ -221,7 +221,14 @@
 			grid-template-columns: 1fr 1.2fr;
 			grid-template-rows: (6, minmax(200px, auto));
 			gap: 2rem;
-			
+
+			:nth-child(16){
+				padding: 1rem;
+				width: 100%;
+				grid-row: 1 / 2;
+				display: flex;
+				align-items: end;
+			}
 			#phone::placeholder {
 				color: #d3d3d3;
 				font-weight: 400;
@@ -270,7 +277,7 @@
 			cursor: pointer;
 			color: #c1c1c1;
 			justify-content: center;
-			width: 30%;
+			width: 80%;
 			height: 4.5rem;
 			margin: 0;
 			padding: 0;
@@ -279,6 +286,7 @@
 			line-height: 140%;
 			font-size: 21px;
 		}
+		
 }
 
 

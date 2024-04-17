@@ -1,7 +1,8 @@
 import React from "react";
-import Logo from "../../public/images/logo.png";
+import Logo from "../../../public/images/logo.png";
 import {NavLink} from "react-router-dom";
-import "../style/main.scss";
+import "../../style/main.scss";
+import { useUserContext } from "../../context/AuthContext";
 
 const navLinks = [
   {
@@ -41,6 +42,7 @@ const navLinks = [
   },
 ];
 const Main = () => {
+
   return(
     <main>
       <ul className="list-account">
