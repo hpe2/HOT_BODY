@@ -1,5 +1,5 @@
-import BadgeIcon from '../../../public/images/badge.svg'
-import ThumbIcon from '../../../public/images/thumbsup.svg'
+import BadgeIcon from '/images/badge.svg'
+import ThumbIcon from '/images/thumbsup.svg'
 
 
 const PostList = () => {
