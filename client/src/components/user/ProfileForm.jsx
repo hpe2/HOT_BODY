@@ -8,19 +8,21 @@ const ProfileForm = ({setIsEdit}) => {
 
     return (
     <form className="formField">
-        <div className='idInput'>
-            ID
-            <span>{user.userId}</span>
+        <div className='inputNote id'>
+            <span>아이디</span>
+            <span className='inputContent'>{user.userId}</span>
         </div>
-        <div className='nameInput'>
-            name
-            <span>{user.name}</span>
+        <div className='inputNote name'>
+            <span>이름(별명)</span>
+            <span className='inputContent'>{user.name}</span>
         </div>
-        <div className='emailInput'>
-            이메일
-            <span>{user.email}</span>
+        <div className='inputNote email'>
+            <span>이메일</span>
+            <span className='inputContent'>{user.email}</span>
         </div>
-        <button onClick={() => {setIsEdit(true)}}>Edit</button>
+        <div className='buttons'>
+            <input type="button" value='수정하기' onClick={() => {setIsEdit(true)}}></input>
+        </div>
     </form>
   )
 }

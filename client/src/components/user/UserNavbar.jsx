@@ -1,6 +1,7 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import "../../style/UserNavbar.scss";
+import DailyInfo from "./DailyInfo";
 
 
 const userNavLinks = [
@@ -35,6 +36,7 @@ const UserNavbar = () => {
   return (
     <>
       <nav className="userNavContainer">
+      <DailyInfo/>
         <div className="UserNSB">
           {userNavLinks.map((usernav) => (
             <NavLink

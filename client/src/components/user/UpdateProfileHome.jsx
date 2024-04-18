@@ -1,8 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
 import { useUserContext } from '../../context/AuthContext';
-import { IoEyeOutline } from "react-icons/io5";
-import { MdOutlineEdit } from "react-icons/md";
 
 const UpdateProfileForm = ({setIsEdit}) => {
     const {user} = useUserContext();
@@ -25,13 +22,30 @@ const UpdateProfileForm = ({setIsEdit}) => {
 
   return (
     <form className="formField" onSubmit={handleSubmit}>
-        <div>ID</div><span>{user.userId}</span><p></p>
-        <div>이름</div><input type="text" value={name} onChange={(e) => setName(e.target.value)}/><button onClick={sendBtnHandler}><MdOutlineEdit /></button>
-        <div>기존 비밀번호</div><input id="password" value={password} onChange={(e) => setPassword(e.target.value)}/><button><IoEyeOutline /></button>
-        <div>신규 비밀번호</div><input value={newPassword} onChange={(e) => setNewPassword(e.target.value)} type="password" id="newPassword"/><button><IoEyeOutline /></button>
-        <div>신규 비밀번호(확인)</div><input type="password" id="newPasswordCheck" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/><button><IoEyeOutline /></button>
-        <input type="submit" value='수정하기' disabled={newPassword !== confirmPassword}/>
-        <input type="button" value='취소' onClick={() => {setIsEdit(false)}}/>
+        <div className='inputNote id'>
+          <span>ID</span>
+          <span>{user.userId}</span>
+        </div>
+        <div className='inputNote name'>
+          <span>이름</span>
+          <input type="text" value={name} placeholder='' onChange={(e) => setName(e.target.value)}/>
+        </div>
+        <div className='inputNote password'>
+        <span>기존 비밀번호</span>
+          <input type='password' value={password} placeholder='변경 시 필수입력' onChange={(e) => setPassword(e.target.value)}/>
+        </div>
+        <div className='inputNote newPassword'>
+          <span>신규 비밀번호</span>
+          <input type="password" value={newPassword} placeholder='' onChange={(e) => setNewPassword(e.target.value)} />
+          </div>
+        <div className='inputNote confirmPassword'>
+          <span>신규 비밀번호(확인)</span>
+          <input type="password" value={confirmPassword} placeholder='' onChange={(e) => setConfirmPassword(e.target.value)}/>
+        </div>
+        <div className='buttons'>
+          <input type="submit" value='저장하기' disabled={newPassword !== confirmPassword}/>
+          <input type="button" value='취소' onClick={() => {setIsEdit(false)}}/>
+        </div>
     </form>
   )
 }

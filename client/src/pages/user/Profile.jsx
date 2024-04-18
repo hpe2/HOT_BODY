@@ -7,24 +7,18 @@ import { IoIosArrowForward } from "react-icons/io";
 import { useUserContext } from "../../context/AuthContext";
 import ProfileForm from "../../components/user/ProfileForm";
 import UpdateProfileForm from "../../components/user/UpdateProfileHome";
+import PtInfoUpdate from "../../components/user/PtInfoUpdate";
+import PtInfo from "../../components/user/PtInfo";
 
 const Profile = () => {
   const {user} = useUserContext();
-  console.log(user);
-
-  // const [nick, setNick] = useState(user.name);
   const [isEdit, setIsEdit] = useState(false);
+  const [ptEdit, setPtEdit] = useState(false);
 
   return (
     <>
       <UserNavbar/>
       <div className="content">
-          Welcome <strong>{user.name}</strong> 님!
-          <button
-            className="button"
-          >
-            <h4>출석체크</h4> <p>+ 1 point</p>
-          </button>
         <div className="container">
           <div className="account">
             <h1>계정</h1>
@@ -52,27 +46,7 @@ const Profile = () => {
           <div className="counsel">
             <h1>상담 <small>*PT상담신청시에 필요한 정보입니다.</small></h1>
             <div className="boxContainer">
-              <form className="formField" >
-                <label htmlFor="height">키</label><input type="number" id="height"/>
-                <label htmlFor="weight">체중</label><input type="number" id="weight"/>
-                <label htmlFor="age">나이</label><input type="number" id="age"/>
-                <label htmlFor="gender">성별</label><select id="gender">
-                  <option value="man">남자</option>
-                  <option value="woman">여자</option>
-                </select>
-                <label htmlFor="phone">번호</label><input type="number" id="phone" placeholder="연락처를 입력하세요(000-0000-0000 형식)"/>
-                <label htmlFor="purpose">운동목적</label><select id="purpose">
-                  <option value="diet">다이어트</option>
-                  <option value="bulk">체중증가</option>
-                  <option value="diet">근력 강화(건강)</option>
-                  <option value="bulk">체력</option>
-                  <option value="diet">체형 교정</option>
-                  <option value="bulk">재활/통증 케어</option>
-                  <option value="diet">바프</option>
-                  <option value="bulk">대회 준비</option>
-                </select>
-                <div></div><input type="submit" value='수정하기'/>
-              </form>
+            {ptEdit ? <PtInfoUpdate setPtEdit={setPtEdit} /> : <PtInfo setPtEdit={setPtEdit} />}
             </div>
           </div>
         </div>

@@ -1,30 +1,48 @@
 import React from "react";
 import UserNavbar from "../../components/user/UserNavbar";
-import "../../style/profile.scss";
+import "../../style/wrote.scss";
 import { useUserContext } from "../../context/AuthContext";
 
 
 /* const [newNick, setNewNick] = useState();*/
 
-const Update = () => {
+const Wrote = () => {
   const {user} = useUserContext();
   return (
     <>
       <UserNavbar/>
       <div className="content">
         <div className="container">
-          <div className="account">
+          <div className="wrote">
             <h1>내가 쓴 글</h1>
             <div className="boxContainer">
-              <div className="TodoListItem">
-                <table className="wroteTable">
-                  <tr>
-                    <th>카테고리</th>
-                    <th>제목</th>
-                    <th>날짜</th>
-                  </tr>
+              <div className="wroteField">
+                <table>
+                  <thead>
+                    <tr>
+                      <th className="cate">카테고리</th>
+                      <th className="title">제목</th>
+                      <th className="date">날짜</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {user.map((content) => (
+                      <tr>
+                        <td>{content.name}</td>
+                        <td>{content.userid}</td>
+                        <td>{content.email}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                  <tfoot>
+                    <tr>
+                      <td></td>
+                    </tr>
+                  </tfoot>
                   <tr>
                     {/* {user.map(() => {
+                    <td>{user.wrote}</td>
+                    <td>{user.wrote}</td>
                     <td>{user.wrote}</td>
                   })} */}
                   </tr>
@@ -56,7 +74,7 @@ if (isEditing) {
 }
 };
 
-const Update = () => {
+const Wrote = () => {
   return (
     <>
       <UserNavbar/>
@@ -88,4 +106,4 @@ const Update = () => {
   )
 }; */
 
-export default Update;
+export default Wrote;
