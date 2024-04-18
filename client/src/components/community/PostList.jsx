@@ -1,34 +1,49 @@
 import BadgeIcon from '/images/badge.svg'
 import ThumbIcon from '/images/thumbsup.svg'
+import { useNavigate } from 'react-router-dom'
 
+const PostList = ({post}) => {
+  const navigate = useNavigate();
 
-const PostList = () => {
+  const categoryInKor = (category) => {
+    if(category === 'all') return '일반';
+    if(category === 'health') return '헬스'
+    if(category === 'diet') return '식단'
+    if(category === 'QA') return 'Q&A'
+  }
+
   return (
-    <li className="postList">
-      <img src="" className="img" />
+    <li className="postList" onClick={() => navigate(`/community/detail/${post._id}`)}>
+      {post.image === "" ? (
+        <div className="postNoImg">
+          No Image
+        </div>
+      ): (
+        <img src={post.image} className="postListImg" />
+      )}
       <div className="postContent">
         <div className="contentTop">
           <ul className="tags">
-            <li># 태그01</li>
-            <li># 태그02</li>
-            <li># 태그03</li>
+            {post.tags && (
+              post.tags.split(',').map(tag => (
+                <li>#{tag}</li>
+              ))
+            )}
           </ul>
-          <p>2024-04-15</p>
+          <p>{post.createdAt.slice(0, 10)}</p>
         </div>
-        <h3>[헬스] 1년만에 000 탈출한 썰 푼다.</h3>
+        <h3>{`[${categoryInKor(post.category)}]`} {post.title}</h3>
         <p className="text">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s
+          {post.text}
         </p>
         <div className="contentBottom">
           <p className="writer">
-            <img src={BadgeIcon} alt='badge' className='bagde' />
-            <span>작성자 : 핫바디지박령</span>
+            {post.membership && <img src={BadgeIcon} alt='badge' className='bagde' /> }
+            <span>작성자 : {post.writername}</span>
           </p>
           <div className="likeButton">
             <img src={ThumbIcon} className='thumbIcon' />
-            <p>199</p>
+            <p>{post.likes.length}</p>
           </div>
         </div>
       </div>
