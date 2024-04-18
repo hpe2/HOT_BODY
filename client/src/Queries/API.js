@@ -34,3 +34,13 @@ export const getCurrentUser = async () => {
     return err.message;
   }
 };
+
+// 새 커뮤니티 글 작성
+export const createCommunityPost = async (formData) => {
+  try{
+    const response = await axios.post("/api/community/createPost", formData);
+    return response
+  }catch(err){
+    return err.message;
+  }
+}

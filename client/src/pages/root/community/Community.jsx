@@ -59,7 +59,7 @@ const Community = () => {
               <h1>{categories[category].name} 글 보기 </h1>
               <span className='postsNum'>199</span>
             </div>
-            <button onClick={() => navigate('/community/create')}>
+            <button onClick={() => navigate('/community/write')}>
               <img src={PenIcon}  alt='pen' className='penIcon' />
               글쓰기
             </button>

@@ -3,6 +3,8 @@ import "../../../style/auth.css";
 import { useState } from "react";
 import { useSignIn } from "../../../Queries/queriesAndMutations";
 import { useUserContext } from "../../../context/AuthContext";
+import {toast} from 'react-toastify';
+
 
 const Login = () => {
   const navigate = useNavigate();
@@ -18,15 +20,15 @@ const Login = () => {
       password,
     };
     const res = await login(userData);
-    console.log(res);
     if (res.status === 200) {
-      alert("로그인 되셨습니다.");
+      toast.info(res.data.message);
       setUserId("");
       setPassword("");
       checkAuthUser();
       navigate("/");
     } else {
-      alert("로그인에 실패하셨습니다.");
+      if(res.response.data.message) return toast.info(res.response.data.message);
+      else toast.info('로그인 실패했습니다.');
     }
   };
 

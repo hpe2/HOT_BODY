@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import ImgUploader from '../../../components/community/ImgUploader';
-import axiosInstance from '../../../config/axios';
 import { useUserContext } from '../../../context/AuthContext';
+import { useCreateCommunityPost } from '../../../Queries/queriesAndMutations';
+import {toast} from 'react-toastify';
 
 const categories = [
   {category: 'all', name: '전체'},
@@ -13,12 +14,13 @@ const categories = [
 const CommunityNewPost = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useUserContext();
+  const { mutateAsync: createPost, isPending} = useCreateCommunityPost();
   const { type } = useParams();
   const [category, setCategory] = useState(0);
-  const [title, setTitle] = useState(null);
-  const [text, setText] = useState(null);
-  const [image, setImage] = useState(null);
-  const [tags, setTags] = useState(null);
+  const [title, setTitle] = useState('');
+  const [text, setText] = useState('');
+  const [image, setImage] = useState('');
+  const [tags, setTags] = useState('');
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,15 +32,20 @@ const CommunityNewPost = () => {
       tags
     };
     if(!title && !text){
-      return alert('내용을 입력해주세요.');
+      return toast.info('내용을 입력해주세요.')
     }
-    const res = await axiosInstance.post('/api/community/createPost', formData);
+    const res = await createPost(formData);
     if(res.status === 200){
       setCategory(0);
       setTitle("");
       setText("");
       setImage(null);
       setTags('');
+      toast.info(res.data.message);
+      navigate('/community');
+    }else{
+      if(res.response.data.message) return toast.info(res.response.data.message);
+      else toast.info('글 작성에 실패했습니다.');
     }
   };
 
@@ -108,7 +115,7 @@ const CommunityNewPost = () => {
               취소하기
             </button>
             <button type="submit" className="communityPostButton">
-              작성하기
+              {isPending ? "Processing. . ." : "작성하기"}
             </button>
           </div>
         </form>

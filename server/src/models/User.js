@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema({
   userId: {
     type: String,
     trim: true,
-    unique: true,
     require: true
   },
   name: {

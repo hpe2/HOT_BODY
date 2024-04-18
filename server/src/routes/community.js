@@ -4,7 +4,7 @@ const CommunityPost = require('../models/CommunityPost');
 const User = require('../models/User');
 const router = express.Router();
 
-// 회원가입
+// 새 글 작성
 router.post('/createPost', auth, async (req, res) => {
   try{
     const commuintyInfo = {
@@ -30,7 +30,7 @@ router.post('/createPost', auth, async (req, res) => {
     )
 
 
-    return res.status(200);
+    return res.status(200).send({message: "성공적으로 작성했습니다."});
   }catch(err){
     return res.status(400).send({message: `새로운 글을 작성하는데 실패했습니다. ${err}`})
   }

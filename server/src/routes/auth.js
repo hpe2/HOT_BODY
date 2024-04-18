@@ -64,7 +64,7 @@ router.post("/signin", async (req, res) => {
     const userData = { ...user._doc };
     delete userData.password;
 
-    return res.status(200).send({ userData, accessToken });
+    return res.status(200).send({ userData, accessToken, message: "로그인에 성공했습니다." });
   } catch (err) {
     return res
       .status(400)

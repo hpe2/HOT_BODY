@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSignUp } from "../../../Queries/queriesAndMutations";
+import {toast} from 'react-toastify';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -20,16 +21,16 @@ const Signup = () => {
       password,
     };
     const res = await signup(userInfo);
-    console.log(res);
     if (res.status === 200) {
-      alert("회원가입에 성공하셨습니다.");
+      toast.info(res.data.message);
       setEmail("");
       setUserId("");
       setName("");
       setPassword("");
       navigate("/login");
     } else {
-      alert("회원가입에 실패했습니다.");
+      if(res.response.data.message) return toast.info(res.response.data.message);
+      else toast.info('회원가입에 실패했습니다.');
     }
   };
 
