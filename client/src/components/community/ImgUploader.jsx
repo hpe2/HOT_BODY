@@ -32,7 +32,7 @@ const ImgUploader = ({image, setImage}) => {
       <div className="imgWrap">
         <label htmlFor="file">
           <img src={ImgIcon} alt='imgIcon' className='imgIcon' />
-          <span>클릭 해서 이미지 첨부하기 업로드하기</span>
+          <span>클릭 해서 이미지 업로드하기</span>
         </label>
         <input 
           type="file" 

@@ -5,6 +5,12 @@ const CommunityPostSchema = mongoose.Schema({
         type: String,
         require: true
     },
+    writername: {
+        type: String,
+    },
+    membership: {
+        type: Boolean,
+    },
     title: {
         type: String,
         require: true

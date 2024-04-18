@@ -68,27 +68,6 @@
     width: 30px;
 }
 
-.bestPosts{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 0 auto;
-}
-
-.bestPostsList{
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 80px;
-}
-
-.bestPost {
-    background-color: rgb(133, 133, 133);
-    width: 200px;
-    height: 200px;
-    border-radius: 15px;
-}
-
 .postsWarp{
     width: 100%;
     max-width: 860px;
@@ -146,7 +125,7 @@
     flex-direction: column;
     gap: 8px;
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 100px;
     padding: 0.5rem;
     border: 1px solid #a40000;
     border-radius: 5px;
@@ -164,17 +143,68 @@
     border-bottom: none;
 }
 
-.img {
+.postList .postListImg,
+.postNoImg {
     width: 140px;
     height: 140px;
-    background-color:  rgb(206, 206, 206);
+    background-color:  rgb(194, 194, 194);
     object-fit: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+
+.postListSkeletonImg {
+    width: 140px;
+    height: 140px;
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
 }
 
 .tags{
     display: flex;
     gap: 0.5rem;
     height: fit-content;
+}
+
+.contentTopSkeleton{
+    height: 25px;
+    gap: 1rem;
+    border-radius: 10px;
+}
+
+.tagsSkeleton{
+    width: 100%;
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
+}
+
+.dateSkeleton {
+    width: 100px;
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
+}
+
+.postListTitleSkeleton{
+    width: 50%;
+    height: 30px;
+    border-radius: 10px;
+    background-color: rgb(179, 179, 179);
+}
+
+.postListTextSkeleton{
+    background-color: rgb(179, 179, 179);
+    height: 20px;
+    border-radius: 10px;
+}
+
+.writerSkeleton{
+    width: 150px;
+    height: 1rem;
+    background-color: rgb(179, 179, 179);
+    border-radius: 10px;
 }
 
 .tags li{
@@ -190,6 +220,10 @@
     flex: 1;
     flex-direction: column;
     gap: 0.75rem;
+}
+
+.postContentSkeleton{
+    gap: 0.5rem;
 }
 
 .contentTop {
@@ -433,4 +467,12 @@
     align-items: center;
     justify-content: center;
     flex: 1;
+}
+
+
+.noPostsResult{
+    min-height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -6,11 +6,12 @@ import { useCreateCommunityPost } from '../../../Queries/queriesAndMutations';
 import {toast} from 'react-toastify';
 
 const categories = [
-  {category: 'all', name: '전체'},
+  {category: 'all', name: '일반'},
   {category: 'health', name: '헬스'},
   {category: 'diet', name: '식단'},
   {category: 'QA', name: 'Q & A'}
-]
+];
+
 const CommunityNewPost = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useUserContext();

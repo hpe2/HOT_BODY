@@ -35,6 +35,16 @@ export const getCurrentUser = async () => {
   }
 };
 
+// 카테고리 별 최신 글 가져오기
+export const getCommunityPostsByCategory = async (category) => {
+  try{
+    const response = await axios.get(`/api/community/getPosts?category=${category}`);
+    return response.data;
+  }catch(err){
+    return err.message;
+  }
+}
+
 // 새 커뮤니티 글 작성
 export const createCommunityPost = async (formData) => {
   try{
