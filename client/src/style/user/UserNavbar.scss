@@ -1,0 +1,72 @@
+.userNavContainer {
+	float: left;
+	width: 260px;
+	height: auto;
+	padding: 80px 48px 0 0;
+	unicode-bidi: isolate;
+	margin-inline-start: 0px;
+	margin-inline-end: 0px;
+}
+.info {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+
+	span {
+		display: flex;
+		margin-left: 0.4rem;
+		flex-direction: column;
+	}
+	p {
+		margin-left: 0.4rem;
+		font-size: 1rem;
+		margin-bottom: 1rem;
+		strong {
+			text-decoration: underline;
+		}
+	}
+	button {
+		display: flex;
+		padding: 0.7rem;
+		color: #fff;
+		justify-content:center;
+		align-items: center;
+		width: 7rem;
+		height: 2rem;
+		background-color: #a40000;
+		border: none;
+		border-radius: 2rem;
+
+		h3 {
+			display: flex;
+			font-size: 0.9rem;
+			font-weight: 600;
+		}
+		small{
+			margin-left: 8px;
+		}
+	}
+	button:hover {
+		background-color: #990000;
+		color: #fff1f1;
+	}
+	button:active {
+		background-color: #750000;
+		color: #ffcccc;
+	}
+}
+
+
+.UserNSB {
+display: block;
+.on {
+	color: #a40000;
+	border-left: 3px solid #a40000;
+}
+.userlink {
+	margin-left: 12px;
+	display: flex;
+	margin-bottom: 1rem;
+	padding: 0.2rem 0 0.2rem 1rem
+}
+}

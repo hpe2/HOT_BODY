@@ -1,6 +1,6 @@
 import React from "react";
 import UserNavbar from "../../components/user/UserNavbar";
-import "../../style/wrote.scss";
+import "../../style/user/wrote.scss";
 import { useUserContext } from "../../context/AuthContext";
 
 

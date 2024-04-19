@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink, Link } from "react-router-dom";
-import "../../style/UserNavbar.scss";
+import "../../style/user/UserNavbar.scss";
 import DailyInfo from "./DailyInfo";
 
 

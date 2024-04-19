@@ -1,6 +1,8 @@
-import React, { Link, useState } from 'react'
+import React, { useState } from 'react'
+import { Link } from "react-router-dom";
 import { useUserContext } from '../../context/AuthContext';
 import { IoIosArrowForward } from "react-icons/io";
+
 
 const PointInfo = () => {
     const {user} = useUserContext(); //
@@ -21,8 +23,7 @@ const PointInfo = () => {
         <h1>{user.point}</h1>
       </div>
       <div className='point_buttons'>
-        <button onClick={entryTicket}>응모권 구매</button>
-        <button>구매 내역</button>
+      <Link to='roulette' className="roulette"><button>응모하기</button></Link>
       </div>
       <button className="purchase">
         <span>포인트 이용내역 조회</span> 

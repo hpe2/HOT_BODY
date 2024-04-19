@@ -4,44 +4,7 @@
 	width: 100%;
 	min-width: 440px;
 }
-.info {
-	display: flex;
-	flex-direction: column;
-	padding: 1rem;
-	margin-bottom: 2rem;
-	span {
-		display: flex;
-		flex-direction: column;
-		strong {
-			text-decoration: underline;
-		}
-	}
-	button {
-		display: flex;
-		padding: auto;
-		font-size: 0.7rem;
-		font-weight: 400;
-		justify-content: space-between;
-		align-items: center;
-		width: 7rem;
-		height: 2rem;
-		background-color: #a40000;
 
-		h3 {
-			font-size: 0.9rem;
-			font-weight: 200;
-			margin-right: 2px;
-		}
-	}
-	button:hover {
-		background-color: #990000;
-		color: #fff1f1;
-	}
-	button:active {
-		background-color: #750000;
-		color: #ffcccc;
-	}
-}
 .container {
 	display: flex;
 	padding-top: 80px;

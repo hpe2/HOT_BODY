@@ -1,5 +1,5 @@
 import React from "react";
-import "../../style/wrapper.scss";
+import "../../style/user/wrapper.scss";
 import { Outlet } from "react-router-dom";
 
 const Wrapper = () => {

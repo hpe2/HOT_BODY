@@ -13,12 +13,10 @@ const DailyInfo = () => {
 
     return (
     <div className="info">
-        <span>Welcome
-            <strong> {user.name}</strong>
-            님!
-        </span>
+        <span>Welcome</span>
+        <p><strong> {user.name}</strong> 님!</p>
         <button className="button" onClick={earnDailyPoint}>
-            <h3>출석체크</h3><p>+ 1 p</p>
+            <h3>출석체크 <small> + 1p</small></h3>
         </button>
     </div>
   )

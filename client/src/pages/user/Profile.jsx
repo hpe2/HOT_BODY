@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import UserNavbar from "../../components/user/UserNavbar";
-import "../../style/profile.scss";
+import "../../style/user/profile.scss";
 import { IoIosArrowForward } from "react-icons/io";
 import { useUserContext } from "../../context/AuthContext";
 import ProfileForm from "../../components/user/ProfileForm";

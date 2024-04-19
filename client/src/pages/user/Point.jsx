@@ -1,6 +1,6 @@
-import React, { Link, useState } from "react";
+import React, { useState } from "react";
 import UserNavbar from "../../components/user/UserNavbar";
-import "../../style/point.scss";
+import "../../style/user/point.scss";
 import { useUserContext } from "../../context/AuthContext";
 import PointInfo from "../../components/user/PointInfo";
 import CouponInfo from "../../components/user/CouponInfo";
