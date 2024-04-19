@@ -3,6 +3,7 @@ import {useNavigate} from 'react-router-dom';
 import { useUserContext } from "../../context/AuthContext";
 import { useUpdateUserAccount } from '../../Queries/queriesAndMutations';
 import {toast} from 'react-toastify';
+import UserDataInput from './UserDataInput';
 
 const UpdateProfileForm = ({ setIsEdit }) => {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ const UpdateProfileForm = ({ setIsEdit }) => {
     e.preventDefault();
     const userInfo = {userId, name, email, password}
     const res = await updateUserAccount(userInfo);
-    console.log(res)
+
     if(res.status === 200){
       toast.info('정보를 수정했습니다.');
       checkAuthUser();
@@ -29,42 +30,13 @@ const UpdateProfileForm = ({ setIsEdit }) => {
     }
   };
 
+  // dataName, type, value, setState
   return (
     <form className="formField" onSubmit={handleSubmit}>
-      <div className="inputNote">
-        <span>아이디</span>
-        <input
-          type="text"
-          value={userId}
-          onChange={(e) => setUserId(e.target.value)}
-        />
-      </div>
-      <div className="inputNote">
-        <span>이름</span>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-        />
-      </div>
-      <div className="inputNote">
-        <span>이메일</span>
-        <input
-          type="text"
-          value={email}
-          placeholder="새로운 이메일"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-      </div>
-      <div className="inputNote">
-        <span>기존 비밀번호</span>
-        <input
-          type="password"
-          value={password}
-          placeholder="변경 시 필수입력"
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </div>
+      <UserDataInput dataName='아이디' type='text' value={userId} setState={setUserId} />
+      <UserDataInput dataName='이름' type='text' value={name} setState={setName} />
+      <UserDataInput dataName='이메일' type='text' value={email} setState={setEmail} />
+      <UserDataInput dataName='기존 비밀번호' type='password' value={password} setState={setPassword} />
       <div className="buttons">
         <button
           type="button"

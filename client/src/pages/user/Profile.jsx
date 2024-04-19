@@ -55,7 +55,7 @@ const Profile = () => {
       <div className="profileContainer">
         <div className="counsel">
           <h1>
-            상세 정보<br/><small style={{color: '#a40000'}}>*PT상담신청시에 필요한 정보입니다.</small>
+            상세 정보<br/><small style={{color: '#a40000'}}>* PT상담신청시에 필요한 정보입니다.</small>
           </h1>
           <div className="boxContainer">
             {ptEdit ? (

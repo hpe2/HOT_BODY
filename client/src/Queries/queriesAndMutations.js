@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo } from "./API";
 
 // auth =====================================================================
 
@@ -32,6 +32,13 @@ export const useGetCommunityPostByUser = () => {
 export const useUpdateUserAccount = () => {
   return useMutation({
     mutationFn: (userInfo) => updateUserAccount(userInfo),
+  })
+}
+
+// 유저 신체 정보 수정
+export const useUpdateUserBodyInfo = () => {
+  return useMutation({
+    mutationFn: (bodyInfo) => updateUserBodyInfo(bodyInfo)
   })
 }
 

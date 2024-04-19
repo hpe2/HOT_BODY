@@ -60,6 +60,7 @@ const userSchema = mongoose.Schema({
     age: Number,
     gender: String,
     phone: Number,
+    purpose: String,
   },
   PTReservation: [{
     trainerId: mongoose.Schema.Types.ObjectId,

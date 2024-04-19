@@ -73,6 +73,16 @@ export const updateUserAccount = async (userInfo) => {
     console.log(response);
     return response
   }catch(err){
-    return err
+    return err;
+  }
+}
+
+export const updateUserBodyInfo = async (bodyInfo) => {
+  try{
+    const response = await axios.post('/api/user/updateBodyInfo', bodyInfo);
+    console.log(response);
+    return response
+  }catch(err){
+    return err;
   }
 }

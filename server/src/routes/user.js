@@ -16,7 +16,7 @@ router.get("/wrote", auth, async (req, res) => {
   }
 });
 
-// 유저 정보 수정
+// 유저 계정 정보 수정
 router.post("/updateAccount", auth, async (req, res) => {
   try{
     const user = await User.findOne({_id: req.user._id});
@@ -30,8 +30,18 @@ router.post("/updateAccount", auth, async (req, res) => {
     const userData = await User.findOneAndUpdate({_id: req.user._id}, userInfo, {new: true});
     return res.status(200).send(userData)
   }catch(err){
-    return res.status(400).send({ message: `글을 불러오는데 실패했습니다. 다시 시도해주세요. ${err}` });
+    return res.status(400).send({ message: `유저 정보를 수정하는데 실패했습니다. 다시 시도해주세요. ${err}` });
    }
+})
+
+// 유저 신체 정보 수정
+router.post("/updateBodyInfo", auth, async (req, res) => {
+  try{
+    const user = await User.findOneAndUpdate({_id: req.user._id}, {personalInfo: req.body}, {new: true});
+    return res.status(200).send(user);
+  }catch(err){
+    return res.status(400).send({ message: `유저 정보를 수정하는데 실패했습니다. 다시 시도해주세요. ${err}` });
+  }
 })
 
 // 응모권 포인트 구매시 응모권 + 1, 포인트 차감

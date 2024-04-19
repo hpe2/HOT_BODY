@@ -27,7 +27,7 @@ const Wrote = () => {
                       <p className='animateLoading'>글을 조회하는 중입니다...</p>
                     ) : (
                       userPosts.data.map((post) => (
-                        <UserWroteList  post={post} />
+                        <UserWroteList post={post} />
                       ))
                     )}
                   </tbody>
