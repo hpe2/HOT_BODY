@@ -1,4 +1,4 @@
-import "../../style/wrote.scss";
+import "../../style/user/wrote.scss";
 import { useGetCommunityPostByUser } from '../../Queries/queriesAndMutations';
 import UserWroteList from '../../components/user/UserWroteList';
 

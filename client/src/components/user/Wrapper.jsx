@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import "../../style/wrapper.scss";
+import "../../style/user/wrapper.scss";
 import { Outlet, useNavigate } from "react-router-dom";
 import UserNavbar from './UserNavbar';
 import { useUserContext } from '../../context/AuthContext';

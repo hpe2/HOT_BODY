@@ -34,7 +34,7 @@ const App = () => {
 
           {/* profile */}
           <Route element={<Wrapper />}>
-            <Route path="/profile" element={<Profile />} />
+            <Route path="/profile/account" element={<Profile />} />
             <Route path="/profile/wrote" element={<Wrote />} />
             <Route path="/profile/pt" element={<Profile />} />
             <Route path="/profile/group" element={<Profile />} />
