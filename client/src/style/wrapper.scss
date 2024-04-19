@@ -110,16 +110,18 @@
 }
 .wrapper {
   --innerWidth: 1280px;
-  width: 90%;
+  width: 100%;
   max-width: var(--innerWidth);
-  padding: 0 var(--pad-inner);
+  padding: 0 auto;
   margin-left: auto;
   margin-right: auto;
   height: auto;
 }
 
 .switchpoint {
-  display: block;
+  display: flex;
+  padding: 0 auto;
+  justify-content: center;
   grid-template-columns: minmax(var(--min-width-col), 20%) 1fr minmax(var(--min-width-col), 20%);
   gap: var(--pad-grid);
 }
@@ -130,9 +132,6 @@
 }}
 @media (max-width: 1280px){.switchpoint {
   --pad-grid: clamp(0px, 4vw, 1200px);
-}}
-@media (max-width: 1536px){.switchpoint {
-  --pad-grid: clamp(20px, 2vw, 30px);
 }}
 /* background-color: #EFEFEF; */
 /* A media query for a large screen */
