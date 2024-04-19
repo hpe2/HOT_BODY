@@ -134,6 +134,7 @@
 
 .postList{
     display: flex;
+    align-items: center;
     gap: 1rem;
     padding: 0.75rem;
     border-bottom: 1px solid #a40000;
@@ -145,8 +146,8 @@
 
 .postList .postListImg,
 .postNoImg {
-    width: 140px;
-    height: 140px;
+    width: 150px;
+    height: 150px;
     background-color:  rgb(194, 194, 194);
     object-fit: cover;
     display: flex;

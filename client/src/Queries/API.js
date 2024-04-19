@@ -49,8 +49,19 @@ export const getCommunityPostsByCategory = async (category) => {
 export const createCommunityPost = async (formData) => {
   try{
     const response = await axios.post("/api/community/createPost", formData);
-    return response
+    return response;
   }catch(err){
     return err.message;
+  }
+}
+
+// 특정 유저가 쓴 글 가져오기
+export const getCommunityPostByUser = async () => {
+  try{
+    const response = await axios.get('/api/user/wrote');
+    console.log(response);
+    return response;
+  }catch(err){
+    return err.message
   }
 }

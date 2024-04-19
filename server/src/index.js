@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 
 const authRouter = require("./routes/auth");
 const communityRouter = require('./routes/community');
+const userRouter = require('./routes/user');
 
 const PORT = 3000;
 
@@ -23,6 +24,8 @@ mongoose
 
 app.use("/api/auth", authRouter);
 app.use('/api/community', communityRouter);
+app.use('/api/user', userRouter);
+
 // 서버 에러 처리
 app.use((err, req, res, next) => {
   console.log(err);
