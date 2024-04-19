@@ -100,14 +100,9 @@
   margin: 0;
   padding: 0;
   line-height: 200%;
+  background-color: #f8f8f8;
 }
 
-.block {
-  margin: 0;
-  padding: 0;
-  margin-top: clamp(20px, 3vw, 50px);
-  margin-bottom: clamp(50px, 20vw, 200px);
-}
 .wrapper {
   --innerWidth: 1280px;
   width: 100%;
@@ -120,9 +115,7 @@
 
 .switchpoint {
   display: flex;
-  padding: 0 auto;
-  justify-content: center;
-  grid-template-columns: minmax(var(--min-width-col), 20%) 1fr minmax(var(--min-width-col), 20%);
+  padding: 3rem 1rem 3rem 2rem;
   gap: var(--pad-grid);
 }
 @media (max-width: 820px){.switchpoint {
@@ -133,59 +126,3 @@
 @media (max-width: 1280px){.switchpoint {
   --pad-grid: clamp(0px, 4vw, 1200px);
 }}
-/* background-color: #EFEFEF; */
-/* A media query for a large screen */
-
-/* @media (max-width: 576px){:root {
-  --pad-inner: 16px;
-  --rounded-large: 8px;
-  --text-size-large: 20px;
-}}
-@media (max-width: 1023px){:root {
-  --pad-inner: 24px;
-}}
-@media (max-width: 1280px){:root {
-  --pad-inner: 40px;
-}}
-
-div {
-display: block;
-unicode-bidi: isolate;
-}
-
-#content {
-unicode-bidi: isolate;
-flex: 1;
-line-height: 200%;
-}
-
-.inner {
---innerWidth: 1920px;
-width: 100%;
-max-width: var(--innerWidth);
-margin: 0 auto;
-padding: 0 var(--pad-inner);
-max-width: 90%;
-margin-left: auto;
-margin-right: auto;
-height: auto;
-@media (min-width: 1280px) {.inner {
-  max-width: 1280px;
-}
-}
-}
-
-
-.layout-3-cols {
-display: flex;
-grid-template-columns: minmax(var(--min-width-col), 20%) 1fr minmax(var(--min-width-col), 20%);
-gap: var(--pad-grid);
-
-@media (max-width: 1023px){.layout-3-cols {
-  display: flex;
-  flex-direction: column;
-}}
-@media (max-width: 1536px){.layout-3-cols {
-  --pad-grid: clamp(20px, 2vw, 30px);
-}}
-} */

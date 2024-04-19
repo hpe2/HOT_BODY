@@ -1,48 +1,62 @@
-import React, { useRef, useState } from 'react'
-import { useUserContext } from '../../context/AuthContext';
+import React, { useState } from "react";
+import {useNavigate} from 'react-router-dom';
+import { useUserContext } from "../../context/AuthContext";
+import { useUpdateUserAccount } from '../../Queries/queriesAndMutations';
+import {toast} from 'react-toastify';
+import UserDataInput from './UserDataInput';
 
-const UpdateProfileForm = ({setIsEdit}) => {
-    const {user} = useUserContext();
+const UpdateProfileForm = ({ setIsEdit }) => {
+  const navigate = useNavigate();
+  const { user, checkAuthUser } = useUserContext();
+  const { isPending, mutateAsync: updateUserAccount} = useUpdateUserAccount();
 
-    const [name, setName] = useState(user.name);
-    const [password, setPassword] = useState('');
-    const [newPassword, setNewPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+  const [name, setName] = useState(user.name);
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState(user.email);
+  const [userId, setUserId] = useState(user.userId);
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userInfo = {userId, name, email, password}
+    const res = await updateUserAccount(userInfo);
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // API calling 
+    if(res.status === 200){
+      toast.info('정보를 수정했습니다.');
+      checkAuthUser();
+      navigate('/');
+    }else{
+      if(res.response.data.message) return toast.info(res.response.data.message);
+      else toast.info('정보 수정에 실패했습니다.');
     }
+  };
 
+  // dataName, type, value, setState
   return (
     <form className="formField" onSubmit={handleSubmit}>
-        <div className='inputNote id'>
-          <span>ID</span>
-          <span>{user.userId}</span>
-        </div>
-        <div className='inputNote name'>
-          <span>이름</span>
-          <input type="text" value={name} placeholder='' onChange={(e) => setName(e.target.value)}/>
-        </div>
-        <div className='inputNote password'>
-        <span>기존 비밀번호</span>
-          <input type='password' value={password} placeholder='변경 시 필수입력' onChange={(e) => setPassword(e.target.value)}/>
-        </div>
-        <div className='inputNote newPassword'>
-          <span>신규 비밀번호</span>
-          <input type="password" value={newPassword} placeholder='' onChange={(e) => setNewPassword(e.target.value)} />
-          </div>
-        <div className='inputNote confirmPassword'>
-          <span>신규 비밀번호(확인)</span>
-          <input type="password" value={confirmPassword} placeholder='' onChange={(e) => setConfirmPassword(e.target.value)}/>
-        </div>
-        <div className='buttons'>
-          <input type="submit" value='저장하기' disabled={newPassword !== confirmPassword}/>
-          <input type="button" value='취소' onClick={() => {setIsEdit(false)}}/>
-        </div>
+      <UserDataInput dataName='아이디' type='text' value={userId} setState={setUserId} />
+      <UserDataInput dataName='이름' type='text' value={name} setState={setName} />
+      <UserDataInput dataName='이메일' type='text' value={email} setState={setEmail} />
+      <UserDataInput dataName='기존 비밀번호' type='password' value={password} setState={setPassword} />
+      <div className="buttons">
+        <button
+          type="button"
+          className="ProfileEditButton"
+          onClick={() => {
+            setIsEdit(false);
+          }}
+        >
+          취소하기
+        </button>
+        <button
+          type="submit"
+          className="ProfileEditButton"
+          disabled={!password}
+        >
+          {isPending ? 'Processing. . .': '수정하기'}
+        </button>
+      </div>
     </form>
-  )
-}
+  );
+};
 
-export default UpdateProfileForm
+export default UpdateProfileForm;

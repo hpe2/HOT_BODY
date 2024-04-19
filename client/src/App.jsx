@@ -2,7 +2,7 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/root/Home";
 import Wrapper from './components/user/Wrapper';
-import Update from "./pages/user/Update";import Profile from "./pages/user/Profile";
+import Profile from "./pages/user/Profile";
 import Wrote from "./pages/user/Wrote";
 import Point from './pages/user/Point';
 import Login from "./pages/root/auth/Login";
@@ -33,12 +33,12 @@ const App = () => {
 
           {/* profile */}
           <Route element={<Wrapper />}>
-            <Route path="/profile" element={<Profile />} />
-            <Route path="/profile/update" element={<Update />} />
+            <Route path="/profile/account" element={<Profile />} />
+            <Route path="/profile/update" element={<Profile />} />
             <Route path="/profile/wrote" element={<Wrote />} />
-            <Route path="/profile/pt" element={<Update />} />
+            <Route path="/profile/pt" element={<Profile />} />
             <Route path="/profile/point" element={<Point />} />
-            <Route path="/gogaek" element={<Update />} />
+            <Route path="/gogaek" element={<Profile />} />
           </Route>
           {/* auth */}
           <Route path="/login" element={<Login />} />

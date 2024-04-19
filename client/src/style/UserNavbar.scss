@@ -1,32 +1,64 @@
 .userNavContainer {
-	float: left;
-	 width: 260px;
-	 height: auto;
-	 padding: 80px 48px 0 0;
-	 unicode-bidi: isolate;
-	 margin-inline-start: 0px;
-	 margin-inline-end: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  height: fit-content;
+  unicode-bidi: isolate;
+  background-color: #fff;
+  border: 1px solid #ebebeb;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 1rem 2rem;
+  min-width: fit-content;
 }
+
 #goBack {
-	color: #a40000;
-	display: flex;
-	margin-bottom: 1.8rem;
-	padding: 3px 0;
-	align-items: center;
-	font-size: 22px;
-	font-weight: 900;
+  color: #a40000;
+  display: flex;
+  margin-bottom: 1.8rem;
+  padding: 3px 0;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 900;
 }
-  
-  .UserNSB {
-	display: block;
-	.on {
-	  color: #a40000;
-	  border-left: 3px solid #a40000;
-	}
-	.userlink {
-		margin-left: 12px;
-	  display: flex;
-	  margin-bottom: 1rem;
-	  padding: 0.2rem 0 0.2rem 1rem
-	}
+
+.userInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  p {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+  .username {
+    margin-left: 1rem;
+    font-weight: bold;
+    color: #a40000;
+    font-size: 1.25rem;
+  }
+
+  .button {
+	background-color: white;
+	border: 1px solid #a40000;
+    color: #a40000;
+    height: fit-content;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+}
+
+.UserNSB {
+  display: block;
+  .on {
+    color: white;
+	font-weight: bold;
+	background-color: #a40000;
+  }
+  .userlink {
+    display: flex;
+    margin-bottom: 1rem;
+    padding: 0.2rem 0 0.2rem 1rem;
+  }
+}

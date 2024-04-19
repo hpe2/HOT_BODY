@@ -15,9 +15,7 @@ const PostList = ({post}) => {
   return (
     <li className="postList" onClick={() => navigate(`/community/detail/${post._id}`)}>
       {post.image === "" ? (
-        <div className="postNoImg">
-          No Image
-        </div>
+        <div className="postNoImg">No Image</div>
       ): (
         <img src={post.image} className="postListImg" />
       )}
@@ -34,7 +32,7 @@ const PostList = ({post}) => {
         </div>
         <h3>{`[${categoryInKor(post.category)}]`} {post.title}</h3>
         <p className="text">
-          {post.text}
+          {post.text.length > 200 ? `${post.text.slice(0, 150)}...` : post.text}
         </p>
         <div className="contentBottom">
           <p className="writer">

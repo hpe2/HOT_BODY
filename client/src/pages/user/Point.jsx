@@ -1,5 +1,4 @@
 import React, { Link, useState } from "react";
-import UserNavbar from "../../components/user/UserNavbar";
 import "../../style/point.scss";
 import { useUserContext } from "../../context/AuthContext";
 import PointInfo from "../../components/user/PointInfo";
@@ -12,7 +11,6 @@ const Point = () => {
 
   return (
     <>
-      <UserNavbar/>
       <div className="content">
         <div className="container">
           <div className="point">
