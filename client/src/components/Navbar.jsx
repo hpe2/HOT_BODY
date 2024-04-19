@@ -1,8 +1,7 @@
-import React from "react";
 import Logo from "/images/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
-import "../style/home.css";
-import { useUserContext } from '../context/AuthContext';
+import "../style/navbar.css";
+import { useUserContext } from "../context/AuthContext";
 
 const navLinks = [
   {
@@ -35,39 +34,39 @@ const Navbar = () => {
   const navigate = useNavigate();
   const { setUser, isAuthenticated, setIsAuthenticated } = useUserContext();
 
-
   const handleLogout = () => {
     setUser({});
     setIsAuthenticated(false);
-    localStorage.removeItem('accessToken');
+    localStorage.removeItem("accessToken");
     window.location.reload();
-  }
+  };
 
   return (
-    <>
-      <nav className="navContainer">
-        <img src={Logo} alt="logo" className="logo" onClick={() => navigate('/')} />
+    <nav className="navContainer">
+      <img
+        src={Logo}
+        alt="logo"
+        className="logo"
+        onClick={() => navigate("/")}
+      />
 
-        <div className="linkWrap">
-          {navLinks.map((nav) => (
-            <NavLink
-              key={nav.menuName}
-              to={`${nav.link}`}
-              className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "active link" : "link"
-              }
-            >
-              {nav.menuName}
-            </NavLink>
-          ))}
-        </div>
-        {isAuthenticated ? (
-          <button className='button' onClick={handleLogout}>로그아웃</button>
-        ): (
-          <button className='button' onClick={() => navigate('/login')}>로그인 / 회원가입</button>
-        )}
-      </nav>
-    </>
+      <div className="linkWrap">
+        {navLinks.map((nav) => (
+          <NavLink
+            key={nav.menuName}
+            to={`${nav.link}`}
+            className={({ isActive }) => (isActive ? "navActive navlink" : "navlink")}
+          >
+            {nav.menuName}
+          </NavLink>
+        ))}
+      </div>
+      {isAuthenticated ? (
+        <button className="navButton" onClick={handleLogout}>로그아웃</button>
+      ) : (
+        <button className="navButton" onClick={() => navigate("/login")}>로그인 / 회원가입</button>
+      )}
+    </nav>
   );
 };
 

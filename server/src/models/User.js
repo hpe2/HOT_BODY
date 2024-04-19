@@ -5,7 +5,6 @@ const userSchema = mongoose.Schema({
   userId: {
     type: String,
     trim: true,
-    unique: true,
     require: true
   },
   name: {
@@ -54,6 +53,7 @@ const userSchema = mongoose.Schema({
       default: []
     }
   },
+  wrote: [String],
   personalInfo: {
     height: Number,
     weight: Number,
