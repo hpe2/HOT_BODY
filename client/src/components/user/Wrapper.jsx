@@ -1,13 +1,14 @@
 import React from "react";
-import "../style/wrapper.scss";
+import "../../style/wrapper.scss";
+import { Outlet } from "react-router-dom";
 
-const Wrapper = ({children}) => {
+const Wrapper = () => {
   return(
       <section id="content">
         <div className="block">
           <div className="wrapper">
             <div className="switchpoint">
-              {children}
+              <Outlet />
             </div>
           </div>
         </div>

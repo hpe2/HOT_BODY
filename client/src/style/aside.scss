@@ -2,7 +2,7 @@ aside {
 	float: left;
 	width: auto;
 	height: auto;
-	padding: 80px 48px 0 50px;
+	padding-top: 80px;
 	unicode-bidi: isolate;
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
@@ -31,8 +31,13 @@ aside {
 		margin-top: clamp(30px, 6vw, 60px);
 	}
 }
-@media (max-width: 800px){.aside__row {
+@media (max-width: 820px){.aside__row {
 	display: flex;
+}.mem-status{
+	margin-right: 1rem;
+}}
+@media (max-width: 562px){.aside__row {
+	display: block;
 }.mem-status{
 	margin-right: 1rem;
 }}
