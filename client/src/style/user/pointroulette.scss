@@ -11,7 +11,6 @@ $primary-color: #a40000;
 	display: flex;
 	padding-top: 80px;
 	width: 100%;
-	gap: 12px;
 }
 
 .pointrulet {
@@ -74,13 +73,6 @@ $primary-color: #a40000;
 				input {
 					width: 40%;
 				}
-			}
-			
-			div {
-				width: 100%;
-			}
-			span {
-				padding: 0.5rem;
 			}
 			.buttons {
 				display: flex;

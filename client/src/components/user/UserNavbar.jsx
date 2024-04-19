@@ -6,8 +6,7 @@ import DailyInfo from "./DailyInfo";
 
 const userNavLinks = [
   {
-    link: "/profile",
-    /* icon: icon, */
+    link: "/profile/account",
     menuName: "계정",
   },
   {
@@ -34,7 +33,6 @@ const userNavLinks = [
 
 const UserNavbar = () => {
   return (
-    <>
       <nav className="userNavContainer">
       <DailyInfo/>
         <div className="UserNSB">
@@ -52,7 +50,6 @@ const UserNavbar = () => {
             <Link key="고객센터" to={"/gogaek"} className={"userlink"} target="_blank"/>
         </div>
       </nav>
-    </>
   );
 };
 

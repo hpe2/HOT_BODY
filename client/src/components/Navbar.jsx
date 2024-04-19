@@ -24,10 +24,6 @@ const navLinks = [
     link: "/subscribe",
     menuName: "구독",
   },
-  {
-    link: "/profile",
-    menuName: "마이페이지",
-  },
 ];
 
 const Navbar = () => {
@@ -55,16 +51,33 @@ const Navbar = () => {
           <NavLink
             key={nav.menuName}
             to={`${nav.link}`}
-            className={({ isActive }) => (isActive ? "navActive navlink" : "navlink")}
+            className={({ isActive }) =>
+              isActive ? "navActive navlink" : "navlink"
+            }
           >
             {nav.menuName}
           </NavLink>
         ))}
+        {isAuthenticated && (
+          <NavLink
+            key={"마이페이지"}
+            to={"/profile/account"}
+            className={({ isActive }) =>
+              isActive ? "navActive navlink" : "navlink"
+            }
+          >
+            마이페이지
+          </NavLink>
+        )}
       </div>
       {isAuthenticated ? (
-        <button className="navButton" onClick={handleLogout}>로그아웃</button>
+        <button className="navButton" onClick={handleLogout}>
+          로그아웃
+        </button>
       ) : (
-        <button className="navButton" onClick={() => navigate("/login")}>로그인 / 회원가입</button>
+        <button className="navButton" onClick={() => navigate("/login")}>
+          로그인 / 회원가입
+        </button>
       )}
     </nav>
   );

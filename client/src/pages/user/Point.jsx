@@ -12,7 +12,6 @@ const Point = () => {
 
   return (
     <>
-      <UserNavbar/>
       <div className="content">
         <div className="container">
           <div className="point">

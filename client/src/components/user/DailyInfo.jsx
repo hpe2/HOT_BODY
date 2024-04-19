@@ -1,22 +1,24 @@
-import React, { useRef, useState } from 'react'
+import React from 'react'
 import { useUserContext } from '../../context/AuthContext';
+import {toast} from 'react-toastify';
 
 const DailyInfo = () => {
     const {user} = useUserContext();
-    const [point, setPoint] = useState(user.point);
-    const [checkedToday, setCheckedToday] = useState(user.checkedToday);
 
 
-    function earnDailyPoint(e){
-        checkedToday === true ? alert('더 이상 획득할 수 없습니다') : setPoint(+1), setCheckedToday(false);
+    const handleDailyPoint = () => {
+        if(checkedToday === true) {
+            toast.info('이미 출석 체크 하셨습니다.')
+        }else{
+            // API calling...
+        }
     }
 
     return (
-    <div className="info">
-        <span>Welcome</span>
-        <p><strong> {user.name}</strong> 님!</p>
-        <button className="button" onClick={earnDailyPoint}>
-            <h3>출석체크 <small> + 1p</small></h3>
+    <div className="userInfo">
+        <p>안녕하세요! <span><span className='username'>{user.name}</span> 님!</span></p>
+        <button className="button" onClick={handleDailyPoint}>
+            출석체크 <span>+ 10p</span>
         </button>
     </div>
   )
