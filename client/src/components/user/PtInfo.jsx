@@ -4,43 +4,29 @@ import { useUserContext } from '../../context/AuthContext';
 const PtInfoUpdate = ({setPtEdit}) => {
     const {user} = useUserContext(); //PersonalInfo 필요
 
-    const [height, setHeight] = useState('');
-    const [Weight, setWeight] = useState('');
-    const [age, setAge] = useState('');
-    const [gender, setGender] = useState('');
-    const [phone, setPhone] = useState('');
-    const [purpose, setPurpose] = useState('');
-
-
   return (
     <form className="formField">
       <div className='inputNote personalHeight'>
         <span>키</span>
-        <span className='inputContent'>user.personalInfo.height</span>
+        <span className='inputContent'>{user.personalInfo ? `${user.personalInfo.height} cm` : '정보 없음'}</span>
       </div>
-      <div className='inputNote id'>
+      <div className='inputNote'>
         <span>체중</span>
-        <span className='inputContent'>user.personalInfo.weight</span>
+        <span className='inputContent'>{user.personalInfo ? `${user.personalInfo.weigth} kg` : '정보 없음'}</span>
       </div>
-      <div className='inputNote id'>
+      <div className='inputNote'>
         <span>나이</span>
-        <span className='inputContent'>user.personalInfo.age</span>
+        <span className='inputContent'>{user.personalInfo ? `${user.personalInfo.age} 살` : '정보 없음'}</span>
       </div>
-      <div className='inputNote id'>
+      <div className='inputNote'>
         <span>성별</span>
-        <span className='inputContent'>user.personalInfo.gender</span>
+        <span className='inputContent'>{user.personalInfo ? user.personalInfo.gender : '정보 없음'}</span>
       </div>
-      <div className='inputNote id'>
+      <div className='inputNote'>
         <span>번호</span>
-        <span className='inputContent'>user.personalInfo.phone</span>
+        <span className='inputContent'>{user.personalInfo ? user.personalInfo.phone : '정보 없음'}</span>
       </div>
-      <div className='inputNote id'>
-        <span>운동목적</span>
-        <span className='inputContent'>user.personalInfo.purpose</span>
-      </div>
-      <div className='buttons'>
-        <input type="button" value='수정하기' onClick={() => {setPtEdit(true)}}></input>
-      </div>
+      <button className='ProfileEditButton' onClick={() => {setPtEdit(true)}}>수정하기</button>
     </form>
   )
 }

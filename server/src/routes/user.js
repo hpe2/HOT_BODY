@@ -17,15 +17,18 @@ router.get("/wrote", auth, async (req, res) => {
 });
 
 // 유저 정보 수정
-router.post("/update", auth, async (req, res) => {
+router.post("/updateAccount", auth, async (req, res) => {
   try{
-    console.log(req.body);
-    // const user = await User.findOneAndUpdate({_id: req.user}, req.body)
-    
-    // const userData = { ...user._doc };
-    // delete userData.password;
-
-    // return res.status(200).send(userData)
+    const user = await User.findOne({_id: req.user._id});
+    const isMatch = await user.comparePassword(req.body.password);
+    if(!isMatch) return res.status(400).send({message: '비밀번호가 일치하지 않습니다.'});
+    const userInfo = {
+      userId: req.body.userId,
+      name: req.body.name,
+      email: req.body.email,
+    }
+    const userData = await User.findOneAndUpdate({_id: req.user._id}, userInfo, {new: true});
+    return res.status(200).send(userData)
   }catch(err){
     return res.status(400).send({ message: `글을 불러오는데 실패했습니다. 다시 시도해주세요. ${err}` });
    }

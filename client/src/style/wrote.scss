@@ -18,27 +18,28 @@ $global-radius: 4px;
 }
 .container {
 	display: flex;
-	padding-top: 80px;
 	width: 100%;
 	gap: 12px;
 }
 
 .wrote {
-	position: relative;
-	width: 100%;
-	height: 100%;
-    line-height: 200%;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5rem;
 
 	h1 {
-		font-size: 21px;
-		font-weight: 500;
-		margin: 0 0 1rem 0;
+		background-color: white;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  		border: 1px solid #ebebeb;
+		padding: 1rem;
+		border-radius: 10px;
 	}
 	.boxContainer {
-		display: block;
-		border: 1px solid #C1C1C1;
-		border-radius: var(--rounded-normal);
-		line-height: 140%;
+		background-color: white;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  		border: 1px solid #ebebeb;
+		border-radius: 10px;
+		padding: 0 1rem;
 		
 		.wroteField {
 			display: flex;

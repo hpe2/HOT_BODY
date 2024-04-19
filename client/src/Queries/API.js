@@ -31,7 +31,7 @@ export const getCurrentUser = async () => {
     //  response.data 에는 유저 정보가 담겨 있습니다.
     return response.data;
   } catch (err) {
-    return err.message;
+    return err;
   }
 };
 
@@ -41,7 +41,7 @@ export const getCommunityPostsByCategory = async (category) => {
     const response = await axios.get(`/api/community/getPosts?category=${category}`);
     return response.data;
   }catch(err){
-    return err.message;
+    return err;
   }
 }
 
@@ -51,7 +51,7 @@ export const createCommunityPost = async (formData) => {
     const response = await axios.post("/api/community/createPost", formData);
     return response;
   }catch(err){
-    return err.message;
+    return err;
   }
 }
 
@@ -62,6 +62,17 @@ export const getCommunityPostByUser = async () => {
     console.log(response);
     return response;
   }catch(err){
-    return err.message
+    return err
+  }
+}
+
+// 유저의 계정 정보 수정
+export const updateUserAccount = async (userInfo) => {
+  try{
+    const response = await axios.post('/api/user/updateAccount', userInfo);
+    console.log(response);
+    return response
+  }catch(err){
+    return err
   }
 }
