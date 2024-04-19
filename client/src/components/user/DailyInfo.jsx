@@ -4,10 +4,11 @@ import { useUserContext } from '../../context/AuthContext';
 const DailyInfo = () => {
     const {user} = useUserContext();
     const [point, setPoint] = useState(user.point);
-    const [daily, setDaily] = useState(true); //clickDate 활용?
+    const [checkedToday, setCheckedToday] = useState(user.checkedToday);
+
 
     function earnDailyPoint(e){
-        daily === false ? alert('더 이상 획득할 수 없습니다') : setPoint(+1), setDaily(false);
+        checkedToday === true ? alert('더 이상 획득할 수 없습니다') : setPoint(+1), setCheckedToday(false);
     }
 
     return (

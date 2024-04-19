@@ -2,6 +2,7 @@ import { Route, Routes} from 'react-router-dom';
 import Home from './pages/home/Home';
 import Profile from "./pages/user/Profile";
 import Wrote from "./pages/user/Wrote";
+import Point from './pages/user/Point';
 import Navbar from './components/Navbar';
 import Wrapper from './components/user/Wrapper';
 
@@ -17,7 +18,7 @@ const App = () => {
           <Route path='/profile/wrote' element={<Wrote/>} />
           <Route path='/profile/pt' element={<Profile />} />
           <Route path='/profile/group' element={<Profile />} />
-          <Route path='/profile/point' element={<Profile />} />
+          <Route path='/profile/point' element={<Point />} />
           <Route path='/gogaek' element={<Profile />} />
         </Route>
       </Routes>

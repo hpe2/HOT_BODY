@@ -9,11 +9,6 @@ const UpdateProfileForm = ({setIsEdit}) => {
     const [newPassword, setNewPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
-    function sendBtnHandler(e) {
-      setNick(inputRef.current.value);
-      console.log("렌더링 완료");
-  
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();

@@ -26,13 +26,13 @@ const Wrote = () => {
                     </tr>
                   </thead>
                   <tbody>
-                    {user.map((content) => (
+                    {/* {user.map((content) => (
                       <tr>
                         <td>{content.name}</td>
                         <td>{content.userid}</td>
                         <td>{content.email}</td>
                       </tr>
-                    ))}
+                    ))} */}
                   </tbody>
                   <tfoot>
                     <tr>
