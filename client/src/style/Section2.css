@@ -1,0 +1,49 @@
+.section02 {
+  display: flex;
+  gap: 20px;
+  padding: 20px;
+  background-color: #f5f5f5;
+}
+
+.card {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column; /* 카드 내용을 세로로 정렬 */
+  background-color: #fff;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 5px;
+  overflow: hidden; /* 이미지가 모서리 둥글게 설정을 넘치지 않도록 */
+}
+
+.card img {
+  width: 100%; /* 이미지가 카드 너비에 맞게 조정 */
+  height: 200px; /* 이미지 높이를 고정 값으로 설정 */
+  object-fit: cover; /* 이미지를 커버로 설정하여 잘리지 않고 비율을 유지 */
+  display: block; /* 이미지 블록 레벨로 설정 */
+}
+
+.card-content {
+  flex: 1; /* 컨텐츠가 카드의 나머지 공간을 차지하도록 설정 */
+  padding: 20px; /* 텍스트 컨텐츠에 패딩 추가 */
+}
+
+.card h3 {
+  margin-bottom: 10px; /* 제목 아래의 마진 */
+}
+
+.card p {
+  margin-bottom: 20px; /* 내용 아래의 마진 */
+}
+
+.card button {
+  padding: 10px 15px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.card button:hover {
+  background-color: #0056b3;
+}

@@ -1,0 +1,49 @@
+.section01 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background-color: #f5f5f5; /* 배경색은 이미지에 맞추어 조정하세요 */
+  border: 1px solid #ccc; /* 테두리 색상도 이미지에 맞추어 조정하세요 */
+}
+.image-container {
+  flex: 1; /* 이미지와 텍스트 콘텐츠가 동일 비율로 나누어지도록 설정 */
+  padding-right: 20px; /* 오른쪽 패딩으로 이미지와 텍스트 사이 간격 조정 */
+}
+
+.image-container img {
+  width: 100%; /* 컨테이너에 맞춰 이미지 너비 조정 */
+  height: auto; /* 이미지 비율 유지 */
+  border-radius: 10px; /* 이미지 모서리 둥글게 */
+}
+
+
+.content {
+  max-width: 800px; /* 최대 폭은 디자인에 맞추어 조정하세요 */
+  background-color: #333; /* 내용 배경색은 이미지에 맞추어 조정하세요 */
+  color: #fff; /* 글자색 */
+  padding: 40px; /* 내용 패딩 */
+  border-radius: 10px; /* 둥근 모서리 */
+  flex: 3;
+}
+
+.content h2 {
+  margin-bottom: 15px; /* 제목과 본문 사이의 여백 */
+}
+
+.content p {
+  margin-bottom: 20px; /* 본문과 버튼 사이의 여백 */
+}
+
+.content button {
+  padding: 10px 20px;
+  background-color: #e91e63; /* 버튼 배경색 */
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px; /* 버튼 둥근 모서리 */
+}
+
+.content button:hover {
+  background-color: #c2185b; /* 버튼 호버 색상 */
+}

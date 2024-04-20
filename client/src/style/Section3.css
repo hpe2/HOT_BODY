@@ -1,0 +1,29 @@
+.section3 {
+  position: relative;
+  width: 100%; /* 전체 너비 */
+  height: 200px; /* 높이 조정 */
+  background-image: url("/public/images/구독.jpg"); /* 실제 이미지 경로로 변경 */
+  background-size: cover; /* 이미지가 컨테이너를 꽉 채우도록 */
+  background-position: center; /* 이미지가 중앙에 위치하도록 */
+  margin-top: 1rem; /* 위 여백 */
+  margin-bottom: 1rem; /* 아래 여백 */
+  margin-right: 1rem;
+  border-top-right-radius: 50px; /* 오른쪽 상단 둥근 모서리 */
+  border-bottom-right-radius: 50px; /* 오른쪽 하단 둥근 모서리 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay {
+  background-color: rgba(0, 0, 0, 0.5); /* 반투명 오버레이 */
+  color: white; /* 텍스트 색상 */
+  width: 100%; /* 전체 너비 */
+  height: 100%; /* 전체 높이 */
+  display: flex;
+  justify-content: flex-start; /* 텍스트를 왼쪽으로 정렬 */
+  align-items: center;
+  padding-left: 2rem; /* 왼쪽 내부 여백 */
+  border-top-right-radius: 50px; /* 오버레이 오른쪽 상단 둥근 모서리 */
+  border-bottom-right-radius: 50px; /* 오버레이 오른쪽 하단 둥근 모서리 */
+}

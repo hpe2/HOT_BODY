@@ -2,12 +2,13 @@ import React, { useState } from 'react'
 import { Wheel } from 'react-custom-roulette'
 
 const data = [
-  { option: 'PT 무료이용권' },
+  { option: 'PT 무료이용권', style:{  backgroundColor : '#A40000' ,  textColor : '#fff'  } },
   { option: '1' },
   { option: '2' },
   { option: '3' },
-  { option: '2' },
-  { option: '2' },
+  { option: '4' },
+  { option: '5' },
+  { option: '6' },
 ]
 
 export default () => {
@@ -26,7 +27,8 @@ export default () => {
     <div className='wheel'>
       <Wheel
         mustStartSpinning={mustSpin}
-        prizeNumber={prizeNumber}
+        prizeNumber={1}
+        backgroundColors = { [ '#fff' ,  '#ffdddb' ] } 
         data={data}
 
         onStopSpinning={() => {
