@@ -45,6 +45,17 @@ export const getCommunityPostsByCategory = async (category) => {
   }
 }
 
+// 특정 글의 상세정보 가져오기
+export const getCommunityPostDetail = async (id) => {
+  try{
+    const response = await axios.get(`/api/community/detail?id=${id}`)
+    return response.data[0];
+  }catch(err){
+    console.log(err);
+    return err.response;
+  }
+}
+
 // 새 커뮤니티 글 작성
 export const createCommunityPost = async (formData) => {
   try{

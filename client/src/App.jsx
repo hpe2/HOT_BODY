@@ -13,6 +13,7 @@ import Navbar from "./components/Navbar";
 import CommunityPosting from "./pages/root/community/CommunityPosting";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
+import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 
 
 
@@ -31,7 +32,7 @@ const App = () => {
           {/* community */}
           <Route path="/community" element={<Community />} />
           <Route path="/community/write" element={<CommunityPosting />} />
-
+          <Route path='/community/detail/:id' element={<CommunityPostDetail />} />
           {/* profile */}
           <Route element={<Wrapper />}>
             <Route path="/profile/account" element={<Profile />} />

@@ -22,6 +22,18 @@ router.get('/getPosts', async (req, res) => {
   }
 })
 
+// 특 정 글 상세 정보 불러오기 
+router.get('/detail', async (req, res) => {
+  try{
+    const {id} = req.query;
+    const post = await CommunityPost.find({_id: id});
+    if(!post) return res.status(401).send({message: '해당되는 글이 없습니다.'});
+    return res.status(200).send(post);
+  }catch(err){
+    return res.status(400).send({message: `글을 불러오는데 실패했습니다.`})
+  }
+})
+
 // 새 글 작성
 router.post('/createPost', auth, async (req, res) => {
   try{

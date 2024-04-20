@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail } from "./API";
 
 // auth =====================================================================
 
@@ -61,5 +61,13 @@ export const useCreateCommunityPost = () => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_USER_WROTE']
     })
+  })
+}
+
+// 특정 글 상세 정보 가져오기
+export const useGetCommunityPostDetail = (id) => {
+  return useQuery({
+    queryFn: () => getCommunityPostDetail(id),
+    queryKey: ['GET_COMMUNITY_POSTS', id]
   })
 }
