@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost } from "./API";
 
 // auth =====================================================================
 
@@ -79,7 +79,13 @@ export const useLikeCommunityPost = () => {
     mutationFn: (id) => likeCommunityPost(id),
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_COMMUNITY_POSTS'],
-      queryKey: ['GET_COMMUNITY_POSTS'],
     })
   })
+}
+
+// 특정 글에 댓글 달기
+export const useReplyCommunityPost = () => {
+  return useMutation({
+    mutationFn: (replyData) => replyCommunityPost(replyData),
+  }) 
 }

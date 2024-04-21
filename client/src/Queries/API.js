@@ -103,3 +103,13 @@ export const likeCommunityPost = async (id) => {
     return err;
   }
 }
+
+// 댓글 요청 처리
+export const replyCommunityPost = async (replyData) => {
+  try{
+    const response = await axios.post('/api/community/replyPost', replyData);
+    return response;
+  }catch(err){
+    return err;
+  }
+}

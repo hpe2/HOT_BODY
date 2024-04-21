@@ -3,6 +3,7 @@ const auth = require('../middleware/auth');
 const CommunityPost = require('../models/CommunityPost');
 const User = require('../models/User');
 const router = express.Router();
+const dayjs = require('dayjs');
 
 // 글 불러오기
 router.get('/getPosts', async (req, res) => {
@@ -104,6 +105,30 @@ router.post('/likePost', auth, async (req, res) => {
     return res.status(200).send({newPost, message: '좋아요를 누르셨습니다.'})
   }catch(err){
     return res.status(400).send({message: `좋아요 처리에 실패했습니다. ${err}`})
+  }
+})
+
+// 댓글 작성
+router.post('/replyPost', auth, async(req, res) => {
+  try{
+    const {postId, text} = req.body;
+    const date = dayjs();
+    const replyData = {
+      userId: req.user._id,
+      userName: req.user.name,
+      text,
+      createdAt: date.format(),
+    }
+
+    const post = await CommunityPost.findOneAndUpdate(
+      {_id: postId},
+      {$push : {reply: replyData}},
+      {new: true}
+    )
+
+    return res.status(200).send({post, message: '댓글을 성공적으로 달았습니다.'})
+  }catch(err){
+    return res.status(400).send({message: '글을 삭제하는데 실패했습니다.'});
   }
 })
 

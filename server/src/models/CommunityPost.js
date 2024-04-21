@@ -29,6 +29,7 @@ const CommunityPostSchema = mongoose.Schema({
     },
     reply: [{
         userId: String,
+        userName: String,
         text: String,
         createdAt: String,
     }]
