@@ -4,7 +4,6 @@ import axios from "../config/axios";
 export const signUp = async (userInfo) => {
   try {
     const response = await axios.post("/api/auth/signup", userInfo);
-    console.log(response);
     if (response.status !== 200) throw Error;
     return response;
   } catch (err) {
@@ -51,7 +50,6 @@ export const getCommunityPostDetail = async (id) => {
     const response = await axios.get(`/api/community/detail?id=${id}`)
     return response.data[0];
   }catch(err){
-    console.log(err);
     return err.response;
   }
 }
@@ -70,7 +68,6 @@ export const createCommunityPost = async (formData) => {
 export const getCommunityPostByUser = async () => {
   try{
     const response = await axios.get('/api/user/wrote');
-    console.log(response);
     return response;
   }catch(err){
     return err
@@ -81,18 +78,27 @@ export const getCommunityPostByUser = async () => {
 export const updateUserAccount = async (userInfo) => {
   try{
     const response = await axios.post('/api/user/updateAccount', userInfo);
-    console.log(response);
     return response
   }catch(err){
     return err;
   }
 }
 
+// 유저의 신체 정보 수정
 export const updateUserBodyInfo = async (bodyInfo) => {
   try{
     const response = await axios.post('/api/user/updateBodyInfo', bodyInfo);
-    console.log(response);
     return response
+  }catch(err){
+    return err;
+  }
+}
+
+// 특정 글 좋아요 처리
+export const likeCommunityPost = async (id) => {
+  try{
+    const response = await axios.post('/api/community/likePost', {id});
+    return response;
   }catch(err){
     return err;
   }

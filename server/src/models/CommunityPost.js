@@ -23,10 +23,7 @@ const CommunityPostSchema = mongoose.Schema({
     category: {
         type: String,
     },
-    likes: {
-        type: [String],
-        default: []
-    },
+    likes: [String],
     tags: {
         type: String,
     },

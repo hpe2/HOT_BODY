@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost } from "./API";
 
 // auth =====================================================================
 
@@ -68,6 +68,18 @@ export const useCreateCommunityPost = () => {
 export const useGetCommunityPostDetail = (id) => {
   return useQuery({
     queryFn: () => getCommunityPostDetail(id),
-    queryKey: ['GET_COMMUNITY_POSTS', id]
+    queryKey: ['GET_COMMUNITY_POST', id]
+  })
+}
+
+// 특정 글 좋아요 처리
+export const useLikeCommunityPost = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id) => likeCommunityPost(id),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_COMMUNITY_POSTS'],
+      queryKey: ['GET_COMMUNITY_POSTS'],
+    })
   })
 }

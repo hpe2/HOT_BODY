@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { useGetCommunityPostDetail } from "../../../Queries/queriesAndMutations";
+import { useGetCommunityPostDetail, useLikeCommunityPost } from "../../../Queries/queriesAndMutations";
 import { toast } from "react-toastify";
 import { useUserContext } from "../../../context/AuthContext";
 import "../../../style/community/communityDetail.css";
@@ -12,6 +12,7 @@ const CommunityPostDetail = () => {
   const { user } = useUserContext();
   const navigate = useNavigate();
   const { data: post, isFetching } = useGetCommunityPostDetail(id);
+  const {mutateAsync: likePost, isPending} = useLikeCommunityPost();
   const [replyText, setReplyText] = useState('');
 
   useEffect(() => {
@@ -21,10 +22,11 @@ const CommunityPostDetail = () => {
     }
   }, [id, isFetching]);
 
-  console.log(post);
-  console.log(user);
-
-  const handleLikePost = () => {};
+  const handleLikePost = async () => {
+    const res = await likePost(id);
+    if(res.status === 200) window.location.reload();
+    else toast.info('좋아요 기능을 처리하는데 오류가 있습니다.')
+  };
 
   const handleDeletePost = () => {};
 
@@ -65,8 +67,8 @@ const CommunityPostDetail = () => {
             </div>
 
             {/* like buttons */}
-            <div className="community-detail-likeBtn">
-              <img src={LikeIcon} alt="like" onClick={handleLikePost} />
+            <div className="community-detail-likeBtn" onClick={handleLikePost}>
+              <img src={LikeIcon} alt="like" />
               <button>{post.likes.length}</button>
             </div>
             {user._id === post.writerId && (
