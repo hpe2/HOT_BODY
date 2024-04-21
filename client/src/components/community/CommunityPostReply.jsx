@@ -1,9 +1,21 @@
+import { useDeleteReply } from '../../Queries/queriesAndMutations';
 import { useUserContext } from "../../context/AuthContext";
 import BadgeIcon from '/images/badge.svg';
 
-const CommunityPostReply = ({ content }) => {
+const CommunityPostReply = ({ content, postId }) => {
   const { user } = useUserContext();
-  const handleDeleteReply = () => {};
+  const { mutateAsync: deleteReply } = useDeleteReply();
+
+  const handleDeleteReply = async () => {
+    const replyData = {
+      postId,
+      replyId: content._id
+    }
+    const response = await deleteReply(replyData);
+    if(response.status === 200){
+      window.location.reload();
+    }
+  };
   // content : text, userId, userName, createdAt
   return (
     <li className="community-detail-reply-content" key={content.text + content.createdAt}>

@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply } from "./API";
 
 // auth =====================================================================
 
@@ -88,4 +88,10 @@ export const useReplyCommunityPost = () => {
   return useMutation({
     mutationFn: (replyData) => replyCommunityPost(replyData),
   }) 
+}
+
+export const useDeleteReply = () => {
+  return useMutation({
+    mutationFn: (replyData) => deleteReply(replyData)
+  })
 }

@@ -113,3 +113,12 @@ export const replyCommunityPost = async (replyData) => {
     return err;
   }
 }
+
+export const deleteReply = async (replyData) => {
+  try{
+    const response = await axios.post('/api/community/deleteReply', replyData);
+    return response;
+  }catch(err){
+    return err;
+  }
+}

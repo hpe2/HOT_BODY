@@ -132,5 +132,20 @@ router.post('/replyPost', auth, async(req, res) => {
   }
 })
 
+// 댓글 삭제
+router.post('/deleteReply', auth, async(req, res) => {
+  try{
+    const {postId, replyId} = req.body;
+    const post = await CommunityPost.findOneAndUpdate(
+      {_id: postId},
+      {$pull : {reply: {_id: replyId}}},
+      {new: true}
+    )
+    return res.status(200).send({message: '댓글을 삭제했습니다.'});
+  }catch(err){
+    return res.status(400).send({message: `댓글 삭제에 실패했습니다. ${err}`})
+  }
+})
+
 
 module.exports = router;

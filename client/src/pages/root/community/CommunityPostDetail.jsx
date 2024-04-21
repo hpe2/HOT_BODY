@@ -33,7 +33,9 @@ const CommunityPostDetail = () => {
     else toast.info('좋아요 기능을 처리하는데 오류가 있습니다.')
   };
 
-  const handleDeletePost = () => {};
+  const handleDeletePost = () => {
+
+  };
 
   const handleReply = async () => {
     if(replyText.length === 0){
@@ -114,7 +116,7 @@ const CommunityPostDetail = () => {
             <h3 className='community-detail-reply-title'>댓글 {post.reply.length}개</h3>
             <ul className="community-detail-replies">
               {post.reply.map(content => (
-                <CommunityPostReply content={content} />
+                <CommunityPostReply content={content} postId={id} />
               ))}
             </ul>
           </div>
