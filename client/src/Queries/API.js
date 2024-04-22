@@ -4,7 +4,6 @@ import axios from "../config/axios";
 export const signUp = async (userInfo) => {
   try {
     const response = await axios.post("/api/auth/signup", userInfo);
-    console.log(response);
     if (response.status !== 200) throw Error;
     return response;
   } catch (err) {
@@ -45,6 +44,16 @@ export const getCommunityPostsByCategory = async (category) => {
   }
 }
 
+// 특정 글의 상세정보 가져오기
+export const getCommunityPostDetail = async (id) => {
+  try{
+    const response = await axios.get(`/api/community/detail?id=${id}`)
+    return response.data[0];
+  }catch(err){
+    return err.response;
+  }
+}
+
 // 새 커뮤니티 글 작성
 export const createCommunityPost = async (formData) => {
   try{
@@ -59,7 +68,6 @@ export const createCommunityPost = async (formData) => {
 export const getCommunityPostByUser = async () => {
   try{
     const response = await axios.get('/api/user/wrote');
-    console.log(response);
     return response;
   }catch(err){
     return err
@@ -70,19 +78,69 @@ export const getCommunityPostByUser = async () => {
 export const updateUserAccount = async (userInfo) => {
   try{
     const response = await axios.post('/api/user/updateAccount', userInfo);
-    console.log(response);
     return response
   }catch(err){
     return err;
   }
 }
 
+// 유저의 신체 정보 수정
 export const updateUserBodyInfo = async (bodyInfo) => {
   try{
     const response = await axios.post('/api/user/updateBodyInfo', bodyInfo);
-    console.log(response);
     return response
   }catch(err){
+    return err;
+  }
+}
+
+// 특정 글 좋아요 처리
+export const likeCommunityPost = async (id) => {
+  try{
+    const response = await axios.post('/api/community/likePost', {id});
+    return response;
+  }catch(err){
+    return err;
+  }
+}
+
+// 댓글 요청 처리
+export const replyCommunityPost = async (replyData) => {
+  try{
+    const response = await axios.post('/api/community/replyPost', replyData);
+    return response;
+  }catch(err){
+    return err;
+  }
+}
+
+// 댓글 삭제 
+export const deleteReply = async (replyData) => {
+  try{
+    const response = await axios.post('/api/community/deleteReply', replyData);
+    return response;
+  }catch(err){
+    return err;
+  }
+}
+
+// 커뮤니티 글 수정
+export const editCommunityPost = async (id, editedData) => {
+  try{
+    const response = await axios.post(`/api/community/editPost?id=${id}`, editedData)
+    return response;
+  }catch(err){
+    console.log(err);
+    return err;
+  }
+}
+
+export const deleteCommunityPost = async (id) => {
+  try{
+    const response = await axios.delete(`/api/community/deletePost?id=${id}`)
+    return response;
+  }catch(err){
+    console.log(err);
     return err;
   }
 }

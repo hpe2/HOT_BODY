@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchIcon from "/images/searchIcon.svg";
 import PenIcon from "/images/pen.svg";
-import axios from "../../../config/axios";
 
-import "../../../style/community.css";
+import "../../../style/community/community.css";
 import PostList from "../../../components/community/PostList";
 import PostListSkeleton from "../../../components/community/PostListSkeleton";
 import { useGetCommunityPostsByCategory } from "../../../Queries/queriesAndMutations";
@@ -31,9 +30,9 @@ const Community = () => {
 
   return (
     <>
-      <div className="container">
-        <div className="banner">
-          <ul className="category">
+      <div className="community-container">
+        <div className="community-banner">
+          <ul className="community-category">
             {categories.map((categorylist, idx) => (
               <li
                 key={idx}
@@ -81,7 +80,7 @@ const Community = () => {
             ) : (
               posts.length === 0 ? (
                 <p className='noPostsResult'>
-                  {`${categoryInKor(categories[category].category)}`}에 관한 글이 업습니다. 첫 글을 작성 해보세요.
+                  {`${categoryInKor(categories[category].category)}`}에 관한 글이 없습니다. 첫 글을 작성 해보세요.
                 </p>
               ) : (
                 <>

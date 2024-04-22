@@ -24,7 +24,7 @@ const PostList = ({post}) => {
           <ul className="tags">
             {post.tags && (
               post.tags.split(',').map(tag => (
-                <li>#{tag}</li>
+                <li># {tag}</li>
               ))
             )}
           </ul>

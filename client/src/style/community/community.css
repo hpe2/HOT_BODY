@@ -1,19 +1,20 @@
-.container{
+.community-container{
     max-width: 1280px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
 }
 
-.banner{
+.community-banner{
     background-color: rgb(133, 133, 133);
     height: 500px;
     position: relative;
 }
 
-.category{
+.community-category{
     position: absolute;
     bottom: 0;
+    left: 0;
     width: fit-content;
     padding: 0.75rem 1rem 0.75rem 0.5rem;
     border-top-right-radius: 20px;
@@ -23,7 +24,7 @@
     background-color: #fff;
 }
 
-.category li{
+.community-category li{
     padding: 0.5rem 1.75rem;
     border: none;
     cursor: pointer;
@@ -286,7 +287,7 @@
 
 .communityPostingContainer{
     background-color: white;
-    border: 1px solid #a40000;
+    border: 1px solid #dbdbdb;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     display: flex;
     align-items: center;

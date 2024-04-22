@@ -23,15 +23,13 @@ const CommunityPostSchema = mongoose.Schema({
     category: {
         type: String,
     },
-    likes: {
-        type: [String],
-        default: []
-    },
+    likes: [String],
     tags: {
         type: String,
     },
     reply: [{
         userId: String,
+        userName: String,
         text: String,
         createdAt: String,
     }]
