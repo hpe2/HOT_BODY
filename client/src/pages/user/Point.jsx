@@ -12,10 +12,10 @@ const Point = () => {
 
   return (
     <>
-      <div className="content">
-        <div className="container">
+      <section className="pointContent">
+        <div className="pointContainer">
           <div className="point">
-            <h1>포인트</h1>
+            <h1 className="title">포인트</h1>
             <div className="boxContainer">
               <PointInfo/>
               {/* {pointDetail ? <PointInfo setPointDetail={setPointDetail} /> : <PointInfo setPointDetail={setPointDetail} />} */}
@@ -31,7 +31,7 @@ const Point = () => {
             {/* <Link to="/membership" className="link"><button className="mebershipBtn">구독하기</button></Link> */}
           </div>
         </div>
-      </div>
+      </section>
     </>
   )
 };

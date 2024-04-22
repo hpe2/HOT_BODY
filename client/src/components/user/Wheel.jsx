@@ -33,6 +33,7 @@ export default () => {
 
         onStopSpinning={() => {
           setMustSpin(false);
+          alert
         }}
       />
       <button onClick={handleSpinClick}>SPIN</button>

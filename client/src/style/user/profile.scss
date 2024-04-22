@@ -1,11 +1,11 @@
-.content {
+.profileContent {
 	flex-wrap: nowrap;
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 440px;
 }
 
-.container {
+.profileContainer {
 	display: flex;
 	padding-top: 80px;
 	width: 100%;
@@ -18,6 +18,7 @@
 	height: 100%;
     line-height: 200%;
 	h1 {
+		display: flex;
 		font-size: 21px;
 		font-weight: 500;
 		margin: 0 0 1rem 0;
@@ -25,7 +26,11 @@
 	.boxContainer {
 		display: block;
 		border: 1px solid #C1C1C1;
-		border-radius: var(--rounded-normal);
+		background-color: white;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  		border: 1px solid #ebebeb;
+		border-radius: 10px;
+		padding: 0 1rem;
 		line-height: 140%;
 	
 		.formField {
@@ -42,7 +47,8 @@
 				padding: 16px;
 
 				span {
-					font-size: 1.2rem;
+					font-size: 1.1rem;
+					padding: 0.5rem;
 				}
 				.inputContent {
 					font-size: 1.2rem;
@@ -52,41 +58,19 @@
 					width: 40%;
 				}
 			}
-			
-			div {
-				width: 100%;
-			}
-			span {
-				padding: 0.5rem;
-			}
-			.buttons {
+			.buttons{
 				display: flex;
-				font-size: 16px;
-				font-weight: 600;
+				flex-direction: row-reverse;
 				height: 60%;
 				border: none;
-				justify-content:end;
-				align-items: center;
 				border-radius:1px;
-				padding: 1rem 0.2rem 0.2rem 0.2rem;
+				padding: 1rem 0.2rem 0.6rem 0.2rem;
 			}
-			button {
-				display: flex;
-				font-size: 16px;
-				font-weight: 600;
-				height: 60%;
-				border: none;
-				justify-content: center;
-				align-items: center;
-				border-radius:1px;
-				padding: 0.2rem;
-			}
-			input[type=submit], input[type=button] {
+			.ProfileEditButton {
 				background-color: #fff;
 				cursor: pointer;
 				color: #c1c1c1;
-				justify-content: center;
-				width: 20%;
+				width: 18%;
 				height: 4.5rem;
 				margin: 0;
 				margin-left: 1rem;
@@ -94,12 +78,25 @@
 				border: 1px solid #c1c1c1;
 				border-radius: var(--rounded-normal);
 				line-height: 140%;
-				font-size: 1rem;
-			}
+				font-size: 1.1rem;
+				font-weight: 400;
+					&:hover{
+						background-color: #f3f3f3;
+						color: #a3a3a3;
+					}
+				}
+				.cancle:hover {
+					background-color: #ffeeee;
+					color: #ff8787;
+					border: 1px solid #ff8787;
+				}
 			}
 		}
 	
-		input[type=text], input[type=password]{
+		.inputNote input{
+			transition: all .3s ease-in-out;
+		}
+		.inputNote input[type=text], .inputNote input[type=password]{
 			display: block;
 			font-size: 16px;
 			height: var(--height-input);
@@ -108,21 +105,17 @@
 			border: 0;
 			color: var(--color-input);
 			border-bottom: 1px solid #A6A6A6;
-			transition: all .3s ease-in-out;
 			padding: 8px;
 		}
-		input[type=text], input[type=password]::placeholder{
+		.inputNote input[type=text], input[type=password]::placeholder{
 			color: #c7c7c7;
 			font-weight: 300;
 		}
-		input[type=text], input[type=password]:placeholder-shown{
-		border-bottom: 1px solid #E9E9E9;
-		}
 	
-		input[type=text], input[type=password]:focus {
+		.inputNote input[type=text], input[type=password]:focus {
 			font-size: 16px;
 			outline: none;
-			border-bottom: 1px solid #A6A6A6;
+			border-bottom: 1px solid #a40000;
 		}
 		
 }
@@ -145,9 +138,13 @@
 	.boxContainer {
 		display: block;
 		border: 1px solid #C1C1C1;
-		border-radius: var(--rounded-normal);
+		background-color: white;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  		border: 1px solid #ebebeb;
+		border-radius: 10px;
+		padding: 0 1rem;
+		margin-bottom: 1.5rem;
 		line-height: 140%;
-		margin-bottom: 1rem;
 	}
 	.formField {
 		display: grid;
@@ -164,7 +161,8 @@
 			justify-content: space-between;
 		}
 		:nth-child(2):hover {
-			background-color: #a4000021;
+			background-color: #ffeeee;
+			border-radius: 1rem;
 			transition: all 0.2s;
 		}
 
@@ -180,6 +178,15 @@
 				display: flex;
 				justify-content:space-between;
 			}
+		.panel-purchase{
+			overflow: hidden; 
+			height: 0;
+			transition:all 0.4s;
+		}
+		.dropdown{
+			display: block;
+			height: auto;
+		}
 		button {
 			display: flex;
 			background-color: transparent;
@@ -208,6 +215,10 @@
 		border-radius: var(--rounded-normal);
 		line-height: 140%;
 		font-size: 21px;
+
+		&:hover{
+			background-color: #940000;
+		}
 	}
 }
 .counsel {
@@ -227,9 +238,12 @@
 	}
 	.boxContainer {
 		display: block;
-		padding: 2rem;
 		border: 1px solid #C1C1C1;
-		border-radius: var(--rounded-normal);
+		background-color: white;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  		border: 1px solid #ebebeb;
+		border-radius: 10px;
+		padding: 0 1rem;
 		line-height: 140%;
 	
 		.formField {
@@ -245,55 +259,32 @@
 				padding: 16px;
 
 				span {
-					display: flex;
-					font-size: 1.2rem;
+					font-size: 1.1rem;
+					padding: 0.5rem;
 				}
 				.inputContent {
-					display: flex;
+					font-size: 1.2rem;
 					color: #9b9b9b;
 				}
 				input {
 					width: 40%;
 				}
 			}
-			div {
-				width: 100%;
-			}
-			span {
-				padding: 0.5rem;
-			}
-			input[type=number]::placeholder{
-				color: #c7c7c7;
-				font-weight: 300;
-			}
-			.buttons {
+
+			.buttons{
 				display: flex;
-				font-size: 16px;
-				font-weight: 600;
+				flex-direction: row-reverse;
 				height: 60%;
 				border: none;
-				justify-content:end;
-				align-items: center;
 				border-radius:1px;
-				padding: 1rem 0.2rem 0.2rem 0.2rem;
+				padding: 1rem 0.2rem 0.6rem 0.2rem;
 			}
-			button {
-				display: flex;
-				font-size: 16px;
-				font-weight: 600;
-				height: 60%;
-				border: none;
-				justify-content: center;
-				align-items: center;
-				border-radius:1px;
-				padding: 0.2rem;
-			}
-			input[type=submit], input[type=button] {
+
+			.PtEditButton {
 				background-color: #fff;
 				cursor: pointer;
 				color: #c1c1c1;
-				justify-content: center;
-				width: 20%;
+				width: 18%;
 				height: 4.5rem;
 				margin: 0;
 				margin-left: 1rem;
@@ -301,49 +292,66 @@
 				border: 1px solid #c1c1c1;
 				border-radius: var(--rounded-normal);
 				line-height: 140%;
-				font-size: 1rem;
+				font-size: 1.1rem;
+				font-weight: 400;
+				&:hover{
+					background-color: #f3f3f3;
+					color: #a3a3a3;
+				}
 			}
+			.cancle:hover {
+				background-color: #ffeeee;
+				color: #ff8787;
+				border: 1px solid #ff8787;
 			}
 		}
-	
-		input, select{
-			display: block;
-			font-size: 16px;
-			height: var(--height-input);
-			padding: 0 var(--pad-input);
-			background: var(--bg-input);
-			border: 0;
-			color: var(--color-input);
-			padding: 8px;
-		}
-		input[type=number]{
-			border-bottom: 1px solid #A6A6A6;
-			transition: all .3s ease-in-out;
-		}
-		input[type=number]:placeholder-shown{
-			border-bottom: 1px solid #E9E9E9;
-			}
-	
-		input[type=number]:focus{
+	}
+
+	.inputNote input{
+		transition: all .3s ease-in-out;
+	}
+	.inputNote input[type=number]{
+		display: block;
+		font-size: 16px;
+		height: var(--height-input);
+		padding: 0 var(--pad-input);
+		background: var(--bg-input);
+		border: 0;
+		color: var(--color-input);
+		border-bottom: 1px solid #A6A6A6;
+		padding: 8px;
+	}
+	.inputNote input[type=number]::placeholder{
+		color: #c7c7c7;
+		font-weight: 300;
+	}
+
+	.inputNote input[type=number]:focus {
+		font-size: 16px;
+		outline: none;
+		border-bottom: 1px solid #a40000;
+	}
+	input, select{
+		display: block;
+		font-size: 16px;
+		height: var(--height-input);
+		padding: 0 var(--pad-input);
+		background: var(--bg-input);
+		border: 0;
+		color: var(--color-input);
+		padding: 8px;
+	}
+	select{
+		width: 40%;
+		border: 1px solid #E9E9E9;
+		transition: all .3s ease-in-out;
+		&:focus {
 			font-size: 16px;
 			outline: none;
-			border-bottom: 1px solid #A6A6A6;
+			border: 1px solid #a40000;
 		}
-		select{
-			width: 40%;
-			border: 1px solid #E9E9E9;
-			transition: all .3s ease-in-out;
-		}
-		select option[value="disabled"][disabled] {
-			display: none;
-		}
-		
-		select:focus {
-			font-size: 16px;
-			outline: none;
-			border: 1px solid #A6A6A6;
-		}
-			
+	}
+	
 }
 
 

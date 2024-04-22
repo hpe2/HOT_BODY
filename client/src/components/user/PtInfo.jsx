@@ -50,7 +50,9 @@ const PtInfoUpdate = ({setPtEdit}) => {
         <span>운동목적</span>
         <span className='inputContent'>{user.personalInfo.purpose ? handlePurpose(user.personalInfo.purpose) : '정보 없음'}</span>
       </div>
-      <button className='ProfileEditButton' onClick={() => {setPtEdit(true)}}>수정하기</button>
+      <div className="buttons">
+        <button className='PtEditButton' onClick={() => {setPtEdit(true)}}>수정하기</button>
+      </div>
     </form>
   )
 }

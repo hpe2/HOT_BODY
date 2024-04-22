@@ -15,12 +15,12 @@ const DailyInfo = () => {
     }
 
     return (
-    <div className="userInfo">
-        <p>안녕하세요! <span><span className='username'>{user.name}</span> 님!</span></p>
-        <button className="button" onClick={handleDailyPoint}>
+    <figure className="userInfo">
+        <p>안녕하세요! <span><strong className='username'>{user.name}</strong> 님!</span></p>
+        <button className="dailyButton" onClick={handleDailyPoint}>
             출석체크 <span>+ 10p</span>
         </button>
-    </div>
+    </figure>
   )
 }
 

@@ -24,10 +24,10 @@ const PointRulet = () => {
 
   return (
     <>
-      <div className="content">
+      <div className="pointRouletteContent">
         <div className="container">
-          <div className="pointrulet">
-            <h1>포인트 응모</h1>
+          <div className="pointRoulette">
+            <h1 className="title">포인트 응모</h1>
             <div className="boxContainer">
               <div className="roulette">
                 <Wheel />

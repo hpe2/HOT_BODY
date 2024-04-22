@@ -33,9 +33,9 @@ const userNavLinks = [
 
 const UserNavbar = () => {
   return (
-      <nav className="userNavContainer">
+      <aside className="userNavContainer">
       <DailyInfo/>
-        <div className="UserNSB">
+        <nav className="UserNSB">
           {userNavLinks.map((usernav) => (
             <NavLink
               key={usernav.menuName}
@@ -48,8 +48,8 @@ const UserNavbar = () => {
             </NavLink>
           ))}
             <Link key="고객센터" to={"/gogaek"} className={"userlink"} target="_blank"/>
-        </div>
-      </nav>
+        </nav>
+      </aside>
   );
 };
 
