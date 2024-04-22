@@ -114,11 +114,23 @@ export const replyCommunityPost = async (replyData) => {
   }
 }
 
+// 댓글 삭제 
 export const deleteReply = async (replyData) => {
   try{
     const response = await axios.post('/api/community/deleteReply', replyData);
     return response;
   }catch(err){
+    return err;
+  }
+}
+
+// 커뮤니티 글 수정
+export const editCommunityPost = async (id, editedData) => {
+  try{
+    const response = await axios.post(`/api/community/editPost?id=${id}`, editedData)
+    return response;
+  }catch(err){
+    console.log(err);
     return err;
   }
 }

@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost } from "./API";
 
 // auth =====================================================================
 
@@ -90,8 +90,21 @@ export const useReplyCommunityPost = () => {
   }) 
 }
 
+// 특정 글에 댓글 삭제
 export const useDeleteReply = () => {
   return useMutation({
     mutationFn: (replyData) => deleteReply(replyData)
+  })
+}
+
+// 커뮤니티 글 수정
+export const useEditCommunityPost = (id) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (editedData) => editCommunityPost(id, editedData),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_COMMUNITY_POSTS'],
+      queryKey: ['GET_COMMUNITY_POST', id]
+    })
   })
 }

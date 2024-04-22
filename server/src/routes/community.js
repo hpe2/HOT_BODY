@@ -69,6 +69,27 @@ router.post('/createPost', auth, async (req, res) => {
   }
 })
 
+// 작성한 글 수정
+router.post('/editPost', auth, async (req, res) => {
+  try{
+    const editedData = {
+      title: req.body.title,
+      text: req.body.text,
+      image: req.body.image,
+      category: req.body.category,
+      tags: req.body.tags
+    }
+    const editedPost = await CommunityPost.findOneAndUpdate(
+      {_id: req.query.id},
+      {$set : editedData},
+      {new: true}
+    )
+    return res.status(200).send({message: '성공적으로 글을 수정했습니다.'});
+  }catch(err){
+    return res.status(400).send({message: `글을 수정하는데 실패했습니다. ${err}`}) 
+  }
+})
+
 // 특정 글 좋아요 처리
 router.post('/likePost', auth, async (req, res) => {
   try{
