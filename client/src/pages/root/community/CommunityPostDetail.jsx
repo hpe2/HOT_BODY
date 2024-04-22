@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import {
+  useDeleteCommunityPost,
   useGetCommunityPostDetail,
   useLikeCommunityPost,
   useReplyCommunityPost,
@@ -24,6 +25,7 @@ const CommunityPostDetail = () => {
   const navigate = useNavigate();
   const { data: post, isFetching } = useGetCommunityPostDetail(id);
   const { mutateAsync: likePost } = useLikeCommunityPost();
+  const {mutateAsync: deletePost, isPending} = useDeleteCommunityPost(id)
   const { mutateAsync: replyPost } = useReplyCommunityPost();
   const [replyText, setReplyText] = useState("");
 
@@ -44,7 +46,15 @@ const CommunityPostDetail = () => {
     else toast.info("좋아요 기능을 처리하는데 오류가 있습니다.");
   };
 
-  const handleDeletePost = () => {};
+  const handleDeletePost = async () => {
+    const res = await deletePost();
+    if(res.status === 200){
+      toast.info('글을 성공적으로 삭제했습니다.');
+      navigate('/community');
+    }else{
+      toast.info('글을 삭제하는데 실패했습니다.');
+    }
+  };
 
   const handleReply = async () => {
     if (replyText.length === 0) {

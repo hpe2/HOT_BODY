@@ -90,6 +90,17 @@ router.post('/editPost', auth, async (req, res) => {
   }
 })
 
+// 글 삭제
+router.delete('/deletePost', auth, async (req, res) => {
+  try{
+    const post = await CommunityPost.deleteOne({_id: req.query.id});
+    if(!post) return res.status(401).send({message: '해당 글이 존재하지 않습니다.'});
+    return res.status(200).send({message: '글을 성공적으로 삭제했습니다.'});
+  }catch(err){
+    return res.status(400).send({message: `글을 삭제하는데 실패했습니다. ${err}`})
+  }
+})
+
 // 특정 글 좋아요 처리
 router.post('/likePost', auth, async (req, res) => {
   try{

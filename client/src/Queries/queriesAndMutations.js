@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost } from "./API";
 
 // auth =====================================================================
 
@@ -105,6 +105,16 @@ export const useEditCommunityPost = (id) => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_COMMUNITY_POSTS'],
       queryKey: ['GET_COMMUNITY_POST', id]
+    })
+  })
+}
+
+export const useDeleteCommunityPost = (id) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () => deleteCommunityPost(id),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_COMMUNITY_POSTS'],
     })
   })
 }

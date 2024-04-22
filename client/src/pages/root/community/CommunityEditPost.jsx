@@ -113,7 +113,7 @@ const CommunityEditPost = () => {
                 취소하기
               </button>
               <button type="submit" className="communityPostButton">
-                {isPending ? "Processing. . ." : "작성하기"}
+                {isPending ? "Processing. . ." : "수정하기"}
               </button>
             </div>
           </form>

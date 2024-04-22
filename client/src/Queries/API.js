@@ -134,3 +134,13 @@ export const editCommunityPost = async (id, editedData) => {
     return err;
   }
 }
+
+export const deleteCommunityPost = async (id) => {
+  try{
+    const response = await axios.delete(`/api/community/deletePost?id=${id}`)
+    return response;
+  }catch(err){
+    console.log(err);
+    return err;
+  }
+}
