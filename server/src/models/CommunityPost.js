@@ -19,7 +19,9 @@ const CommunityPostSchema = mongoose.Schema({
         type: String,
         require: true
     },
-    image: {type: String},
+    image: {
+        type: String
+    },
     category: {
         type: String,
     },

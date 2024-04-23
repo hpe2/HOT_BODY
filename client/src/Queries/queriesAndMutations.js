@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup } from "./API";
 
 // auth =====================================================================
 
@@ -109,6 +109,7 @@ export const useEditCommunityPost = (id) => {
   })
 }
 
+// 커뮤니티 글 삭제
 export const useDeleteCommunityPost = (id) => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -116,5 +117,14 @@ export const useDeleteCommunityPost = (id) => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_COMMUNITY_POSTS'],
     })
+  })
+}
+
+// group =====================================================================
+
+// 모임 생성
+export const useCreateGroup = () => {
+  return useMutation({
+    mutationFn: (groupData) => createGroup(groupData),
   })
 }
