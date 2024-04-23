@@ -5,7 +5,6 @@ import Wrapper from './components/user/Wrapper';
 import Profile from "./pages/user/Profile";
 import Wrote from "./pages/user/Wrote";
 import Point from './pages/user/Point';
-import PointRoulette from './pages/user/PointRoulette';
 import Login from "./pages/root/auth/Login";
 import Signup from "./pages/root/auth/Signup";
 import Community from "./pages/root/community/Community";
@@ -39,7 +38,6 @@ const App = () => {
             <Route path="/profile/pt" element={<Profile />} />
             <Route path="/profile/group" element={<Profile />} />
             <Route path="/profile/point" element={<Point />} />
-            <Route path="/profile/point/roulette" element={<PointRoulette />} />
             <Route path="/gogaek" element={<Profile />} />
           </Route>
           {/* auth */}
