@@ -8,6 +8,7 @@ import ProfileForm from "../../components/user/ProfileForm";
 import UpdateProfileForm from "../../components/user/UpdateProfileHome";
 import PtInfoUpdate from "../../components/user/PtInfoUpdate";
 import PtInfo from "../../components/user/PtInfo";
+import UserMemberPurchaseList from "../../components/user/UserMemberPurchaseList"
 
 const Profile = () => {
   const { user } = useUserContext();
@@ -59,7 +60,7 @@ const Profile = () => {
                   {isMember ? (
                   PurchaseList.map((purchase) => (<UserMemberPurchaseList purchase={purchase} />))
                 ) : (
-                  <p className='animateLoading'>멤버쉽 가입내역이 없습니다.</p>
+                  <p className='animateLoading'>멤버십 가입내역이 없습니다.</p>
                 )}
               </div>
             </div>

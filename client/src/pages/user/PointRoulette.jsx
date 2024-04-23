@@ -7,15 +7,13 @@ import Wheel from "../../components/user/Wheel";
 
 const PointRulet = () => {
   const {user} = useUserContext();
+  const [point, setPoint] = useState(user.point);
   const [pointDetail, setPointDetail] = useState(false);
-  /* const [loading , setLoading ] = useState(false)
-  useEffect(()=>{
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 5000);
-  },[])
-   */
+  const [ticket, setTicket] = useState(0);
+
+  function entryTicket(e){
+    point === 0 ? alert('포인트가 부족합니다.') : setPoint(-1), setTicket(+1), alert('응모가 완료됐습니다');
+  }
   const data = [
     { option: '0', style: { backgroundColor: 'green', textColor: 'black' } },
     { option: '1', style: { backgroundColor: 'white' } },

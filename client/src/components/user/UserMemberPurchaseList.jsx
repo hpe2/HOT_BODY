@@ -1,5 +1,5 @@
 
-const UserPurchaseList = ({purchase}) => {
+const UserMemberPurchaseList = ({purchase}) => {
   return (
     <tr>
       <td>{purchase.date}</td>
@@ -9,4 +9,4 @@ const UserPurchaseList = ({purchase}) => {
   );
 };
 
-export default UserPurchaseList;
+export default UserMemberPurchaseList;
