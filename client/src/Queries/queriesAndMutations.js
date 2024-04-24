@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups } from "./API";
 
 // auth =====================================================================
 
@@ -126,5 +126,13 @@ export const useDeleteCommunityPost = (id) => {
 export const useCreateGroup = () => {
   return useMutation({
     mutationFn: (groupData) => createGroup(groupData),
+  })
+}
+
+// 모임 리스트 읽기
+export const useGetGroups = (category) => {
+  return useQuery({
+    queryFn: () => getGroups(category),
+    queryKey: ['GET_GROUPS_BY_CATEGORY', category]
   })
 }

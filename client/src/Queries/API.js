@@ -163,6 +163,7 @@ export const deleteCommunityPost = async (id) => {
 
 // group =====================================================================
 // #region
+
 // 새 모임 생성
 export const createGroup = async (groupData) => {
   try{
@@ -172,5 +173,16 @@ export const createGroup = async (groupData) => {
     return err;
   }
 }
+
+// 모임 읽기
+export const getGroups = async (category) => {
+  try{
+    const response = await axios.get(`/api/group/getGroups?category=${category}`);
+    return response;
+  }catch(err){
+    return err;
+  }
+}
+
 // #endregion
 // group =====================================================================
