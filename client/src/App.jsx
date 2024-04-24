@@ -16,6 +16,7 @@ import 'react-toastify/ReactToastify.css';
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
 import GroupCreate from './pages/root/group/GroupCreate';
+import Group from './pages/root/group/Group';
 
 
 
@@ -53,6 +54,7 @@ const App = () => {
 
           {/* Group */}
           <Route path='/group/create' element={<GroupCreate />} />
+          <Route path='/group' element={<Group />} />
         </Routes>
     </>
   );

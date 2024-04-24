@@ -1,6 +1,6 @@
 .group-creation-wrap{
   background-color: #f8f8f8;
-  padding-top: 4rem;
+  padding: 4rem 0;
   font-size: 0.9rem;
 }
 
@@ -25,15 +25,19 @@
 .group-creation-info{
   display: flex;
   flex-direction: column;
-  gap: 1.75rem;
+  gap: 1rem;
   margin-top: 1.25rem;
-  padding: 0 0,5rem;
 }
 
 .group-creation-category{
   display: flex;
   align-items: center;
-  gap: 1.25rem;
+  gap: 1rem;
+}
+
+.group-creation-category p{
+  width: 60px;
+  text-align: end;
 }
 
 .group-creation-category select{
@@ -82,7 +86,6 @@
   border-radius: 0.5rem;
   box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
-
 
 .group-description {
   align-items: flex-start;

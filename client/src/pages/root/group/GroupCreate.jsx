@@ -4,6 +4,7 @@ import {toast} from 'react-toastify';
 import {useNavigate} from 'react-router-dom';
 import '../../../style/group/groupCreation.css';
 import GroupInput from '../../../components/group/GroupInput';
+import { useUserContext } from '../../../context/AuthContext';
 
 const categories = [
   {category: 'workout', name: '운동'},
@@ -19,6 +20,14 @@ const GroupCreate = () => {
   const [image, setImage] = useState('');
   const [tags, setTags] = useState('');
   const [category, setCategory] = useState(0);
+  const {isAuthenticated} = useUserContext();
+
+  useEffect(() => {
+    if(!isAuthenticated){
+      toast.info('로그인 한 사용자만 이용할 수 있는 기능입니다.');
+      navigate('/group');
+    }
+  }, [])
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +39,6 @@ const GroupCreate = () => {
       category: categories[category].category
     }
     const res = await createGroup(groupData);
-    console.log(res);
     if(res.status === 200){
       toast.info('모임을 성공적으로 생성했습니다.');
       navigate('/group');
