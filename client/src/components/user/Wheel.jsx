@@ -13,10 +13,12 @@ const data = [
   { option: '50% 쿠폰', optionSize: 1},
 ]
 
-export default () => {
+export default ({value, setState }) => {
   const [mustSpin, setMustSpin] = useState(false);
   const [prizeNumber, setPrizeNumber] = useState(0);
-  
+  let today = new Date();
+  let now = `${today.getMonth() + 1}/${today.getDate()}/`
+
   const handleSpinClick = (e) => {
     if (!mustSpin) {
       const newPrizeNumber = Math.floor(Math.random() * data.length);
@@ -48,6 +50,8 @@ export default () => {
         onStopSpinning={(e) => {
           setMustSpin(false);
           toast.info(`${data[prizeNumber].option} 당첨!`)
+          let log = {prize:`${data[prizeNumber].option}`, time: {now}}
+          setState(... log)
         }}
       />
       <button className='modal-content-button' onClick={handleSpinClick}>룰렛 돌리기</button>

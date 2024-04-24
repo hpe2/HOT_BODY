@@ -12,6 +12,8 @@ const PointInfo = () => {
   const {user} = useUserContext(); //
   const [isAllVaild, setIsAllVaild] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
+  const [history, setHistory] = useState([]);
+
   const modalBackground = useRef();
   const PointList = [
     {date: '2024/04/23', text:'출석체크 포인트', price:'+ 1p'},
@@ -50,15 +52,16 @@ const PointInfo = () => {
         }}>
           <div className={'modal-content'}>
             <div className='modal-boxContainer'>
-              <Wheel />
+              <Wheel value={history} setState={setHistory}/>
             </div>
             <div className='data'>
               <div className='modal-inner-boxContainer'>
                 현재 보유 포인트
-                {user.point}
+                <span>{user.point}</span>
               </div>
               <div className='modal-inner-boxContainer'>
-                {user.point}
+                응모내역
+                  <div><span>{history.prize}</span><span>{history.time}</span></div>
               </div>
               <button className={'modal-close-btn'} onClick={() => setModalOpen(false)}>
                 모달 닫기

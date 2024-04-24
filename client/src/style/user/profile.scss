@@ -182,12 +182,14 @@
 			overflow: hidden; 
 			height: 0;
 			transition:all 0.4s;
-
-			p{
+			tr{
 				padding: 1rem 2rem;
+				border-bottom: 1px solid #d1d1d1;
+				align-items: center;
 			}
 		}
 		.dropdown{
+			transition:all 0.4s;
 			display: block;
 			height: auto;
 		}

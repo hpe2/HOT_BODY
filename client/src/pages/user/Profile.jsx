@@ -14,7 +14,7 @@ const Profile = () => {
   const { user } = useUserContext();
   const [isEdit, setIsEdit] = useState(false);
   const [ptEdit, setPtEdit] = useState(false);
-  const [isMember, setIsMember] = useState(false);
+  const [isMember, setIsMember] = useState(true);
   const [isAllVaild, setIsAllVaild] = useState(true);
   const PurchaseList = [
     {date: '2024/04/24', text:'HotBody+ 월간 멤버십', price:'₩4,900'},
@@ -50,7 +50,7 @@ const Profile = () => {
             <div className="formField">
               <span>
                 <label htmlFor="membership">Hot Body+</label>
-                <span>{user.membership ? "구독중" : "미구독"}</span>
+                <span>{/* user.membership */isMember === true ? "구독중" : "미구독"}</span>
               </span>
               <div className= "purchase" onClick={PanelDrop}>
                 <label htmlFor="purchase">결제 내역</label>
