@@ -6,10 +6,18 @@ import CalendarIcon from '/public/images/calendar.svg'
 import LocationIcon from '/public/images/location.svg'
 import BeatIcon from '/public/images/beat.svg'
 import GroupMeetingList from '../../../components/group/GroupMeetingList';
+import { useGetGroupDetail } from '../../../Queries/queriesAndMutations';
 
 
 const GroupDetail = () => {
   const {id} = useParams();
+  const {data: group, isFetching} = useGetGroupDetail(id);
+
+  if(isFetching){
+    return (
+      <h1>로딩중. . .</h1>
+    )
+  }
 
   return (
     <div className='group-detail-wrap'>
@@ -19,13 +27,13 @@ const GroupDetail = () => {
           <div className="group-detail-header box-shadow">
             <div className="group-detail-leader">
               <img src="" alt='leader-img' />
-              <p>김호찌</p>
+              <p>{group.leaderName}</p>
             </div>
             <div className="group-detail-info">
-              <h2>수원역에서 헬스 한판</h2>
+              <h2>{group.title}</h2>
               <div className='group-detail-info-member'>
                 <img src={PeopleIcon} alt='members' />
-                <p>1/10명</p>
+                <p>{group.members.length}/{group.memberLimit}명</p>
               </div>
             </div>
           </div>
@@ -34,18 +42,12 @@ const GroupDetail = () => {
         <div className="group-detail-content">
 
           <ul className="group-detail-tags">
-            <li>
-              <img src={CheckIcon} alt='check_icon' />
-              초보자도 가능 !
-            </li>
-            <li>
-              <img src={CheckIcon} alt='check_icon' />
-              서로 도우면서 합시다!
-            </li>
-            <li>
-              <img src={CheckIcon} alt='check_icon' />
-              매너 있는 분들 원해요~
-            </li>
+            {group.tags.split(',').map(tag => (
+              <li>
+                <img src={CheckIcon} alt='check_icon' />
+                {tag}
+              </li>
+            ))}
           </ul>
 
           <div className="group-detail-recent-meeting">
@@ -57,10 +59,7 @@ const GroupDetail = () => {
 
           <div className="group-detail-desc">
             <h3>모임 상세 설명 </h3>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-              Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, 
-              when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
-              It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+            <p>{group.description}</p>
           </div>
 
           <div className="group-detail-meeting-wrap">

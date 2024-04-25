@@ -184,5 +184,15 @@ export const getGroups = async (category) => {
   }
 }
 
+// 모임 상세 정보
+export const getGroupDetail = async (id) => {
+  try{
+    const response = await axios.get(`/api/group/detail?id=${id}`);
+    return response.data;
+  }catch(err){
+    return err;
+  }
+}
+
 // #endregion
 // group =====================================================================

@@ -4,7 +4,7 @@ const Group = require("../models/Group");
 const auth = require("../middleware/auth");
 const router = express.Router();
 
-// 새 그룹 생성
+// 새 모임 생성
 router.post("/createGroup", auth, async (req, res) => {
   try {
     let maxMember;
@@ -41,7 +41,7 @@ router.post("/createGroup", auth, async (req, res) => {
   }
 });
 
-// 그룹 리스트 불러오기
+// 모임 리스트 불러오기
 router.get('/getGroups', async (req, res) => {
   try{
     const {category} = req.query;
@@ -54,6 +54,18 @@ router.get('/getGroups', async (req, res) => {
     }
 
     return res.status(400).send({message: '그룹을 불러오는데 실패했습니다.'})
+  }catch(err){
+    return res.status(400).send({message: '그룹을 불러오는데 실패했습니다.'})
+  }
+})
+
+// 특정 모임 정보 불러오기
+router.get('/detail', async (req, res) => {
+  try{
+    const {id} = req.query;
+    const group = await Group.findOne({_id: id});
+    if(!group) return res.status(401).send({message: '존재하지 않는 모임입니다.'});
+    return res.status(200).send(group);
   }catch(err){
     return res.status(400).send({message: '그룹을 불러오는데 실패했습니다.'})
   }

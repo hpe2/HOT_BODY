@@ -65,7 +65,6 @@
     width: 1.5rem;
 }
 
-
 .group-detail-content {
     background-color: #fff;
     padding: 10rem 2rem 2rem;
@@ -77,6 +76,10 @@
     gap: 1rem;
     border-bottom: 1px solid #a40000;
     padding-bottom: 2rem;
+}
+
+.group-detail-tags img {
+    width: 20px;
 }
 
 .group-detail-tags li{
@@ -149,7 +152,6 @@
     margin: 0.5rem 0 2rem;
 }
 
-
 .group-detail-meeting-wrap ul{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -164,6 +166,10 @@
     display: flex;
     flex-direction: column;
     gap: 1rem;
+}
+
+.group-detail-meeting-list img {
+    width: 1.5rem;
 }
 
 .group-detail-meeting-list p{
