@@ -67,7 +67,43 @@ router.get('/detail', async (req, res) => {
     if(!group) return res.status(401).send({message: '존재하지 않는 모임입니다.'});
     return res.status(200).send(group);
   }catch(err){
-    return res.status(400).send({message: '그룹을 불러오는데 실패했습니다.'})
+    return res.status(400).send({message: '모임을 불러오는데 실패했습니다.'})
+  }
+})
+
+// 모임 참여
+router.post('/join', auth, async (req, res) => {
+  try{
+    const {groupId} = req.body;
+    const group = await Group.findOne({_id: groupId});
+    if(!group) return res.status(401).send({message: '존재하지 않는 모임입니다.'});
+
+    // 모임이 정원인 경우
+    if(group.members.length == group.memberLimit){
+      return res.status(401).send({message: '이미 정원입니다. 다른 모임을 찾아보세요.'});
+    }
+
+    // 이미 모임에 가입한 유저인지 확인
+    let duplicate = false;
+    await group.members.forEach(memberId => {
+      if(memberId == req.user._id){
+        duplicate = true;
+      }
+    })
+
+    if(duplicate){
+      return res.status(401).send({message: '이미 가입한 모임입니다.'});
+    }else{
+      await Group.findOneAndUpdate(
+        {_id: groupId},
+        {$push : {members: req.user._id}},
+        {new: true}
+      )
+
+      return res.status(200).send({message: '성공적으로 가입했습니다.'});
+    }
+  }catch(err){
+    return res.status(400).send({message: '모임에 가입하는데 실패했습니다.'})
   }
 })
 

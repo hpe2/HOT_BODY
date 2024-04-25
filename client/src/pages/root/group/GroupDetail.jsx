@@ -6,17 +6,24 @@ import CalendarIcon from '/public/images/calendar.svg'
 import LocationIcon from '/public/images/location.svg'
 import BeatIcon from '/public/images/beat.svg'
 import GroupMeetingList from '../../../components/group/GroupMeetingList';
-import { useGetGroupDetail } from '../../../Queries/queriesAndMutations';
-
+import { useGetGroupDetail, useJoinGroup } from '../../../Queries/queriesAndMutations';
+import {toast} from 'react-toastify';
 
 const GroupDetail = () => {
   const {id} = useParams();
   const {data: group, isFetching} = useGetGroupDetail(id);
+  const {mutateAsync: joinGroup, isPending: isJoinning} = useJoinGroup();
 
   if(isFetching){
     return (
       <h1>로딩중. . .</h1>
     )
+  }
+
+  const handleJoinGroup = async () => {
+    const response = await joinGroup(id);
+    toast.info(response.data.message);
+
   }
 
   return (
@@ -72,7 +79,7 @@ const GroupDetail = () => {
             </ul>
           </div>
 
-          <button>모임 참여</button>
+          <button onClick={handleJoinGroup}>{isJoinning ? 'Processing. . .' : '모임 참여'}</button>
 
 
         </div>

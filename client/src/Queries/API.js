@@ -194,5 +194,15 @@ export const getGroupDetail = async (id) => {
   }
 }
 
+// 모임 참여
+export const joinGroup = async (groupId) => {
+  try{
+    const response = await axios.post(`/api/group/join`, {groupId})
+    return response;
+  }catch(err){
+    return err.response;
+  }
+}
+
 // #endregion
 // group =====================================================================

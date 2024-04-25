@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup } from "./API";
 
 // auth =====================================================================
 
@@ -137,9 +137,18 @@ export const useGetGroups = (category) => {
   })
 }
 
+// 모임 상세 정보
 export const useGetGroupDetail = (id) => {
   return useQuery({
     queryFn: () => getGroupDetail(id),
     queryKey: ['GET_GROUP_DETAIL', id]
+  })
+}
+
+// 모임 참여하기
+export const useJoinGroup = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (groupId) => joinGroup(groupId),
   })
 }
