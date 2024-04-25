@@ -17,6 +17,7 @@ import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
 import GroupCreate from './pages/root/group/GroupCreate';
 import Group from './pages/root/group/Group';
+import GroupDetail from './pages/root/group/GroupDetail';
 
 
 
@@ -53,8 +54,9 @@ const App = () => {
           <Route path="/signup" element={<Signup />} />
 
           {/* Group */}
-          <Route path='/group/create' element={<GroupCreate />} />
           <Route path='/group' element={<Group />} />
+          <Route path='/group/create' element={<GroupCreate />} />
+          <Route path='/group/detail/:id' element={<GroupDetail />} />          
         </Routes>
     </>
   );

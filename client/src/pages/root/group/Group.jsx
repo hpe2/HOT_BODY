@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import GroupListItem from '../../../components/group/GroupListItem';
 import '../../../style/group/groupMain.css';
 import PlusIcon from '/public/images/plus.svg'
@@ -58,7 +58,7 @@ const Group = () => {
 
         {/* 내용 */}
         <div className="group-main-content">
-          {groups.data.map(group => (
+          {groups.map(group => (
             <GroupListItem group={group} />
           ))}
         </div>

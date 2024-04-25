@@ -178,7 +178,7 @@ export const createGroup = async (groupData) => {
 export const getGroups = async (category) => {
   try{
     const response = await axios.get(`/api/group/getGroups?category=${category}`);
-    return response;
+    return response.data;
   }catch(err){
     return err;
   }

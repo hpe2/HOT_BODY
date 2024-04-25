@@ -1,13 +1,15 @@
 import PeopleIcon from '/public/images/people.svg';
+import {useNavigate} from 'react-router-dom';
 
 const GroupListItem = ({group}) => {
+  const navigate = useNavigate();
   const categoryInKor = (category) => {
     if(category === 'workout') return '운동'
     if(category === 'hobby') return '취미'
     if(category === 'travel') return '여행'
   }
   return (
-    <div className="group-list-item box-shadow">
+    <div className="group-list-item box-shadow" onClick={() => navigate(`/group/detail/${group._id}`)}>
       <div className="group-list-img">Group Img</div>
       <div className="group-list-info">
         <p className="group-list-category">{categoryInKor(group.category)}</p>
