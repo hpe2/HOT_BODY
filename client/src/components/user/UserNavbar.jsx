@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink, Link } from "react-router-dom";
 import "../../style/user/UserNavbar.scss";
 import DailyInfo from "./DailyInfo";
+import { useUserContext } from '../../context/AuthContext';
 
 
 const userNavLinks = [
@@ -32,9 +33,12 @@ const userNavLinks = [
 ];
 
 const UserNavbar = () => {
+  const { user } = useUserContext();
+  const [dailyCheckedIn, setDailyCheckedIn] = useState(user.checkedToday);
+
   return (
       <aside className="userNavContainer">
-      <DailyInfo/>
+      <DailyInfo value={dailyCheckedIn} setState={setDailyCheckedIn}/>
         <nav className="UserNSB">
           {userNavLinks.map((usernav) => (
             <NavLink

@@ -4,6 +4,7 @@ import Home from "./pages/root/Home";
 import Wrapper from './components/user/Wrapper';
 import Profile from "./pages/user/Profile";
 import Wrote from "./pages/user/Wrote";
+import Pt from "./pages/user/Pt";
 import Group from './pages/user/Group';
 import Point from './pages/user/Point';
 import Login from "./pages/root/auth/Login";
@@ -36,7 +37,7 @@ const App = () => {
           <Route element={<Wrapper />}>
             <Route path="/profile/account" element={<Profile />} />
             <Route path="/profile/wrote" element={<Wrote />} />
-            <Route path="/profile/pt" element={<Profile />} />
+            <Route path="/profile/pt" element={<Pt/>} />
             <Route path="/profile/group" element={<Group />} />
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<Profile />} />
