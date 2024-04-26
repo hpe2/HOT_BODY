@@ -15,6 +15,10 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
+import GroupCreate from './pages/root/group/GroupCreate';
+import Group from './pages/root/group/Group';
+import GroupDetail from './pages/root/group/GroupDetail';
+import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 
 
 
@@ -22,7 +26,7 @@ const App = () => {
   return (
     <>
       <ToastContainer
-        position="top-right"
+        position="bottom-right"
         theme="light"
         pauseOnHover
         autoClose={2000}
@@ -49,6 +53,13 @@ const App = () => {
           {/* auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+
+          {/* Group */}
+          <Route path='/group' element={<Group />} />
+          <Route path='/group/create' element={<GroupCreate />} />
+          <Route path='/group/detail/:id' element={<GroupDetail />} /> 
+          <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
+
         </Routes>
     </>
   );

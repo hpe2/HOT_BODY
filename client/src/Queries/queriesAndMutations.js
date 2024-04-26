@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup } from "./API";
 
 // auth =====================================================================
 
@@ -109,6 +109,7 @@ export const useEditCommunityPost = (id) => {
   })
 }
 
+// 커뮤니티 글 삭제
 export const useDeleteCommunityPost = (id) => {
   const queryClient = useQueryClient();
   return useMutation({
@@ -116,5 +117,45 @@ export const useDeleteCommunityPost = (id) => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_COMMUNITY_POSTS'],
     })
+  })
+}
+
+// group =====================================================================
+
+// 모임 생성
+export const useCreateGroup = () => {
+  return useMutation({
+    mutationFn: (groupData) => createGroup(groupData),
+  })
+}
+
+// 모임 리스트 읽기
+export const useGetGroups = (category) => {
+  return useQuery({
+    queryFn: () => getGroups(category),
+    queryKey: ['GET_GROUPS_BY_CATEGORY', category]
+  })
+}
+
+// 모임 상세 정보
+export const useGetGroupDetail = (id) => {
+  return useQuery({
+    queryFn: () => getGroupDetail(id),
+    queryKey: ['GET_GROUP_DETAIL', id]
+  })
+}
+
+// 모임 참여하기
+export const useJoinGroup = (id) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (groupId) => joinGroup(groupId),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_GROUP_DETAIL', id]
+    })
+    // onMutate: async () => {
+    //   await queryClient.cancelQueries(['JOIN_GROUP']);
+    //   queryClient.setQueriesData(['JOIN_GROUP'])
+    // }
   })
 }
