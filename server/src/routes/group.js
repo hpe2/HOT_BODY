@@ -91,17 +91,14 @@ router.post('/join', auth, async (req, res) => {
       }
     })
 
-    if(duplicate){
-      return res.status(401).send({message: '이미 가입한 모임입니다.'});
-    }else{
-      await Group.findOneAndUpdate(
-        {_id: groupId},
-        {$push : {members: req.user._id}},
-        {new: true}
-      )
-
-      return res.status(200).send({message: '성공적으로 가입했습니다.'});
-    }
+    if(duplicate) return res.status(401).send({message: '이미 가입한 모임입니다.'});
+    
+    const updatedGroup = await Group.findOneAndUpdate(
+      {_id: groupId},
+      {$push : {members: req.user._id}},
+      {new: true}
+    )
+    return res.status(200).send({updatedGroup, message: '성공적으로 가입했습니다.'});
   }catch(err){
     return res.status(400).send({message: '모임에 가입하는데 실패했습니다.'})
   }

@@ -146,9 +146,16 @@ export const useGetGroupDetail = (id) => {
 }
 
 // 모임 참여하기
-export const useJoinGroup = () => {
+export const useJoinGroup = (id) => {
   const queryClient = useQueryClient();
   return useMutation({
     mutationFn: (groupId) => joinGroup(groupId),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_GROUP_DETAIL', id]
+    })
+    // onMutate: async () => {
+    //   await queryClient.cancelQueries(['JOIN_GROUP']);
+    //   queryClient.setQueriesData(['JOIN_GROUP'])
+    // }
   })
 }

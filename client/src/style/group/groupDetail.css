@@ -1,4 +1,5 @@
 .group-detail-wrap{
+    position: relative;
     background-color: #f8f8f8;
     padding: 3rem 0;
 }
@@ -141,6 +142,19 @@
 
 .group-detail-meeting-wrap{
     margin-bottom: 4rem;
+}
+
+.group-detail-meeting-header {
+    display: flex;
+    align-self: center;
+    justify-content: space-between;
+}
+
+.more-group-meetings {
+    cursor: pointer;
+    border: 1px solid #4b4b4b;
+    padding: 0.1rem 1rem;
+    border-radius: 5px;
 }
 
 .group-detail-meeting-wrap h3{
