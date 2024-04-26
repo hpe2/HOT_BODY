@@ -15,22 +15,23 @@ const PtReservation = ({ image,trainer, At, time, location, text, price }) => {
   return (
 
     <div className="ptField">
-      <div className='imageContainer'>
-        <img src="" alt={image} className='ptImage'/>
-      </div>
-      <div className='ptStatus'>
-        <h1>{trainer} 선생님</h1>
-        <span>{location}</span>
-        <span>{At}<br/>{time}</span>
-      </div>
-        <div className="checkPoint" onClick={PanelDrop}>
-          <span>{isAllVaild === true ? <IoIosArrowDown />: <IoIosArrowUp />}</span>
+      <div className='ptInnerContainer'>
+        <div className='imageContainer'>
+          <img src="" alt={image} className='ptImage'/>
         </div>
+        <div className='ptStatus'>
+          <h2 className='trainerName'>{trainer} 선생님</h2>
+          <span>{location}</span>
+          <span>{At}<br/>{time}</span>
+        </div>
+      </div>
+      <div className="checkPoint" onClick={PanelDrop}>
+        <span>상세내용보기</span>
+        <span>{isAllVaild === true ? <IoIosArrowDown />: <IoIosArrowUp />}</span>
+      </div>
       <div className={`panel-checkPoint ${isAllVaild ? '' : 'dropdown'}`}>
-        <tr>
-          <td>{text > 40 ? `${text.slice(0, 40)}...` : text}</td>
-          <td>{price}</td>
-        </tr>
+        <h3>프로그램 명: {text > 40 ? `${text.slice(0, 40)}...` : text}</h3>
+        <h3>가격: {price}</h3>
       </div>
     </div>
   )

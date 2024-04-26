@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useUserContext } from '../../context/AuthContext';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import UserMemberPurchaseList from './UserMemberPurchaseList';
-import Wheel from './Wheel';
+import CardGame from './CardGame';
 
 
 
@@ -12,7 +12,6 @@ const PointInfo = () => {
   const {user} = useUserContext(); //
   const [isAllVaild, setIsAllVaild] = useState(true);
   const [modalOpen, setModalOpen] = useState(false);
-  const [history, setHistory] = useState([]);
 
   const modalBackground = useRef();
   const PointList = [
@@ -52,7 +51,7 @@ const PointInfo = () => {
         }}>
           <div className={'modal-content'}>
             <div className='modal-boxContainer'>
-              <Wheel value={history} setState={setHistory}/>
+              <CardGame/>
             </div>
             <div className='data'>
               <div className='modal-inner-boxContainer'>
