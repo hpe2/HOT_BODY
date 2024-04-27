@@ -57,8 +57,8 @@ const HomeBanner = () => {
       <div className='home-banner-text'>
         <p className='home-this-year'>2024</p>
         <h1 className='home-banner-title'>
-          <span className='point-color'>Hot Body</span> Journey<br/> 
-          Starts Here
+          <span className='point-color'>핫바디</span>를 위한 여정<br/> 
+          지금 떠나세요
         </h1>
 
         <ul className='home-banner-intro'>
