@@ -1,6 +1,5 @@
 
 import { Route, Routes } from "react-router-dom";
-import Home from "./pages/root/Home";
 import Wrapper from './components/user/Wrapper';
 import Profile from "./pages/user/Profile";
 import Wrote from "./pages/user/Wrote";
@@ -19,6 +18,8 @@ import GroupCreate from './pages/root/group/GroupCreate';
 import Group from './pages/root/group/Group';
 import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
+import Home from "./pages/root/home/Home";
+import Footer from "./components/Footer";
 
 
 
@@ -61,6 +62,7 @@ const App = () => {
           <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
 
         </Routes>
+        <Footer />
     </>
   );
 };
