@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import "./../../style/user/cardgame.scss"
 import {toast} from 'react-toastify';
 
 
@@ -44,7 +43,8 @@ const CardGame = () => {
   };
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <div className='cardGame'>
+      <div className='cardGame-innerContainer'>
       {cards.map(card => (
         <div
           key={card.id}
@@ -57,8 +57,11 @@ const CardGame = () => {
           </div>
         </div>
       ))}
-      <p>남은 시도 횟수: {availableAttempts}</p>
-      <button onClick={resetCards}>다시 시작하기</button>
+      </div>
+      <div className='card-controll'>
+        <p className='chance'>남은 시도 횟수: {availableAttempts}</p>
+        <button className='retry' onClick={resetCards}>다시 시작하기</button>
+      </div>
     </div>
   );
 };

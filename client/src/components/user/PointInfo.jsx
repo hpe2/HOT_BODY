@@ -52,7 +52,6 @@ const PointInfo = () => {
           <div className={'modal-content'}>
             <div className='modal-boxContainer'>
               <CardGame/>
-            </div>
             <div className='data'>
               <div className='modal-inner-boxContainer'>
                 현재 보유 포인트
@@ -65,6 +64,7 @@ const PointInfo = () => {
               <button className={'modal-close-btn'} onClick={() => setModalOpen(false)}>
                 모달 닫기
               </button>
+            </div>
             </div>
           </div>
         </div>
