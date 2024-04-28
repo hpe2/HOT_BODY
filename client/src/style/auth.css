@@ -1,145 +1,125 @@
-.LoginContainer {
+.auth-wrap{
+  width: 100%;
+  height: 100%;
+  background-color: #f8f8f8;
+  padding: 5rem 1rem;
+}
+
+.auth-container{
+  max-width: 1280px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  border-radius: 1rem;
+  overflow: hidden;
+  max-height: 850px;
+}
+
+.auth-left {
+  flex: 0.8;
+  position: relative;
+}
+
+.auth-left img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.auth-banner-img-overlay{
   position: absolute;
   top: 0;
-  right: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  z-index: 10;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
 }
 
-.loginRightSection {
+
+/* right side ======================= */
+
+.auth-right{
+  flex: 1;
   position: relative;
-  width: 100%;
-  height: 100%;
-  flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.loginLeftSection {
-  width: 100%;
-  height: 100%;
-  flex: 1;
-  background-color: rgb(255, 255, 255);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-image: url(./public/images/back.jpg);
-
-  background-position: center;
-}
-
-.loginForm {
-  border: 1px solid black;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
-  max-width: 700px;
-  width: 100%;
-  background-image: url(./public/images/logo.png);
-  background-repeat: no-repeat;
+  align-items: center;
+  justify-content: center;
 }
 
-.authLinks {
+.auth-label {
   position: absolute;
-  top: 20%;
-  left: -150px;
+  top: 25%;
+  left: -170px;
   display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
+  flex-direction: column; 
+  gap: 1rem;
 }
 
-.authLinks li {
-  cursor: pointer;
-  padding: 0.75rem 1rem;
-  color: black;
-  border: 1px solid black;
-  width: 150px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-
-.authMenuActive {
-  cursor: pointer;
-  color: #fff;
-  background-color: rgb(202, 77, 77);
-  padding: 0.75rem 1rem;
-  width: 150px;
-  border-top-left-radius: 5px;
-  border-bottom-left-radius: 5px;
-}
-.userIdInput {
-  height: 35px;
-  width: 200px;
-  margin-bottom: 20px;
-  border: none;
-  border-bottom: 1px solid #000000;
-}
-.pwdInput {
-  height: 35px;
-  width: 200px;
-  margin-bottom: 20px;
-  border: none;
-  border-bottom: 1px solid #000000;
-}
-.useridInput {
-  height: 35px;
-  width: 200px;
-  margin-bottom: 20px;
-  border: none;
-  border-bottom: 1px solid #000000;
-}
-.emailInput {
-  height: 35px;
-  width: 200px;
-  margin-bottom: 20px;
-  border: none;
-  border-bottom: 1px solid #000000;
-}
-.nameInput {
-  height: 35px;
-  margin-bottom: 20px;
-  border: none;
-  width: 200px;
-  border-bottom: 1px solid #000000;
-}
-.loginForm {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 70%;
-  border: 2px solid black;
-  background-color: aliceblue;
-}
-#btn {
-  background-color: var(--blue);
-  border-radius: 20px;
-  border: 1px solid black;
-  color: var(--white);
-  cursor: pointer;
-  font-size: 0.8rem;
+.auth-label li{
+  width: 170px;
+  padding: 1.25rem 1.5rem;
+  border-radius: 20px 0 0 20px;
   font-weight: bold;
-  letter-spacing: 0.1rem;
-  padding: 0.9rem 4rem;
-  text-transform: uppercase;
-  transition: transform 80ms ease-in;
+  font-size: 1.25rem;
 }
-.userIdIcon {
-  padding-left: 20px; /* 이미지와 텍스트 간격 조절 */
-  background-image: url("./public/images/id.png");
-  background-repeat: no-repeat;
-  background-size: 16px; /* 이미지 크기 조절 */
-  background-position: 5px;
+
+.auth-label-not-active{
+  background-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  cursor: pointer;
 }
-.pwdIcon {
-  padding-left: 20px; /* 이미지와 텍스트 간격 조절 */
-  background-image: url("./public/images/pw.png");
-  background-repeat: no-repeat;
-  background-size: 16px; /* 이미지 크기 조절 */
-  background-position: 5px;
+
+.auth-label-active {
+  background-color: #fff;
+  color: #a40000;
+}
+
+.auth-logo{
+  width: 400px;
+}
+
+.auth-input-wrap {
+  display: flex;
+  gap: 0.5rem;
+  border-bottom: 1px solid gray;
+  padding-bottom: 0.25rem;
+  font-size: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.auth-input-wrap img {
+  width: 30px;
+}
+
+.auth-input {
+  width: 350px;
+  border: none;
+}
+
+.auth-input::placeholder{
+  font-size: 1rem;
+  color: #aeaeae;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.auth-form p:hover{
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.auth-form button{
+  margin-top: 3rem;
+  border: none;
+  padding: 0.75rem 0;
+  background-color: #a40000;
+  color: white;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
 }
