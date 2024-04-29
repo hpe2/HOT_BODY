@@ -38,30 +38,30 @@ const PointInfo = () => {
           <h1>{user.point}</h1>
         </div>
         <div className='buttons'>
-          <button className={'modal-open-btn'} onClick={() => setModalOpen(true)}>
+          <button className={'card-modal-open-btn'} onClick={() => setModalOpen(true)}>
             응모하기
           </button>
         </div>
         {
         modalOpen &&
-        <div className={'modal-container'} ref={modalBackground} onClick={(e) => {
+        <div className={'card-modal-container'} ref={modalBackground} onClick={(e) => {
           if (e.target === modalBackground.current) {
             setModalOpen(false);
           }
         }}>
-          <div className={'modal-content'}>
-            <div className='modal-boxContainer'>
-              <CardGame/>
+          <div className={'card-modal-content'}>
+            <div className='card-modal-boxContainer'>
+              <CardGame point={user.point}/>
             <div className='data'>
-              <div className='modal-inner-boxContainer'>
+              <div className='card-modal-inner-boxContainer'>
                 현재 보유 포인트
                 <span>{user.point}</span>
               </div>
-              <div className='modal-inner-boxContainer'>
+              <div className='card-modal-inner-boxContainer'>
                 응모내역
                   <div><span>{history.prize}</span><span>{history.time}</span></div>
               </div>
-              <button className={'modal-close-btn'} onClick={() => setModalOpen(false)}>
+              <button className={'card-modal-close-btn'} onClick={() => setModalOpen(false)}>
                 모달 닫기
               </button>
             </div>

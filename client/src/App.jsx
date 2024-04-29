@@ -14,6 +14,7 @@ import Navbar from "./components/Navbar";
 import CommunityPosting from "./pages/root/community/CommunityPosting";
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
+import CustomerServicePage from "./pages/user/CustomerServicePage";
 
 
 
@@ -40,7 +41,7 @@ const App = () => {
             <Route path="/profile/pt" element={<Pt/>} />
             <Route path="/profile/group" element={<Group />} />
             <Route path="/profile/point" element={<Point />} />
-            <Route path="/gogaek" element={<Profile />} />
+            <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
           {/* auth */}
           <Route path="/login" element={<Login />} />
