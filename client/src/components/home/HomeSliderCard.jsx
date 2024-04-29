@@ -7,7 +7,6 @@ const HomeSliderCard = ({img, link, category, text, totalText, totalNum}) => {
         <p className="slider-link" onClick={() => navigate(`/${link}`)}>
           {category} 페이지로
         </p>
-        <h1>[ {category} ]</h1>
         <p>
           {text}
           <br />

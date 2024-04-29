@@ -2,6 +2,10 @@ import { useState } from 'react';
 import GroupListItem from '../../../components/group/GroupListItem';
 import '../../../style/group/groupMain.css';
 import PlusIcon from '/public/images/plus.svg'
+import Travel from '/public/images/travel.jpeg'
+import Hobby from '/public/images/hobby.jpeg'
+import WorkOut from '/public/images/workout.jpeg'
+
 import {useNavigate} from 'react-router-dom'
 import {useGetGroups} from '../../../Queries/queriesAndMutations';
 
@@ -21,6 +25,12 @@ const Group = () => {
     return (
       <h1>로딩중. . .</h1>
     )
+  }
+
+  const selectImgByCategory = (category) => {
+    if(category === 'all' || category === 'workout') return WorkOut;
+    else if(category === 'hobby') return Hobby;
+    else return Travel
   }
 
   console.log(groups);
@@ -59,7 +69,7 @@ const Group = () => {
         {/* 내용 */}
         <div className="group-main-content">
           {groups.map(group => (
-            <GroupListItem group={group} />
+            <GroupListItem group={group} img={selectImgByCategory(group.category)} />
           ))}
         </div>
 

@@ -42,13 +42,13 @@ const HomeBanner = () => {
     setInterval(() => handleSlideRight, 1000)
   }
 
-  // useEffect(() => {
-  //   const timer = setInterval(() => {
-  //     handleSlideRight()
-  //   }, 3000);
+  useEffect(() => {
+    const timer = setInterval(() => {
+      handleSlideRight()
+    }, 3000);
 
-  //   return () => clearInterval(timer);
-  // }, [sliderPosition]);
+    return () => clearInterval(timer);
+  }, [sliderPosition]);
 
 
   return (
@@ -98,7 +98,7 @@ const HomeBanner = () => {
               link='/community'
               category='커뮤니티'
               text='다양한 정보를 찾으시나요?'
-              totalText='현재 등록된 게시글'
+              totalText='현재 커뮤니티에 등록 된 게시글'
               totalNum={'123 개'}
             />
 
