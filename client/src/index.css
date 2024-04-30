@@ -34,6 +34,10 @@ textarea:focus {
   animation: loading 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
+.point-color{
+  color: #a40000;
+}
+
 @keyframes loading {
   0%, 100% {
     opacity: 1;
