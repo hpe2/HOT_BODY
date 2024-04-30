@@ -4,7 +4,7 @@ import { useUserContext } from "../../context/AuthContext";
 import GroupInfo from "../../components/user/GroupInfo";
 
 
-const Group = () => {
+const Groups = () => {
   const {user} = useUserContext();
   const [pointDetail, setPointDetail] = useState(false);
   const GroupList = [
@@ -42,4 +42,4 @@ const Group = () => {
   )
 };
 
-export default Group;
+export default Groups;
