@@ -20,6 +20,7 @@ import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
+import EventPage from "./pages/root/Event/EventPage";
 
 
 
@@ -51,6 +52,7 @@ const App = () => {
             <Route path="/profile/point/roulette" element={<PointRoulette />} />
             <Route path="/gogaek" element={<Profile />} />
           </Route>
+
           {/* auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -61,6 +63,8 @@ const App = () => {
           <Route path='/group/detail/:id' element={<GroupDetail />} /> 
           <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
 
+          {/* event */}
+          <Route path="/event" element={<EventPage />} />
         </Routes>
         <Footer />
     </>
