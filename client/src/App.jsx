@@ -20,7 +20,7 @@ import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
-
+import PTMain from './pages/root/pt/PTMain';
 
 
 const App = () => {
@@ -60,6 +60,9 @@ const App = () => {
           <Route path='/group/create' element={<GroupCreate />} />
           <Route path='/group/detail/:id' element={<GroupDetail />} /> 
           <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
+
+          {/* PT */}
+          <Route path='/pt' element={<PTMain />} />
 
         </Routes>
         <Footer />
