@@ -17,7 +17,6 @@ import CustomerServicePage from "./pages/user/CustomerServicePage";
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
 import GroupCreate from './pages/root/group/GroupCreate';
-import Group from './pages/root/group/Group';
 import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
