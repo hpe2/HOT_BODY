@@ -21,6 +21,7 @@ import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
 import PTMain from './pages/root/pt/PTMain';
+import PTDetail from './pages/root/pt/PTDetail';
 
 
 const App = () => {
@@ -63,6 +64,7 @@ const App = () => {
 
           {/* PT */}
           <Route path='/pt' element={<PTMain />} />
+          <Route path='/pt/detail' element={<PTDetail />} />
 
         </Routes>
         <Footer />

@@ -17,7 +17,7 @@ const PtSearchResultDetail = ({setIsDetailOpen}) => {
 
     <button 
       className='pt-search-result-navigate-btn box-shadow'
-      onClick={() => navigate('')}
+      onClick={() => navigate('/pt/detail')}
     >
       상세 정보
     </button>
