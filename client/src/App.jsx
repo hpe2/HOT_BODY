@@ -17,11 +17,11 @@ import CustomerServicePage from "./pages/user/CustomerServicePage";
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
 import GroupCreate from './pages/root/group/GroupCreate';
-import Group from './pages/root/group/Group';
 import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
+import EventPage from "./pages/root/Event/EventPage";
 
 
 
@@ -52,6 +52,7 @@ const App = () => {
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
+
           {/* auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -62,6 +63,8 @@ const App = () => {
           <Route path='/group/detail/:id' element={<GroupDetail />} /> 
           <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
 
+          {/* event */}
+          <Route path="/event" element={<EventPage />} />
         </Routes>
         <Footer />
     </>
