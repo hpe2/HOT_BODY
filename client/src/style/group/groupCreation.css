@@ -1,0 +1,102 @@
+.group-creation-wrap{
+  background-color: #f8f8f8;
+  padding: 4rem 0;
+  font-size: 0.9rem;
+}
+
+.group-creation-container{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 789px;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  padding: 2rem;
+  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+}
+
+.group-creation-container h2{
+  border-bottom: 1.5px solid #a40000;
+  padding-bottom: 1rem;
+}
+
+.group-creation-info{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.group-creation-category{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.group-creation-category p{
+  width: 60px;
+  text-align: end;
+}
+
+.group-creation-category select{
+  appearance: none;
+  width: 200px;
+  padding: 0.5rem;
+}
+
+.group-creation-input{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.group-creation-container input{
+  color:#585656;
+}
+
+.group-creation-input p{
+  width: 60px;
+  text-align: end;
+}
+
+.group-creation-input input {
+  border: none;
+  background: #eee;
+  flex: 1;
+  padding: 0.5rem 0.75rem;
+  border-radius: 5px;
+}
+
+.groupCategories{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.group-creation-container button {
+  width: fit-content;
+  align-self: flex-end;
+  border: none;
+  margin: 1rem 0;
+  background-color: #a40000;
+  color: white;
+  padding: 0.5rem 1.75rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.group-description {
+  align-items: flex-start;
+}
+
+.group-description textarea{
+  border: none;
+  background: #eee;
+  min-height: 300px;
+  height: 100%;
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 5px;
+}

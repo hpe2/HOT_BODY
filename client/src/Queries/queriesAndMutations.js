@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup } from "./API";
 
 // auth =====================================================================
 
@@ -61,5 +61,101 @@ export const useCreateCommunityPost = () => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_USER_WROTE']
     })
+  })
+}
+
+// 특정 글 상세 정보 가져오기
+export const useGetCommunityPostDetail = (id) => {
+  return useQuery({
+    queryFn: () => getCommunityPostDetail(id),
+    queryKey: ['GET_COMMUNITY_POST', id]
+  })
+}
+
+// 특정 글 좋아요 처리
+export const useLikeCommunityPost = () => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (id) => likeCommunityPost(id),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_COMMUNITY_POSTS'],
+    })
+  })
+}
+
+// 특정 글에 댓글 달기
+export const useReplyCommunityPost = () => {
+  return useMutation({
+    mutationFn: (replyData) => replyCommunityPost(replyData),
+  }) 
+}
+
+// 특정 글에 댓글 삭제
+export const useDeleteReply = () => {
+  return useMutation({
+    mutationFn: (replyData) => deleteReply(replyData)
+  })
+}
+
+// 커뮤니티 글 수정
+export const useEditCommunityPost = (id) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (editedData) => editCommunityPost(id, editedData),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_COMMUNITY_POSTS'],
+      queryKey: ['GET_COMMUNITY_POST', id]
+    })
+  })
+}
+
+// 커뮤니티 글 삭제
+export const useDeleteCommunityPost = (id) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: () => deleteCommunityPost(id),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_COMMUNITY_POSTS'],
+    })
+  })
+}
+
+// group =====================================================================
+
+// 모임 생성
+export const useCreateGroup = () => {
+  return useMutation({
+    mutationFn: (groupData) => createGroup(groupData),
+  })
+}
+
+// 모임 리스트 읽기
+export const useGetGroups = (category) => {
+  return useQuery({
+    queryFn: () => getGroups(category),
+    queryKey: ['GET_GROUPS_BY_CATEGORY', category]
+  })
+}
+
+// 모임 상세 정보
+export const useGetGroupDetail = (id) => {
+  return useQuery({
+    queryFn: () => getGroupDetail(id),
+    queryKey: ['GET_GROUP_DETAIL', id]
+  })
+}
+
+// 모임 참여하기
+export const useJoinGroup = (id) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: (groupId) => joinGroup(groupId),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_GROUP_DETAIL', id]
+    })
+    // onMutate: async () => {
+    //   await queryClient.cancelQueries(['JOIN_GROUP']);
+    //   queryClient.setQueriesData(['JOIN_GROUP'])
+    // }
   })
 }

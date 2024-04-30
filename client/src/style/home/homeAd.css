@@ -1,0 +1,65 @@
+.home-ad-container{
+  margin-top: 2.5rem;
+  display: flex;
+  padding: 1rem 0;
+  gap: 2rem;
+}
+
+.home-ad-img {
+  border-radius: 20px;
+  overflow: hidden;
+  width: 275px;
+  height: 235px;
+  transition: all 100ms ease-out;
+}
+
+.home-ad-img img {
+  position: relative;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.home-ad-img:hover{
+  scale: 1.05;
+}
+
+.home-ad-content{
+  flex: 5;
+  background-color: #656565;
+  color: white;
+  border-radius: 20px 0 0 20px;
+  padding: 2rem 3rem;
+}
+
+.home-ad-content-title {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.home-ad-content p{
+  font-size: 0.9rem;
+  color: #eaeaea;
+  margin-top: 0.25rem;
+}
+
+.home-ad-link-btn {
+  border: none;
+  background-color: #fff;
+  padding: 0.5rem 3rem;
+  border-radius: 100px;
+  color: rgb(74, 74, 74);
+  margin-top: 3rem;
+}
+
+
+.home-ad-second{
+  background-color: #656565;
+  margin-top: 4rem;
+  width: 90%;
+  height: 200px;
+  border-radius: 0 20px 20px 0;
+  display: flex;
+  align-self: center;
+  justify-content: center;
+}

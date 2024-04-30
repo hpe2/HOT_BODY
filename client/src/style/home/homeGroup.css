@@ -1,0 +1,44 @@
+
+.home-group-container{
+  margin: 5.5rem 0;
+  text-align: center;
+}
+
+.home-group-title {
+  position: relative;
+  text-align: center;
+}
+
+.home-group-title p{
+  position: absolute;
+  cursor: pointer;
+  color: #a40000;
+  right: 20px;
+  bottom: 0;
+  padding-bottom: 0.25rem;
+}
+
+.home-group-title p:hover{
+  font-weight: bold;
+}
+
+.home-group-wrap {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: space-evenly;
+  margin-top: 4rem;
+}
+
+.home-group-wrap li {
+  background-color: gray;
+  width: 250px;
+  height: 250px;
+  padding: 1rem;
+  border-radius: 10px;
+  transition: all 150ms ease-in-out;
+}
+
+.home-group-wrap li:hover {
+  scale: 1.05;
+}

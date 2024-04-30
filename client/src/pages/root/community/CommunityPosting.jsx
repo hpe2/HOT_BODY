@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import ImgUploader from '../../../components/community/ImgUploader';
 import { useUserContext } from '../../../context/AuthContext';
 import { useCreateCommunityPost } from '../../../Queries/queriesAndMutations';
@@ -12,16 +12,16 @@ const categories = [
   {category: 'QA', name: 'Q & A'}
 ];
 
-const CommunityNewPost = () => {
+const CommunityPosting = () => {
   const navigate = useNavigate();
   const { isAuthenticated } = useUserContext();
   const { mutateAsync: createPost, isPending} = useCreateCommunityPost();
-  const { type } = useParams();
   const [category, setCategory] = useState(0);
   const [title, setTitle] = useState('');
   const [text, setText] = useState('');
   const [image, setImage] = useState('');
   const [tags, setTags] = useState('');
+  
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -61,7 +61,7 @@ const CommunityNewPost = () => {
     <section className="communityPostingWrap">
       <div className="communityPostingContainer">
         <h2 className="postingType">
-          {type === "create" ? "새로운 글 작성하기" : "글 수정하기"}
+          새로운 글 작성하기
         </h2>
         <form className="communityPostForm" onSubmit={handleSubmit}>
           <div className="communityFormTop">
@@ -125,4 +125,4 @@ const CommunityNewPost = () => {
   );
 };
 
-export default CommunityNewPost;
+export default CommunityPosting;
