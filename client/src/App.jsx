@@ -4,7 +4,7 @@ import Wrapper from './components/user/Wrapper';
 import Profile from "./pages/user/Profile";
 import Wrote from "./pages/user/Wrote";
 import Pt from "./pages/user/Pt";
-import Group from './pages/user/Group';
+import Groups from './pages/user/Groups';
 import Point from './pages/user/Point';
 import Login from "./pages/root/auth/Login";
 import Signup from "./pages/root/auth/Signup";
@@ -17,6 +17,7 @@ import CustomerServicePage from "./pages/user/CustomerServicePage";
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
 import GroupCreate from './pages/root/group/GroupCreate';
+import Group from './pages/root/group/Group';
 import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
@@ -47,7 +48,7 @@ const App = () => {
             <Route path="/profile/account" element={<Profile />} />
             <Route path="/profile/wrote" element={<Wrote />} />
             <Route path="/profile/pt" element={<Pt/>} />
-            <Route path="/profile/group" element={<Group />} />
+            <Route path="/profile/group" element={<Groups />} />
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
