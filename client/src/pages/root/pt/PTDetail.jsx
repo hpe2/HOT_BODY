@@ -23,6 +23,15 @@ const PTDetail = () => {
                 <p>예약 건수 : 123 회, &nbsp;</p>
                 <p>후기: 40 개</p>
               </div>
+              <p className='flex-align'>
+                <img src={Star} alt='star' className='pt-detail-star'/>
+                <img src={Star} alt='star' className='pt-detail-star'/>
+                <img src={Star} alt='star' className='pt-detail-star'/>
+                <img src={Star} alt='star' className='pt-detail-star'/>
+                <img src={Star} alt='star' className='pt-detail-star'/>
+
+                4.5 / 5.0
+              </p>
             </div>
           </div>
 

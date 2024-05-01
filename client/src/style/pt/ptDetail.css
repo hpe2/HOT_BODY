@@ -18,6 +18,10 @@
     padding: 0 1rem;
 }
 
+.pt-detail-star {
+    width: 20px;
+}
+
 .flex-col{
     display: flex;
     flex-direction: column;
@@ -27,6 +31,7 @@
 .flex-align{
     display: flex;
     align-items: center;
+    gap: 0.25rem;
 }
 
 .pt-detail-gymImg {

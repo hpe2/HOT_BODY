@@ -22,6 +22,7 @@ import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
 import PTMain from './pages/root/pt/PTMain';
 import PTDetail from './pages/root/pt/PTDetail';
+import PtResiger from './pages/root/pt/PtResiger';
 
 
 const App = () => {
@@ -65,6 +66,7 @@ const App = () => {
           {/* PT */}
           <Route path='/pt' element={<PTMain />} />
           <Route path='/pt/detail' element={<PTDetail />} />
+          <Route path='/pt/register' element={<PtResiger />} />
 
         </Routes>
         <Footer />
