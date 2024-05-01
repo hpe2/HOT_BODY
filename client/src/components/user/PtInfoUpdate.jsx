@@ -79,8 +79,8 @@ const PtInfoUpdate = ({setPtEdit}) => {
         </select>
       </div>
       <div className='buttons'>
-        <button type="submit">{isPending ? 'Processing. . .': '수정하기'}</button>
-        <button type="button" onClick={() => {setPtEdit(false)}}>취소하기</button>
+        <button className='PtEditButton' type="submit">{isPending ? 'Processing. . .': '수정하기'}</button>
+        <button className='PtEditButton cancle' type="button" onClick={() => {setPtEdit(false)}}>취소하기</button>
       </div>
     </form>
   )

@@ -7,26 +7,24 @@
 	margin-inline-start: 0px;
 	margin-inline-end: 0px;
 }
-.info {
-	display: flex;
-	flex-direction: column;
+.userInfo {
 	padding: 1rem;
+	line-height: 1.6rem;
+	margin-bottom: 2.8rem;
 }
-.info span {
-	display: flex;
-	margin-left: 0.4rem;
-	flex-direction: column;
-}
-.info p {
+.userInfo p {
 	margin-left: 0.4rem;
 	font-size: 1rem;
-	margin-bottom: 1rem;
+	margin-bottom: 1.4rem;
 }
-.info p strong {
+.userInfo p strong {
 	text-decoration: underline;
 }
+.userInfo span {
+	display: flex;
+}
 	
-.info button {
+.userInfo .dailyButton {
 	display: flex;
 	padding: 0.7rem;
 	color: #fff;
@@ -38,20 +36,20 @@
 	border: none;
 	border-radius: 2rem;
 }
-.info button h3 {
+.userInfo .dailyButton h3 {
 	display: flex;
 	font-size: 0.9rem;
 	font-weight: 600;
 }
-.info button h3 small{
+.userInfo .dailyButton h3 small{
 	margin-left: 8px;
 }
 
-.info button:hover {
+.userInfo button:hover {
 	background-color: #990000;
 	color: #fff1f1;
 }
-.info button:active {
+.userInfo button:active {
 	background-color: #750000;
 	color: #ffcccc;
 }

@@ -8,7 +8,7 @@ const Wrote = () => {
 
   return (
     <>
-      <div className="content">
+      <section className="wroteContent">
         <div className="container">
           <div className="wrote">
             <h1>내가 쓴 글</h1>
@@ -17,9 +17,9 @@ const Wrote = () => {
                 <table>
                   <thead>
                     <tr>
-                      <th className="cate">카테고리</th>
-                      <th className="title">제목</th>
-                      <th className="date">날짜</th>
+                      <th className="thCate">카테고리</th>
+                      <th className="thTitle">제목</th>
+                      <th className="thDate">날짜</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -37,7 +37,7 @@ const Wrote = () => {
               </div>
             </div>
           </div>
-        </div>
+        </section>
     </>
   )
 };

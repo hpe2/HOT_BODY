@@ -12,7 +12,7 @@ const purposeList = [
   {value: 'competition', text:'대회 준비'},
 ]
 
-const PtInfoUpdate = ({setPtEdit}) => {
+const PtTrainerInfo = ({setPtEdit}) => {
   const {user} = useUserContext(); //PersonalInfo 필요
 
   const handlePurpose = (value) => {
@@ -50,11 +50,9 @@ const PtInfoUpdate = ({setPtEdit}) => {
         <span>운동목적</span>
         <span className='inputContent'>{user.personalInfo.purpose ? handlePurpose(user.personalInfo.purpose) : '정보 없음'}</span>
       </div>
-      <div className="buttons">
-        <button className='PtEditButton' onClick={() => {setPtEdit(true)}}>수정하기</button>
-      </div>
+      <button className='ProfileEditButton' onClick={() => {setPtEdit(true)}}>수정하기</button>
     </form>
   )
 }
 
-export default PtInfoUpdate
+export default PtTrainerInfo

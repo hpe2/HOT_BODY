@@ -24,6 +24,10 @@ const navLinks = [
     link: "/subscribe",
     menuName: "구독",
   },
+  {
+    link: "/event",
+    menuName: "이벤트",
+  },
 ];
 
 const Navbar = () => {

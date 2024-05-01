@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import {useNavigate} from 'react-router-dom';
 import {toast} from 'react-toastify';
 
-const PtResiger = () => {
+const PTResiger = () => {
   const {user} = useUserContext();
   const navigate = useNavigate();
   const [speciality, setSpeciality] = useState('');
@@ -47,4 +47,4 @@ const PtResiger = () => {
   )
 }
 
-export default PtResiger
+export default PTResiger
