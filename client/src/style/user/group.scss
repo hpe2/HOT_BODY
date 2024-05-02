@@ -3,6 +3,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 440px;
+	margin-bottom: 8rem;
 }
 .groupContainer {
 	display: flex;
@@ -40,6 +41,11 @@
 			align-items: center;
 			width: 100%;
 			padding: 16px;
+			&:hover {
+				background-color: rgb(255, 248, 248);
+				border-radius: 1rem;
+				transition: all 0.2s;
+			}
 			.groupTitle{
 				display: flex;
 				align-items: center;

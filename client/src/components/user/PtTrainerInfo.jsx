@@ -20,7 +20,7 @@ const PtTrainerInfo = ({image, trainer}) => {
       <div className='lowPtInnerContainer'>
         <div className='leftContainer'>
           <div className='imageContainer'>
-            <img src="" alt={image} className='ptImage'/>
+            <img src={image} alt="trainer" className='ptImage'/>
           </div>
           <div className='ptTrainerStatus'>
             <h1>{trainer} 선생님</h1>

@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import UserNavbar from "../../components/user/UserNavbar";
+import UserNavbar from "../../components/user/InnerNavbar";
 import "../../style/user/profile.scss";
 import { IoIosArrowForward } from "react-icons/io";
 import { useUserContext } from "../../context/AuthContext";
 import ProfileForm from "../../components/user/ProfileForm";
-import UpdateProfileForm from "../../components/user/UpdateProfileHome";
-import PtInfoUpdate from "../../components/user/PtInfoUpdate";
-import PtInfo from "../../components/user/PtInfo";
+import ProfileFormUpdate from "../../components/user/ProfileFormUpdate";
+import ProfileHealthInfoUpdate from "../../components/user/ProfileHealthInfoUpdate";
+import ProfileHealthInfo from "../../components/user/ProfileHealthInfo";
 import UserMemberPurchaseList from "../../components/user/UserMemberPurchaseList"
 
 const Profile = () => {
@@ -35,7 +35,7 @@ const Profile = () => {
           <h1>계정</h1>
           <div className="boxContainer">
             {isEdit ? (
-              <UpdateProfileForm setIsEdit={setIsEdit} />
+              <ProfileFormUpdate setIsEdit={setIsEdit} />
             ) : (
               <ProfileForm setIsEdit={setIsEdit} />
             )}
@@ -78,9 +78,9 @@ const Profile = () => {
           </h1>
           <div className="boxContainer">
             {ptEdit ? (
-              <PtInfoUpdate setPtEdit={setPtEdit} />
+              <ProfileHealthInfoUpdate setPtEdit={setPtEdit} />
             ) : (
-              <PtInfo setPtEdit={setPtEdit} />
+              <ProfileHealthInfo setPtEdit={setPtEdit} />
             )}
           </div>
         </div>

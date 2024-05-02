@@ -36,6 +36,17 @@
 	border: none;
 	border-radius: 2rem;
 }
+.dailyButton:disabled{
+	background-color: #818181;
+	&:hover {
+		background-color: #727272;
+		color: #fff;
+	}
+	&:active{
+		background-color: #727272;
+		color: #fff;
+	}
+}
 .userInfo .dailyButton h3 {
 	display: flex;
 	font-size: 0.9rem;

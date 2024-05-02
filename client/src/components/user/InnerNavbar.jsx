@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { NavLink, Link } from "react-router-dom";
 import "../../style/user/UserNavbar.scss";
-import DailyInfo from "./DailyInfo";
+import InnerNavbarDailyInfo from "./InnerNavbarDailyInfo";
 import { useUserContext } from '../../context/AuthContext';
 
 
@@ -38,7 +38,7 @@ const UserNavbar = () => {
 
   return (
       <aside className="userNavContainer">
-      <DailyInfo value={dailyCheckedIn} setState={setDailyCheckedIn}/>
+      <InnerNavbarDailyInfo value={dailyCheckedIn} setState={setDailyCheckedIn}/>
         <nav className="UserNSB">
           {userNavLinks.map((usernav) => (
             <NavLink

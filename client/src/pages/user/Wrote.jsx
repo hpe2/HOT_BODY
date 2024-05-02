@@ -9,7 +9,7 @@ const Wrote = () => {
   return (
     <>
       <section className="wroteContent">
-        <div className="container">
+        <div className="wroteContainer">
           <div className="wrote">
             <h1>내가 쓴 글</h1>
             <div className="boxContainer">

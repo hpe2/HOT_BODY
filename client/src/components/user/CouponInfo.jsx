@@ -2,16 +2,14 @@ import React, { Link,useRef, useState } from 'react'
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import { useUserContext } from '../../context/AuthContext';
 import CouponInfoDetail from './CouponInfoDetail';
+import Logo from './../../../public/images/logo.png'
 
 const PointInfo = () => {
-    const {user} = useUserContext(); //PersonalInfo 필요
-    const [coupon, setCoupon] = useState('');
+  const {user} = useUserContext(); //PersonalInfo 필요
+  const [coupon, setCoupon] = useState('');
   const [isAllVaild, setIsAllVaild] = useState(true);
   const CouponList = [
-    {publish: '멤버십', text:'무료 PT 1회권', per:'25-04-23까지', condition:'PT 1회 이상 구매시 적용 가능', notice:'상품 중복 할인쿠폰<br>- 상품 1개에 대해 사용 가능'},
-    {publish: '멤버십', text:'무료 PT 2회권', per:'25-05-17까지', condition:'PT 1회 이상 구매시 적용 가능', notice:'상품 중복 할인쿠폰<br>- 상품 1개에 대해 사용 가능'},
-    {publish: '멤버십', text:'무료 PT 3회권', per:'25-02-21까지', condition:'PT 1회 이상 구매시 적용 가능', notice:'상품 중복 할인쿠폰<br>- 상품 1개에 대해 사용 가능'},
-    {publish: '멤버십', text:'무료 PT 4회권', per:'25-01-01까지', condition:'PT 1회 이상 구매시 적용 가능', notice:'상품 중복 할인쿠폰<br>- 상품 1개에 대해 사용 가능'},
+    {couponNumber: 1, publish: '멤버십', text:'무료 PT 1회권', per:'25-04-23까지', condition:'PT 1회 이상 구매시 적용 가능', notice:'상품 중복 할인쿠폰<br>- 상품 1개에 대해 사용 가능'},
   ]
 
   const PanelDrop = (e) => {
@@ -20,11 +18,6 @@ const PointInfo = () => {
           setIsAllVaild(true);
           }else{setIsAllVaild(false)};
   }
-  const formoon = (e) => {
-    for (i = 0; i < CouponList.length; i++){
-      CouponList[i]
-    }
-  }
 
   return (
       <>
@@ -32,7 +25,9 @@ const PointInfo = () => {
           <div className="boxContainer">
             <div className="couponField">
               <div className='coupon'>
-                <img src="" alt="이미지" className='pointImage' />
+                <div className='pointImage'>
+                  <img src={Logo} alt="이미지" className='image'/>
+                </div>
                 <div className='couponName'>
                   <span>{detail.publish}</span>
                   <h1>{detail.text}</h1>

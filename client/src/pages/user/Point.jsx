@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserNavbar from "../../components/user/UserNavbar";
+import UserNavbar from "../../components/user/InnerNavbar";
 import "../../style/user/point.scss";
 import { useUserContext } from "../../context/AuthContext";
 import PointInfo from "../../components/user/PointInfo";
