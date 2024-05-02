@@ -56,19 +56,11 @@ const Login = () => {
             </li>
           </ul>
 
-<<<<<<< HEAD
-        <form className="loginForm" onSubmit={handleLogin}>
-          
-          <input
-            type="userId"
-            placeholder="유저 아이디"
-            className="userIdInput userIdIcon"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-          />
-=======
+
+       
+
           <img src={Logo} alt="logo" className="auth-logo" />
->>>>>>> 48b9725a34369d13061fd3330d61d086f5613902
+
 
           <form className="auth-form" onSubmit={handleLogin}>
             <AuthInput
