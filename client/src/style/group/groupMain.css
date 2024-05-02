@@ -1,0 +1,128 @@
+.group-main-wrap {
+  background-color: #f8f8f8;
+  padding: 2rem 0;
+}
+
+.box-shadow{
+  border: 1px solid #dbdbdb;
+  background-color: #fff;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); 
+}
+
+.group-main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.group-main-banner{
+  width: 100%;
+  height: 350px;
+  position: relative;
+}
+
+.group-main-button{
+  width: fit-content;
+  align-self: flex-end;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  color: #a40000;
+  border: 1px solid #a40000;
+  background-color: #fff;
+  padding: 0.25rem 1.5rem;
+  border-radius: 5px;
+  margin: 1rem;
+}
+
+.group-main-button img {
+  width: 20px;
+}
+
+.group-banner-image{
+  background-color: #8c8c8c;
+  width: 100%;
+  object-fit: contain; 
+  height: 100%;
+}
+
+.group-banner-menu{
+  position: absolute;
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  bottom: 0;
+  left: 0;
+  color: white;
+  padding: 0 1.5rem 1rem;
+  font-size: larger;
+}
+
+.group-banner-menu ul{
+  display: flex;
+  gap: 1.5rem;
+}
+
+.group-banner-menu li{
+  cursor: pointer;
+  border: 1px solid white;
+  padding: 0.25rem 1.5rem;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+}
+
+.group-main-content{
+  margin: 1rem 0;
+  padding-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+}
+
+.group-list-item{
+  display: flex;
+  gap: 1.5rem;
+  width: 100%;
+  padding: 1.25rem;
+  border-radius: 0.25rem;
+}
+
+.group-list-img{
+  width: 150px;
+  height: 150px;
+  border-radius: 5px;
+  background-color: rgb(135, 135, 135);
+  overflow: hidden;
+}
+
+.group-list-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.group-list-info{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.group-list-category{
+  width: fit-content;
+  padding: 0.25rem 1.25rem;
+  border-radius: 20px;
+  background-color: #c1c1c1;
+}
+
+.group-list-member{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: #919191;
+}
+
+.group-list-member img {
+  width: 24px;
+}

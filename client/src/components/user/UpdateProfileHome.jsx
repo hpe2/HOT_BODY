@@ -39,20 +39,20 @@ const UpdateProfileForm = ({ setIsEdit }) => {
       <UserDataInput dataName='기존 비밀번호' type='password' value={password} setState={setPassword} />
       <div className="buttons">
         <button
-          type="button"
+          type="submit"
           className="ProfileEditButton"
+          disabled={!password}
+        >
+          {isPending ? 'Processing. . .': '저장하기'}
+        </button>
+        <button
+          type="button"
+          className="ProfileEditButton cancle"
           onClick={() => {
             setIsEdit(false);
           }}
         >
           취소하기
-        </button>
-        <button
-          type="submit"
-          className="ProfileEditButton"
-          disabled={!password}
-        >
-          {isPending ? 'Processing. . .': '수정하기'}
         </button>
       </div>
     </form>

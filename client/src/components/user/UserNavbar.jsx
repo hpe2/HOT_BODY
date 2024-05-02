@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useState} from "react";
 import { NavLink, Link } from "react-router-dom";
 import "../../style/user/UserNavbar.scss";
 import DailyInfo from "./DailyInfo";
+import { useUserContext } from '../../context/AuthContext';
 
 
 const userNavLinks = [
@@ -32,10 +33,13 @@ const userNavLinks = [
 ];
 
 const UserNavbar = () => {
+  const { user } = useUserContext();
+  const [dailyCheckedIn, setDailyCheckedIn] = useState(user.checkedToday);
+
   return (
-      <nav className="userNavContainer">
-      <DailyInfo/>
-        <div className="UserNSB">
+      <aside className="userNavContainer">
+      <DailyInfo value={dailyCheckedIn} setState={setDailyCheckedIn}/>
+        <nav className="UserNSB">
           {userNavLinks.map((usernav) => (
             <NavLink
               key={usernav.menuName}
@@ -48,8 +52,8 @@ const UserNavbar = () => {
             </NavLink>
           ))}
             <Link key="고객센터" to={"/gogaek"} className={"userlink"} target="_blank"/>
-        </div>
-      </nav>
+        </nav>
+      </aside>
   );
 };
 

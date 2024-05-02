@@ -24,12 +24,16 @@ const navLinks = [
     link: "/subscribe",
     menuName: "구독",
   },
+  {
+    link: "/event",
+    menuName: "이벤트",
+  },
 ];
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { setUser, isAuthenticated, setIsAuthenticated } = useUserContext();
-
+  const { user, setUser, isAuthenticated, setIsAuthenticated } = useUserContext();
+  console.log(user);
   const handleLogout = () => {
     setUser({});
     setIsAuthenticated(false);

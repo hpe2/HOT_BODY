@@ -1,49 +1,12 @@
-.content {
+.pointContent {
 	flex-wrap: nowrap;
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 440px;
 }
-.info {
+.pointContainer {
 	display: flex;
-	flex-direction: column;
-	padding: 1rem;
-	margin-bottom: 2rem;
-	span {
-		display: flex;
-		flex-direction: column;
-		strong {
-			text-decoration: underline;
-		}
-	}
-	button {
-		display: flex;
-		padding: auto;
-		font-size: 0.7rem;
-		font-weight: 400;
-		justify-content: space-between;
-		align-items: center;
-		width: 7rem;
-		height: 2rem;
-		background-color: #a40000;
-
-		h3 {
-			font-size: 0.9rem;
-			font-weight: 200;
-			margin-right: 2px;
-		}
-	}
-	button:hover {
-		background-color: #990000;
-		color: #fff1f1;
-	}
-	button:active {
-		background-color: #750000;
-		color: #ffcccc;
-	}
-}
-.container {
-	display: flex;
+	padding-top: 80px;
 	width: 100%;
 	gap: 12px;
 }
@@ -53,110 +16,264 @@
 	width: 100%;
 	height: 100%;
     line-height: 200%;
+	
 	h1 {
+		display: flex;
 		font-size: 21px;
 		font-weight: 500;
 		margin: 0 0 1rem 0;
 	}
-	.boxContainer {
+	.boxContainer{
 		display: block;
 		border: 1px solid #C1C1C1;
-		border-radius: var(--rounded-normal);
+		background-color: white;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  		border: 1px solid #ebebeb;
+		border-radius: 10px;
+		padding: 0 1rem;
+		margin-bottom: 1rem;
 		line-height: 140%;
 	
 		.pointField, .couponField {
-			display: flex;
-			flex-direction: row;
-			flex-wrap: nowrap;
+			display: block;
+			justify-content:space-between;
+			align-items: center;
+			width: 100%;
 			padding: 16px;
 			
-			.inputNote {
+			.pointImage{
+				height: 150px;
+				width: 150px;
+				background-color: #A6A6A6;
+				border-radius: 1.4rem;
+			}
+			.point, .coupon {
 				display: flex;
 				justify-content: space-between;
+				padding: 2rem;
 				align-items: center;
-				padding: 16px;
 
+				.pointStatus, .couponName{
+					display: flex;
+					flex-direction: column;
 				span {
 					font-size: 1.2rem;
+					padding: 1rem 0;
 				}
-				.inputContent {
+				h1 {
+					font-size: 2rem;
 					color: #9b9b9b;
 				}
-				input {
-					width: 40%;
+			}
+			}
+				.buttons{
+					display: flex;
+					height: 100%;
+					border: none;
+					border-radius:1px;
+					padding: 2rem;
+				}
+				
+				.checkPoint {
+					display: flex;
+					justify-content:space-between;
+					transition:all 0.6s;
+					padding: 1rem;
 				}
 			}
-			
-			div {
-				width: 100%;
+			.panel-checkPoint, .panel-coupon{
+				overflow: hidden; 
+				height: 0;
+				transition:all 0.2s;
 			}
-			span {
-				padding: 0.5rem;
-			}
-			.buttons {
-				display: flex;
-				font-size: 16px;
-				font-weight: 600;
-				height: 60%;
-				border: none;
-				justify-content:end;
-				align-items: center;
-				border-radius:1px;
-				padding: 1rem 0.2rem 0.2rem 0.2rem;
-			}
-			button {
-				display: flex;
-				font-size: 16px;
-				font-weight: 600;
-				height: 60%;
-				border: none;
-				justify-content: center;
-				align-items: center;
-				border-radius:1px;
-				padding: 0.2rem;
-			}
-			input[type=submit], input[type=button] {
-				background-color: #fff;
-				cursor: pointer;
-				color: #c1c1c1;
-				justify-content: center;
-				width: 20%;
-				height: 4.5rem;
-				margin: 0;
-				margin-left: 1rem;
-				padding: 0;
-				border: 1px solid #c1c1c1;
-				border-radius: var(--rounded-normal);
-				line-height: 140%;
-				font-size: 1rem;
-			}
+			.dropdown{
+				padding: 1rem;
+				display: block;
+				height: auto;
 			}
 		}
+	}
+
+.card-modal-open-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background-color: #fff;
+	cursor: pointer;
+	color: #c1c1c1;
+	width: 100%;
+	height: 4.5rem;
+	margin: 0;
+	padding: 1rem;
+	border: 1px solid #c1c1c1;
+	border-radius: var(--rounded-normal);
+	line-height: 140%;
+	font-size: 1.1rem;
+	font-weight: 400;
 	
-		input[type=text], input[type=password]{
-			display: block;
-			font-size: 16px;
-			height: var(--height-input);
-			padding: 0 var(--pad-input);
-			background: var(--bg-input);
-			border: 0;
-			color: var(--color-input);
-			border-bottom: 1px solid #A6A6A6;
-			transition: all .3s ease-in-out;
-			padding: 8px;
+		&:hover{
+			background-color: #f3f3f3;
+			color: #a3a3a3;
 		}
-		input[type=text], input[type=password]::placeholder{
-			color: #c7c7c7;
-			font-weight: 300;
-		}
-		input[type=text], input[type=password]:placeholder-shown{
-		border-bottom: 1px solid #E9E9E9;
-		}
+	}
+.card-modal-open-button{
+	cursor: pointer;
+	background-color: #000000;
+	width: 24rem;
+	height: 4rem;
+}
+.card-modal-close-btn {
+	border: 1px solid #c1c1c1;
+	border-radius: var(--rounded-normal);
+	height: 3rem;
+	background-color: #fff;
+	color: #9b9b9b;
+	text-decoration: underline;
+}
+.card-modal-container {
+	z-index: 999;
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: rgba(0, 0, 0, 0.5);
+}
+
+.card-modal-content {
+	display: flex;
+	justify-content:space-between;
+	align-items: center;
+	background-color: #ffffff;
+	width:auto;
+	height: auto;
+	padding: 2rem;
+	border-radius: 1rem;
+}
+.data{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+
+	.card-modal-inner-boxContainer {
+		display: flex;
+		justify-content: space-between;
+		height: 45%;
+		border: 1px solid #C1C1C1;
+		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+		border-radius: 10px;
+		padding: 2rem;
+		margin-bottom: 1rem;
+	}
+}
+.card-modal-content-button {
+	cursor: pointer;
+	background-color: #A40000;
+	color: #fff;
+	font-size: 1.4rem;
+	font-weight: 400;
+	border: none;
+	border-radius: 0.6rem;
+	width: 24rem;
+	height: 4rem;
+	margin-top: 1rem;
+
+}
+.card-modal-boxContainer {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid #C1C1C1;
+	box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+	border-radius: 10px;
+	padding: 2rem;
+}
+.cardGame {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: auto;
+	height: auto;
+	.cardGame-innerContainer{
+		display: flex;
+		box-sizing: border-box;  
+	}
+	.cardWrapper {
+		background-color: transparent;
+		width: 16rem;
+		height: 12rem;
+		margin: 0.2rem;
+		position: flex;
+		perspective: 1000px;
+	}
+	.card {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		transition: all 0.3s;
+		perspective-origin: center;
+		transform-style: preserve-3d;
+		color: white;
+		font-size: 2rem;
+	}
+}
+.cardWrapper:hover .card{
+	transform: rotateY(-20deg);
+}
+.cardWrapper .flipped .card {
+	transform: rotateY(200deg);
+}
+.front, .back {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+}
+	.front {
+		background-color: #A40000; /* 앞면의 배경색 */
+		color: white; /* 앞면의 텍스트 색상 */
+		border-radius: 20px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
 	
-		input[type=text], input[type=password]:focus {
-			font-size: 16px;
-			outline: none;
-			border-bottom: 1px solid #A6A6A6;
+	.back {
+		transform: rotateY(180deg);
+		background-color: skyblue;
+		backface-visibility: hidden;
+		border-radius: 20px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+.card-controll{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	
+	.chance {
+		display: flex;
+		margin-right: 2rem;
+	}
+	.retry {
+		display: flex;
+		padding: 1rem;
+		border: 1px solid #c1c1c1;
+		border-radius: var(--rounded-normal);
+		height: 3rem;
+		background-color: #fff;
+		color: #9b9b9b;
+		svg{
+			margin-right: 0.4rem;
+			font-size: 1rem;
 		}
-		
+	}
 }

@@ -17,7 +17,9 @@ const ProfileForm = ({setIsEdit}) => {
             <span>이메일 (email)</span>
             <span className='inputContent'>{user.email}</span>
         </div>
-        <button type="button" className='ProfileEditButton' onClick={() => {setIsEdit(true)}}>수정하기</button>
+        <div className="buttons">
+            <button type="button" className='ProfileEditButton' onClick={() => {setIsEdit(true)}}>수정하기</button>
+        </div>
     </form>
   )
 }

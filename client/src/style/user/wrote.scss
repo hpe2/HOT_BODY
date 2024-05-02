@@ -10,29 +10,19 @@ $global-radius: 4px;
 	box-sizing: border-box;
 }
 
-.content {
+.wroteContent {
 	flex-wrap: nowrap;
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 440px;
 }
-.container {
-	display: flex;
-	width: 100%;
-	gap: 12px;
-}
 
 .wrote {
-	display: flex;
-	flex-direction: column;
-	gap: 1.5rem;
 
 	h1 {
-		background-color: white;
-		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  		border: 1px solid #ebebeb;
-		padding: 1rem;
-		border-radius: 10px;
+		font-size: 21px;
+		font-weight: 500;
+		margin: 0 0 1rem 0;
 	}
 	.boxContainer {
 		background-color: white;
@@ -47,38 +37,38 @@ $global-radius: 4px;
 			padding: 16px;
 		}
 		table {
-			border-collapse: collapse;
+			border-collapse: separate;
+			border-spacing: 0 10px;
 			width: 100%;
+			
 			thead {
-				border-bottom: 1px solid #a84242;
-
+				
 				tr {
 					padding: 0.35em 0 .35em;
-					text-align: center;
+					text-align: left;
 					font-size: 1rem;
 					height: 3rem;
-
+					
 					th{
+						border-bottom: 1px solid #a84242;
 						font-weight: 400;
 					}
-					.cate {
-						width: 20%;
+					.thCate {
+						width: 15%;
 					}
-					.title {
-						width: 60%;
-					}
-					.date {
+					.thDate {
 						width: 20%;
 					}
 				}
 			}
-			tdody {
-				border-bottom: 1px solid red;
+			tbody {
 				tr {
-					padding: 0.35em 0 .35em;
-					text-align: center;
+					padding: 0.35em 0 .35em 0;
+					text-align: left;
 					font-size: 1rem;
-					height: 30rem;
+					th{
+						font-weight: 400;
+					}
 				}
 			}
 		}
