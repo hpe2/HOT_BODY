@@ -73,7 +73,7 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button id="btn" type="submit">
-            {isLoading ? "Processing. . ." : "로그인"}
+            {isLoading ? "Processing. . ." : "가입완료"}
           </button>
         </form>
       </div>

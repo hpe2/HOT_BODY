@@ -15,6 +15,13 @@ import {ToastContainer} from 'react-toastify';
 import 'react-toastify/ReactToastify.css';
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
+import Terms from "./pages/root/Terms";
+import Privacy from "./pages/root/Privacy";
+import PT from "./pages/root/PT";
+import Subscribe from "./pages/root/Subscribe";
+
+
+
 
 
 
@@ -46,6 +53,16 @@ const App = () => {
             <Route path="/profile/point/roulette" element={<PointRoulette />} />
             <Route path="/gogaek" element={<Profile />} />
           </Route>
+          {/*membership*/}
+          < Route path="Terms" element={<Terms />} />
+          < Route path="Privacy" element={<Privacy />} />
+          < Route path="PT" element={<PT />} />
+
+          < Route path="Subscribe" element={<Subscribe />} />
+          
+
+          
+          
           {/* auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
