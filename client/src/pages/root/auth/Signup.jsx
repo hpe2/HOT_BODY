@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useSignUp } from "../../../Queries/queriesAndMutations";
 import { toast } from "react-toastify";
 import AuthInput from "../../../components/auth/AuthInput";
-
 import AuthBanner from "/public/images/auth-banner.jpg";
 import Logo from "/public/images/logo.png";
 import Profile from "/public/images/user-profile.svg";
@@ -49,47 +48,6 @@ const Signup = () => {
           <img src={AuthBanner} alt="auth-banner" />
           <div className="auth-banner-img-overlay" />
         </div>
-
-<<<<<<< HEAD
-      <div className="loginRightSection">
-        <ul className="authLinks">
-          <li onClick={() => navigate("/login")}>로그인</li>
-          <li className="authMenuActive">회원가입</li>
-        </ul>
-        <form className="loginForm" onSubmit={handleSubmit}>
-          <input
-            type="email"
-            placeholder="Email"
-            className="emailInput"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="userid"
-            placeholder="Userid"
-            className="useridInput"
-            value={userId}
-            onChange={(e) => setUserId(e.target.value)}
-          />
-          <input
-            type="name"
-            placeholder="name"
-            className="nameInput"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="password"
-            placeholder="password"
-            className="pwdInput"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-          <button id="btn" type="submit">
-            {isLoading ? "Processing. . ." : "가입완료"}
-          </button>
-        </form>
-=======
         <div className="auth-right">
           <ul className="auth-label">
             <li
@@ -148,7 +106,6 @@ const Signup = () => {
             </button>
           </form>
         </div>
->>>>>>> 48b9725a34369d13061fd3330d61d086f5613902
       </div>
     </div>
   );

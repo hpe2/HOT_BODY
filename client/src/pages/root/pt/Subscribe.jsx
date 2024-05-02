@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '/src/style/PaymentPage.css';
-import '/src/style/PaymentDetail.css';
+import './../../../style/pt/PaymentPage.css';
+import './../../../style/pt/PaymentDetail.css';
 
 function PaymentDetail({ productDetails }) {
   const detailItems = [

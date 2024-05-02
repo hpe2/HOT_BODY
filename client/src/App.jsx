@@ -16,15 +16,10 @@ import 'react-toastify/ReactToastify.css';
 import CustomerServicePage from "./pages/user/CustomerServicePage";
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
-<<<<<<< HEAD
-import Terms from "./pages/root/Terms";
-import Privacy from "./pages/root/Privacy";
-import PT from "./pages/root/PT";
-import Subscribe from "./pages/root/Subscribe";
-
-
-
-=======
+import Terms from "./pages/root/pt/Terms";
+import Privacy from "./pages/root/pt/Privacy";
+import PTReservation from "./pages/root/pt/PTReservation";
+import Subscribe from "./pages/root/pt/Subscribe";
 import Group from './pages/root/group/Group';
 import GroupCreate from './pages/root/group/GroupCreate';
 import GroupDetail from './pages/root/group/GroupDetail';
@@ -32,7 +27,6 @@ import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
 import EventPage from "./pages/root/Event/EventPage";
->>>>>>> 48b9725a34369d13061fd3330d61d086f5613902
 
 
 
@@ -63,20 +57,12 @@ const App = () => {
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
-<<<<<<< HEAD
           {/*membership*/}
           < Route path="Terms" element={<Terms />} />
           < Route path="Privacy" element={<Privacy />} />
-          < Route path="PT" element={<PT />} />
-
+          < Route path="PT" element={<PTReservation />} />
           < Route path="Subscribe" element={<Subscribe />} />
-          
 
-          
-          
-=======
-
->>>>>>> 48b9725a34369d13061fd3330d61d086f5613902
           {/* auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />

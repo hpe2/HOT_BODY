@@ -3,11 +3,11 @@ import DatePicker, { registerLocale } from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { format } from 'date-fns';
 import ko from 'date-fns/locale/ko';
-import '/src/style/PTReservation.css';
+import './../../../style/pt/PTReservation.css';
 
 registerLocale('ko', ko);
 
-const PT = () => {
+const PTReservation = () => {
   const [isContainerVisible, setIsContainerVisible] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -155,4 +155,4 @@ const PT = () => {
   );
 };
 
-export default PT;
+export default PTReservation;
