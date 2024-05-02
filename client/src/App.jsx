@@ -27,7 +27,8 @@ import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
 import EventPage from "./pages/root/Event/EventPage";
-
+import Trainer from "./pages/root/pt/Trainer";
+import SubMain from "./pages/root/sub/SubMain";
 
 
 const App = () => {
@@ -72,9 +73,14 @@ const App = () => {
           <Route path='/group/create' element={<GroupCreate />} />
           <Route path='/group/detail/:id' element={<GroupDetail />} /> 
           <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
-
+         {/* pt */}
+          <Route path='/pt/trainer' element={<Trainer />} />
           {/* event */}
           <Route path="/event" element={<EventPage />} />
+          {/* Sub */}
+          <Route path="/sub/main/:type2" element={<SubMain />} />
+          {/* <Route path="/sub/detail" element={<SubDetail />} /> */}
+          <Route path="/sub" element={<SubMain />} />
         </Routes>
         <Footer />
     </>
