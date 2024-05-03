@@ -62,10 +62,10 @@ const App = () => {
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
           {/*membership*/}
-          < Route path="Terms" element={<Terms />} />
-          < Route path="Privacy" element={<Privacy />} />
-          < Route path="PT" element={<PTReservation />} />
-          < Route path="Subscribe" element={<Subscribe />} />
+          < Route path="/terms" element={<Terms />} />
+          < Route path="/privacy" element={<Privacy />} />
+          < Route path="/pt/reservation" element={<PTReservation />} />
+          < Route path="/subscribe" element={<Subscribe />} />
 
           {/* auth */}
           <Route path="/login" element={<Login />} />
@@ -79,17 +79,19 @@ const App = () => {
 
           {/* PT */}
           <Route path='/pt' element={<PTMain />} />
-          <Route path='/pt/detail' element={<PTDetail />} />
+          <Route path='/pt/detail/:id' element={<PTDetail />} />
           <Route path='/pt/register' element={<PTResiger />} />
 
          {/* pt */}
           <Route path='/pt/trainer' element={<Trainer />} />
+          
           {/* event */}
           <Route path="/event" element={<EventPage />} />
+
           {/* Sub */}
           <Route path="/sub/main/:type2" element={<SubMain />} />
-          {/* <Route path="/sub/detail" element={<SubDetail />} /> */}
           <Route path="/sub" element={<SubMain />} />
+
         </Routes>
         <Footer />
     </>

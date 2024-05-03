@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail } from "./API";
 
 // auth =====================================================================
 
@@ -162,5 +162,12 @@ export const useJoinGroup = (id) => {
 export const useRegisterTrainer = () => {
   return useMutation({
     mutationFn: (ptInfo) => registerTrainer(ptInfo)
+  })
+}
+
+export const useGetTrainerDetail = (id) => {
+  return useQuery({
+    queryFn: () => getTrainerDetail(id),
+    queryKey: ['GET_TRAINER_DETAIL_BY_ID', id]
   })
 }

@@ -220,5 +220,16 @@ export const registerTrainer = async (ptInfo) => {
   }
 }
 
+// 특정 트레이너 상세 정보 불러오기
+export const getTrainerDetail = async (id) => {
+  try{
+    const response = await axios.get(`/api/pt/getDetail?id=${id}`);
+    return response.data;
+  }catch(err){
+    console.log(err);
+    return err.response;
+  }
+}
+
 // #endregion
 // pt =====================================================================

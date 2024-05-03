@@ -43,4 +43,17 @@ router.post('/register', auth, async (req, res) => {
   }
 })
 
+// 트레이너 상세 정보 불러오기
+router.get('/getDetail', async (req, res) => {
+  try{
+   const {id} = req.query;
+   const trainer = await PT.findOne({_id: id});
+   if(!trainer) throw Error;
+
+   return res.status(200).send(trainer);
+  }catch(err){
+    return res.status(400).send({message: '트레이너 정보를 불러오는데 실패했습니다.'})
+  }
+})
+
 module.exports = router;

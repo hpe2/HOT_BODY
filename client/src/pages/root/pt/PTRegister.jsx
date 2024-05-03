@@ -23,9 +23,13 @@ const PTResiger = () => {
   useEffect(() => {
     if(!user){
       toast.info('로그인 한 사용자만 이용 가능한 서비스 입니다.');
-      navigate('/')
+      navigate('/pt')
     }
-  }, []);
+    if(user.userType === 'trainer'){
+      toast.info('이미 트레이너로 등록된 회원입니다.');
+      navigate('/pt')
+    }
+  }, [user]);
 
   const [searchLocation, setSearchLocation] = useState();
 
@@ -53,7 +57,6 @@ const PTResiger = () => {
       geocoder.addressSearch(location, response);
     }
   }
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
