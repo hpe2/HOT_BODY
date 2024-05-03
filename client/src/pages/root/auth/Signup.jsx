@@ -3,7 +3,6 @@ import { useNavigate } from "react-router-dom";
 import { useSignUp } from "../../../Queries/queriesAndMutations";
 import { toast } from "react-toastify";
 import AuthInput from "../../../components/auth/AuthInput";
-
 import AuthBanner from "/public/images/auth-banner.jpg";
 import Logo from "/public/images/logo.png";
 import Profile from "/public/images/user-profile.svg";
@@ -49,7 +48,6 @@ const Signup = () => {
           <img src={AuthBanner} alt="auth-banner" />
           <div className="auth-banner-img-overlay" />
         </div>
-
         <div className="auth-right">
           <ul className="auth-label">
             <li

@@ -16,6 +16,10 @@ import 'react-toastify/ReactToastify.css';
 import CustomerServicePage from "./pages/user/CustomerServicePage";
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
+import Terms from "./pages/root/pt/Terms";
+import Privacy from "./pages/root/pt/Privacy";
+import PTReservation from "./pages/root/pt/PTReservation";
+import Subscribe from "./pages/root/pt/Subscribe";
 import Group from './pages/root/group/Group';
 import GroupCreate from './pages/root/group/GroupCreate';
 import GroupDetail from './pages/root/group/GroupDetail';
@@ -26,6 +30,8 @@ import PTMain from './pages/root/pt/PTMain';
 import PTDetail from './pages/root/pt/PTDetail';
 import EventPage from "./pages/root/Event/EventPage";
 import PTResiger from './pages/root/pt/PTRegister';
+import Trainer from "./pages/root/pt/Trainer";
+import SubMain from "./pages/root/sub/SubMain";
 
 
 const App = () => {
@@ -55,6 +61,11 @@ const App = () => {
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
+          {/*membership*/}
+          < Route path="Terms" element={<Terms />} />
+          < Route path="Privacy" element={<Privacy />} />
+          < Route path="PT" element={<PTReservation />} />
+          < Route path="Subscribe" element={<Subscribe />} />
 
           {/* auth */}
           <Route path="/login" element={<Login />} />
@@ -71,9 +82,14 @@ const App = () => {
           <Route path='/pt/detail' element={<PTDetail />} />
           <Route path='/pt/register' element={<PTResiger />} />
 
-
+         {/* pt */}
+          <Route path='/pt/trainer' element={<Trainer />} />
           {/* event */}
           <Route path="/event" element={<EventPage />} />
+          {/* Sub */}
+          <Route path="/sub/main/:type2" element={<SubMain />} />
+          {/* <Route path="/sub/detail" element={<SubDetail />} /> */}
+          <Route path="/sub" element={<SubMain />} />
         </Routes>
         <Footer />
     </>
