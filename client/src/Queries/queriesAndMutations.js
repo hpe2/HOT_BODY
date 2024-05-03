@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer } from "./API";
 
 // auth =====================================================================
 
@@ -153,9 +153,14 @@ export const useJoinGroup = (id) => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_GROUP_DETAIL', id]
     })
-    // onMutate: async () => {
-    //   await queryClient.cancelQueries(['JOIN_GROUP']);
-    //   queryClient.setQueriesData(['JOIN_GROUP'])
-    // }
+  })
+}
+
+// pt =====================================================================
+
+// pt 트레이너 등록
+export const useRegisterTrainer = () => {
+  return useMutation({
+    mutationFn: (ptInfo) => registerTrainer(ptInfo)
   })
 }

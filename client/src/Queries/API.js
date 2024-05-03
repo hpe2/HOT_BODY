@@ -206,3 +206,19 @@ export const joinGroup = async (groupId) => {
 
 // #endregion
 // group =====================================================================
+
+// pt =====================================================================
+// #region
+
+// pt 트레이너 등록
+export const registerTrainer = async (ptInfo) => {
+  try{
+    const response = await axios.post('/api/pt/register', ptInfo);
+    return response;
+  }catch(err){
+    return err.response;
+  }
+}
+
+// #endregion
+// pt =====================================================================
