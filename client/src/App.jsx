@@ -28,7 +28,6 @@ import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
 import PTMain from './pages/root/pt/PTMain';
 import PTDetail from './pages/root/pt/PTDetail';
-import EventPage from "./pages/root/Event/EventPage";
 import PTResiger from './pages/root/pt/PTRegister';
 import Trainer from "./pages/root/pt/Trainer";
 import SubMain from "./pages/root/sub/SubMain";
@@ -84,9 +83,6 @@ const App = () => {
 
          {/* pt */}
           <Route path='/pt/trainer' element={<Trainer />} />
-          
-          {/* event */}
-          <Route path="/event" element={<EventPage />} />
 
           {/* Sub */}
           <Route path="/sub/main/:type2" element={<SubMain />} />

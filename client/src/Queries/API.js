@@ -231,5 +231,15 @@ export const getTrainerDetail = async (id) => {
   }
 }
 
+// 특정 위치의 PT 트레이너 정보 검색
+export const searchPt = async (searchTerm) => {
+  try{
+    const response = await axios.post()
+  }catch(err){
+    console.log(err);
+    return err.response;
+  }
+}
+
 // #endregion
 // pt =====================================================================
