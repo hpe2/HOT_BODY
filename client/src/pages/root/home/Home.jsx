@@ -1,7 +1,6 @@
 import HomeAd from "../../../components/home/HomeAd";
 import HomeBanner from "../../../components/home/HomeBanner";
-import HomeGroup from "../../../components/home/HomeGroup";
-import HomeSubscribe from "../../../components/home/HomeSubscribe";
+import Trainers from '../../../components/home/Trainers';
 import "../../../style/home/home.css";
 
 const Home = () => {
@@ -9,8 +8,7 @@ const Home = () => {
     <div className="home-container">
       <HomeBanner />
       <HomeAd />
-      <HomeGroup />
-      <HomeSubscribe />
+      <Trainers />
     </div>
   );
 };

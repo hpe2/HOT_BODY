@@ -1,5 +1,6 @@
-import React from "react";
 import { FaCheck } from "react-icons/fa";
+import '../../style/sub/submain.css';
+
 const SubClick = () => {
   return (
     <div className="background" id="content1">
@@ -44,32 +45,6 @@ const SubClick = () => {
           </p>
         </div>
       </div>
-      {/* <div className="sub_p">
-        <hr />
-        <p className="QA">구독 Q&amp;A</p>
-        <p className="QAmini">
-          자주 질문받았던 사항에 대해 작성해 두었습니다.
-        </p>
-        <div className="sub_p1">
-          <p>Q . 식단 추천 받으면 정말 살이 빠질까요?</p>
-          <p>
-            A . 회원님의 마음가짐 없이는 그 무엇도 이루어 질 수 없습니다.
-            <br></br> &nbsp; &nbsp; &nbsp;하지만 마음만 먹고 임해주신다면 저희는 언제나 보답해
-            드릴수있습니다.
-          </p>
-        </div>
-        <div className="sub_p2">
-          <p>Q . 실시간 이벤트 주기는 어떻게 되나요?</p>
-          <p>A . 주기는 명확하지 않지만 주 1회 이상은 진행 할 예정입니다.</p>
-        </div>
-        <div className="sub_p3">
-          <p>Q . PT 1회권만 받고 구독 끊어도 될까요?</p>
-          <p>
-            A. PT 1회권은 3개월 이상 구독하신 분들에게 드리는 혜택이기에 받고
-            끊으셔도 무관합니다.
-          </p>
-        </div>
-      </div> */}
       <div className="faq-section">
       {/* <hr /> */}
       <h1 className="faq-title">구독 Q&amp;A</h1>

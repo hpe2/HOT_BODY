@@ -57,7 +57,7 @@ router.get('/getDetail', async (req, res) => {
 })
 
 // 위도, 경도 +- 0.01 오차범위 내에 해당하는 트레이너 찾기
-router.get('/search', async (req, res) => {
+router.post('/search', async (req, res) => {
   try{
     const {lat, lon} = req.query;
 
@@ -67,6 +67,7 @@ router.get('/search', async (req, res) => {
     const longitudeMin = lon - 0.01;
     const longitudeMax = lon + 0.01;
 
+    // 쿼리문 수정해야 함...
     const trainers = await PT.find({
       'location.lat' : {$gte: latitudeMin, $lte: latitudeMax},
       'location.lon' : {$gte: longitudeMin, $lte: longitudeMax}

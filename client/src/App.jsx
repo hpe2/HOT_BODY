@@ -29,7 +29,6 @@ import Footer from "./components/Footer";
 import PTMain from './pages/root/pt/PTMain';
 import PTDetail from './pages/root/pt/PTDetail';
 import PTResiger from './pages/root/pt/PTRegister';
-import Trainer from "./pages/root/pt/Trainer";
 import SubMain from "./pages/root/sub/SubMain";
 
 
@@ -60,6 +59,7 @@ const App = () => {
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
+          
           {/*membership*/}
           < Route path="/terms" element={<Terms />} />
           < Route path="/privacy" element={<Privacy />} />
@@ -81,8 +81,6 @@ const App = () => {
           <Route path='/pt/detail/:id' element={<PTDetail />} />
           <Route path='/pt/register' element={<PTResiger />} />
 
-         {/* pt */}
-          <Route path='/pt/trainer' element={<Trainer />} />
 
           {/* Sub */}
           <Route path="/sub/main/:type2" element={<SubMain />} />
