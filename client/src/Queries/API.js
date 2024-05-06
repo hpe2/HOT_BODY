@@ -232,9 +232,11 @@ export const getTrainerDetail = async (id) => {
 }
 
 // 특정 위치의 PT 트레이너 정보 검색
-export const searchPt = async (searchTerm) => {
+export const searchPt = async (lonLat) => {
   try{
-    const response = await axios.post()
+    const response = await axios.get(`/api/pt/search?lon=${lonLat.lon}&lat=${lonLat.lat}`);
+    console.log(response);
+    return response;
   }catch(err){
     console.log(err);
     return err.response;

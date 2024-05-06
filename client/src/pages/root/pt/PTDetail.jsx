@@ -6,10 +6,13 @@ import Badge from '/public/images/badge.svg';
 import PtDetailReview from '../../../components/pt/PtDetailReview';
 import { useParams } from 'react-router-dom';
 import { useGetTrainerDetail } from '../../../Queries/queriesAndMutations';
+import { useState } from 'react';
+import PTReservation from './PTReservation';
 
 const PTDetail = () => {
   const {id} = useParams();
   const {data: trainer, isFetching} = useGetTrainerDetail(id);
+  const [isOpenReservation, setIsOpenReservation] = useState(false);
 
 
   if(isFetching) {
@@ -18,6 +21,9 @@ const PTDetail = () => {
 
   return (
     <div className="pt-detail-wrap">
+      {isOpenReservation && (
+        <PTReservation price={trainer.price} setIsOpenReservation={setIsOpenReservation} />
+      )}
       <div className="pt-detail-container box-shadow">
         <img src="" alt="gym_img" className="pt-detail-gymImg" />
 
@@ -34,12 +40,9 @@ const PTDetail = () => {
             </div>
           </div>
 
-          <div className="flex-col pt-detail-btns">
-            <button>
+          <div className="pt-detail-btns">
+            <button onClick={() => setIsOpenReservation(true)}>
               <img src={Calendar} alt="" /> 예약하기
-            </button>
-            <button>
-              <img src={Chat} alt="" /> 문의하기
             </button>
           </div>
         </div>

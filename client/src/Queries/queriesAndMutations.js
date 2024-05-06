@@ -165,6 +165,7 @@ export const useRegisterTrainer = () => {
   })
 }
 
+// 특정 트레이너의 상세 정보 가져오기
 export const useGetTrainerDetail = (id) => {
   return useQuery({
     queryFn: () => getTrainerDetail(id),
@@ -172,9 +173,9 @@ export const useGetTrainerDetail = (id) => {
   })
 }
 
-export const useSearchPt = (searchTerm) => {
-  return useQuery({
-    queryFn: () => searchPt(searchTerm),
-    enabled: !!searchTerm
+// 특정 경도 위도 범위에 해당하는 트레이너 정보 모두 검색
+export const useSearchPt = () => {
+  return useMutation({
+    mutationFn: (lonLat) => searchPt(lonLat)
   })
 }

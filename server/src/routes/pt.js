@@ -57,22 +57,22 @@ router.get('/getDetail', async (req, res) => {
 })
 
 // 위도, 경도 +- 0.01 오차범위 내에 해당하는 트레이너 찾기
-router.post('/search', async (req, res) => {
+router.get('/search', async (req, res) => {
   try{
     const {lat, lon} = req.query;
-
     // 오차 범위 설정
-    const latitudeMin = lat - 0.01;
-    const latitudeMax = lat + 0.01;
-    const longitudeMin = lon - 0.01;
-    const longitudeMax = lon + 0.01;
+    const latitudeMin = Number(lat) - 0.01;
+    const latitudeMax = Number(lat) + 0.01;
+    const longitudeMin = Number(lon) - 0.01;
+    const longitudeMax = Number(lon) + 0.01;
 
-    // 쿼리문 수정해야 함...
     const trainers = await PT.find({
-      'location.lat' : {$gte: latitudeMin, $lte: latitudeMax},
-      'location.lon' : {$gte: longitudeMin, $lte: longitudeMax}
+      $and: [
+        { $and : [ {"location.lat" : {$gte: latitudeMin} }, {"location.lat" : {$lte: latitudeMax} } ] },
+        { $and : [ {"location.lon" : {$gte: longitudeMin} }, {"location.lon" : {$lte: longitudeMax} } ] }
+      ]
     })
-    console.log(trainers);
+
     return res.status(200).send(trainers);
   }catch(err){
     return res.status(400).send({message: '트레이너 정보를 불러오는데 실패했습니다.'})

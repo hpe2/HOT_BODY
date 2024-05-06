@@ -11,35 +11,50 @@ const PTMain = () => {
   const [searchValue, setSearchValue] = useState();
   const [isDetailOpen, setIsDetailOpen] = useState(false);
   const debouncedSearch = useDebounce(searchValue, 500);
-  // const { data: searchedPt, isFetching } = useSearchPt(debouncedSearch);
+  const [searchedResult, setSearchedResult] = useState();
+  const {mutateAsync: searchPt, isPending} = useSearchPt();
+  const [selectedTrainer, setSelectedTrainer] = useState();
 
-  const [searchLocation, setSearchLocation] = useState();
+  const [searchedLonLat, setSearchedLonLat] = useState();
   // 검색한 장소의 위치 정보(도로명, 위도, 경도)를 searchLocation에 저장하는 함수
-  const handleSearch = async (e) => {
-    e.preventDefault();
+  const handleSearch = async () => {
     if (debouncedSearch) {
       // 검색한 지역의 정보 찾기 (주소명, 경도, 위도)
-      let geocoder = new window.kakao.maps.services.Geocoder();
+      let geocoder = await new window.kakao.maps.services.Geocoder();
       const response = async (result, status) => {
         if (status === window.kakao.maps.services.Status.OK) {
           const locationData = {
             lon: Number(result[0].x), // 경도
             lat: Number(result[0].y), // 위도
           };
-          setSearchLocation(locationData);
+          setSearchedLonLat(locationData);
         } else {
-          // 검색어(주소)가 올바르지 않은 경우
+          setSearchedLonLat(null);
         }
       };
-      geocoder.addressSearch(debouncedSearch, response);
+      await geocoder.addressSearch(debouncedSearch, response);
     }
   };
 
-  useEffect(() => {
-    console.log(searchLocation);
-  }, [ searchLocation])
+  const handleSearchResult = async () => {
+    const result = await searchPt(searchedLonLat);
+    if(result.status == 200){
+      setSearchedResult(result.data)
+    }else{
+      setSearchedResult(null);
+    }
+    // if(!isPending) setSearchedResult(result);
+  }
+  
 
-  console.log(searchLocation);
+  // debouncedSearch이 갱신 될 때마다 트레이너 리스트 fetching  
+  useEffect(() => {
+    if(debouncedSearch) handleSearch();
+  }, [debouncedSearch])
+
+  useEffect(() => {
+    if(searchedLonLat) handleSearchResult();
+  }, [searchedLonLat])
 
   return (
     <div className="pt-main-container box-shadow">
@@ -56,16 +71,18 @@ const PTMain = () => {
         </div>
 
         <ul className="pt-search-results">
-          <PtSearchResult setIsDetailOpen={setIsDetailOpen} />
-          <PtSearchResult setIsDetailOpen={setIsDetailOpen} />
-          <PtSearchResult setIsDetailOpen={setIsDetailOpen} />
-          <PtSearchResult setIsDetailOpen={setIsDetailOpen} />
-          <PtSearchResult setIsDetailOpen={setIsDetailOpen} />
-          <PtSearchResult setIsDetailOpen={setIsDetailOpen} />
+          {searchedResult && searchedResult.length > 0 &&
+            searchedResult?.map(result => (
+            <PtSearchResult trainer={result} setIsDetailOpen={setIsDetailOpen} key={result._id} setSelectedTrainer={setSelectedTrainer} />
+          ))}
+          {searchedResult && searchedResult.length == 0 &&
+            <p>해당 지역 근처에 트레이너 없습니다. <br/>다른 주소를 입력해보세요.</p>
+          }
+          
         </ul>
 
-        {isDetailOpen && (
-          <PtSearchResultDetail setIsDetailOpen={setIsDetailOpen} />
+        {isDetailOpen && selectedTrainer && (
+          <PtSearchResultDetail setIsDetailOpen={setIsDetailOpen} selectedTrainer={selectedTrainer} />
         )}
       </div>
 
