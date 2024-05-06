@@ -22,7 +22,7 @@ const PTDetail = () => {
   return (
     <div className="pt-detail-wrap">
       {isOpenReservation && (
-        <PTReservation price={trainer.price} setIsOpenReservation={setIsOpenReservation} />
+        <PTReservation price={trainer.price.toLocaleString('ko-KR')} setIsOpenReservation={setIsOpenReservation} />
       )}
       <div className="pt-detail-container box-shadow">
         <img src="" alt="gym_img" className="pt-detail-gymImg" />
