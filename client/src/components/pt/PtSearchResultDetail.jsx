@@ -3,6 +3,7 @@ import Clock from "/public/images/clock.svg";
 import Gym from "/public/images/gym.svg";
 import Coin from "/public/images/coin.svg";
 import {useNavigate} from 'react-router-dom';
+import GymBanner from '/public/images/gym.jpg'
 
 const PtSearchResultDetail = ({setIsDetailOpen, selectedTrainer}) => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const PtSearchResultDetail = ({setIsDetailOpen, selectedTrainer}) => {
       <h3>{selectedTrainer.ptProfileName} 트레이너</h3>
       <button className='close-result' onClick={() => setIsDetailOpen(false)}>x</button>
     </div>
-    <img src='' alt='gym_img' className='pt-search-result-detail-img' />
+    <img src={GymBanner} alt='gym_img' className='pt-search-result-detail-img' />
 
     <button 
       className='pt-search-result-navigate-btn box-shadow'

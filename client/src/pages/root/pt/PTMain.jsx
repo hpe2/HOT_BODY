@@ -43,7 +43,6 @@ const PTMain = () => {
     }else{
       setSearchedResult(null);
     }
-    // if(!isPending) setSearchedResult(result);
   }
   
 

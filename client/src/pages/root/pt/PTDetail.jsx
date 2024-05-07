@@ -10,6 +10,7 @@ import { useState } from 'react';
 import PTReservation from './PTReservation';
 import { useUserContext } from '../../../context/AuthContext';
 import {toast} from 'react-toastify';
+import Gym from '/public/images/gym.jpg';
 
 const PTDetail = () => {
   const {isAuthenticated} = useUserContext()
@@ -34,7 +35,7 @@ const PTDetail = () => {
         <PTReservation id={id} price={trainer.price.toLocaleString('ko-KR')} setIsOpenReservation={setIsOpenReservation} />
       )}
       <div className="pt-detail-container box-shadow">
-        <img src="" alt="gym_img" className="pt-detail-gymImg" />
+        <img src={Gym} alt="gym_img" className="pt-detail-gymImg" />
 
         {/* 트레이너 프로필 */}
         <div className="pt-detail-profile-wrap flex-align">
