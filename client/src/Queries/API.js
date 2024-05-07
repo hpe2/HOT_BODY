@@ -206,3 +206,50 @@ export const joinGroup = async (groupId) => {
 
 // #endregion
 // group =====================================================================
+
+// pt =====================================================================
+// #region
+
+// pt 트레이너 등록
+export const registerTrainer = async (ptInfo) => {
+  try{
+    const response = await axios.post('/api/pt/register', ptInfo);
+    return response;
+  }catch(err){
+    return err.response;
+  }
+}
+
+// 특정 트레이너 상세 정보 불러오기
+export const getTrainerDetail = async (id) => {
+  try{
+    const response = await axios.get(`/api/pt/getDetail?id=${id}`);
+    return response.data;
+  }catch(err){
+    console.log(err);
+    return err.response;
+  }
+}
+
+// 특정 위치의 PT 트레이너 정보 검색
+export const searchPt = async (lonLat) => {
+  try{
+    const response = await axios.get(`/api/pt/search?lon=${lonLat.lon}&lat=${lonLat.lat}`);
+    return response;
+  }catch(err){
+    return err.response;
+  }
+}
+
+// 트레이닝 예약하기
+export const reservationPT = async (formData) => {
+  try{
+    const response = await axios.post(`/api/pt/reservation`, formData);
+    return response;
+  }catch(err){
+    return err.response
+  }
+}
+
+// #endregion
+// pt =====================================================================

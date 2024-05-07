@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser } from "./API";
 
 // auth =====================================================================
 
@@ -153,9 +153,36 @@ export const useJoinGroup = (id) => {
     onSuccess: () => queryClient.invalidateQueries({
       queryKey: ['GET_GROUP_DETAIL', id]
     })
-    // onMutate: async () => {
-    //   await queryClient.cancelQueries(['JOIN_GROUP']);
-    //   queryClient.setQueriesData(['JOIN_GROUP'])
-    // }
+  })
+}
+
+// pt =====================================================================
+
+// pt 트레이너 등록
+export const useRegisterTrainer = () => {
+  return useMutation({
+    mutationFn: (ptInfo) => registerTrainer(ptInfo)
+  })
+}
+
+// 특정 트레이너의 상세 정보 가져오기
+export const useGetTrainerDetail = (id) => {
+  return useQuery({
+    queryFn: () => getTrainerDetail(id),
+    queryKey: ['GET_TRAINER_DETAIL_BY_ID', id]
+  })
+}
+
+// 특정 경도 위도 범위에 해당하는 트레이너 정보 모두 검색
+export const useSearchPt = () => {
+  return useMutation({
+    mutationFn: (lonLat) => searchPt(lonLat)
+  })
+}
+
+// 트레이닝 예약
+export const useReservationPT = () => {
+  return useMutation({
+    mutationFn: (formData) => reservationPT(formData),
   })
 }

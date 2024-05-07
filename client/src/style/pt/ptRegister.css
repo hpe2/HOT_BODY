@@ -1,0 +1,84 @@
+.pt-register-wrap{
+  background-color: #f8f8f8;
+  padding: 2rem 0;
+}
+
+.pt-register-container {
+  width: 780px;
+  margin: 0 auto;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.pt-register-title {
+  border-bottom: 1.5px solid #a40000;
+  padding-bottom: 1rem;
+}
+
+.pt-register-btn {
+  border: none;
+  color: white;
+  background-color: #a40000;
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.pt-register-form {
+  padding: 1rem;
+}
+
+.pt-register-input-wrap {
+  margin: 0.75rem 0;
+  flex: 1;
+}
+
+.pt-register-input-wrap span,
+.pt-register-textarea-wrap span{
+  width: 110px;
+  color: rgb(55, 55, 55);
+}
+
+.pt-register-textarea-wrap {
+  display: flex;
+  margin: 0.75rem 0;
+}
+
+.pt-register-textarea-wrap textarea {
+  min-height: 300px;
+}
+
+.pt-register-location{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.pt-register-location button{
+  width: fit-content;
+  margin-left: 1rem;
+  border:none;
+  color: white;
+  padding: 0.45rem 1rem;
+  border-radius: 5px;
+}
+
+.location-invalid {
+  background-color: #a40000;
+}
+
+.location-valid {
+  background-color: #08a400;
+}
+
+.pt-register-input {
+  border: none;
+  background-color: #eee;
+  padding: 0.5rem;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.pt-register-img-wrap {
+  margin: 1.5rem 0;
+}

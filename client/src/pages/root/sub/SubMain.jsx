@@ -1,21 +1,24 @@
-import React from "react";
 import "../../../style/sub/submain.css";
 import SubClick from "../../../components/sub/SubClick";
 import { useNavigate, useParams } from "react-router-dom";
-const SubMain = () => {
 
+const SubMain = () => {
   const { type2 } = useParams();
   const navigate = useNavigate();
   return (
     <>
-     <button className="subvideo" onClick={() => navigate("/sub/main/click")} ><a href='#content1'>
-     <video style={{ width: '100%', height: 'auto' }} muted autoPlay loop>
-  <source src="../../public/images/sub_HOTBODY.mp4" type="video/mp4" />
-</video>
+      <button className="subvideo" onClick={() => navigate("/sub/main/click")}>
+        <a href="#content1">
+          <video style={{ width: "100%", height: "auto" }} muted autoPlay loop>
+            <source
+              src="../../public/images/sub_HOTBODY.mp4"
+              type="video/mp4"
+            />
+          </video>
         </a>
-        </button>
-        
-        {type2 === "click" && <SubClick />}
+      </button>
+
+      {type2 === "click" && <SubClick />}
     </>
   );
 };

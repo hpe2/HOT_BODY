@@ -32,8 +32,8 @@ const navLinks = [
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { user, setUser, isAuthenticated, setIsAuthenticated } = useUserContext();
-  console.log(user);
+  const { setUser, isAuthenticated, setIsAuthenticated } = useUserContext();
+
   const handleLogout = () => {
     setUser({});
     setIsAuthenticated(false);
