@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser } from "./API";
 
 // auth =====================================================================
 
@@ -177,5 +177,12 @@ export const useGetTrainerDetail = (id) => {
 export const useSearchPt = () => {
   return useMutation({
     mutationFn: (lonLat) => searchPt(lonLat)
+  })
+}
+
+// 트레이닝 예약
+export const useReservationPT = () => {
+  return useMutation({
+    mutationFn: (formData) => reservationPT(formData),
   })
 }

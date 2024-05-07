@@ -12,7 +12,7 @@ router.post('/register', auth, async (req, res) => {
     }
 
     const ptInfo = {
-      userId: req.body.userId,
+      userId: req.user._id,
       speciality: req.body.speciality,
       certification: req.body.certification,
       ptProfileImage: req.body.ptProfileImage,
@@ -76,6 +76,47 @@ router.get('/search', async (req, res) => {
     return res.status(200).send(trainers);
   }catch(err){
     return res.status(400).send({message: '트레이너 정보를 불러오는데 실패했습니다.'})
+  }
+})
+
+// 트레이닝 예약
+router.post('/reservation', auth, async(req, res) => {
+  try{
+    const userForm = {
+      trainerId: req.body.trainerId,
+      date: req.body.date,
+      time: req.body.time,
+      price: req.body.price,
+      process: 'waiting'
+    }
+
+    const user = await User.findOneAndUpdate(
+      {_id: req.user._id},
+      {$push : {PTReservation: userForm} },
+      {new: true}
+    );
+    if(!user) return res.status(400).send({message: '유저 정보를 찾을 수 없습니다'});
+
+
+    const ptForm = {
+      userId: req.user._id,
+      userName: req.user.name,
+      date: req.body.date,
+      time: req.body.time,
+      process: 'waiting'
+    }
+
+    const trainer = await PT.findOneAndUpdate(
+      {_id: req.body.trainerId},
+      {$push: {reservations: ptForm}},
+      {new: true}
+    )
+
+    if(!trainer) return res.status(400).send({message: '트레이너 정보를 찾을 수 없습니다'});
+
+    return res.status(200).send({message: '성공적으로 예약 했습니다.'});
+  }catch(err){
+    return res.status(400).send({message: `예약에 실패했습니다. ${err}`})
   }
 })
 

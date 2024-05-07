@@ -235,11 +235,19 @@ export const getTrainerDetail = async (id) => {
 export const searchPt = async (lonLat) => {
   try{
     const response = await axios.get(`/api/pt/search?lon=${lonLat.lon}&lat=${lonLat.lat}`);
-    console.log(response);
     return response;
   }catch(err){
-    console.log(err);
     return err.response;
+  }
+}
+
+// 트레이닝 예약하기
+export const reservationPT = async (formData) => {
+  try{
+    const response = await axios.post(`/api/pt/reservation`, formData);
+    return response;
+  }catch(err){
+    return err.response
   }
 }
 

@@ -38,9 +38,11 @@ const PTSchema = mongoose.Schema({
     text: String,
   }],
   reservations: [{
-    userId: String,
+    userId: mongoose.Schema.Types.ObjectId,
     userName: String,
     date: String,
+    time: String,
+    process: String
   }]
 }, {timestamps: true});
 

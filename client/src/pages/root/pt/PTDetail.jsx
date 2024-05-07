@@ -8,12 +8,21 @@ import { useParams } from 'react-router-dom';
 import { useGetTrainerDetail } from '../../../Queries/queriesAndMutations';
 import { useState } from 'react';
 import PTReservation from './PTReservation';
+import { useUserContext } from '../../../context/AuthContext';
+import {toast} from 'react-toastify';
 
 const PTDetail = () => {
+  const {isAuthenticated} = useUserContext()
   const {id} = useParams();
   const {data: trainer, isFetching} = useGetTrainerDetail(id);
   const [isOpenReservation, setIsOpenReservation] = useState(false);
 
+  const handleReservationModal = () => {
+    if(!isAuthenticated){
+      return toast.info('로그인 한 사용자에게 제공되는 기능입니다.')
+    }
+    setIsOpenReservation(true)
+  }
 
   if(isFetching) {
     return <h1 className='flex-align'>데이터를 받아오는 중입니다. . .</h1>
@@ -22,7 +31,7 @@ const PTDetail = () => {
   return (
     <div className="pt-detail-wrap">
       {isOpenReservation && (
-        <PTReservation price={trainer.price.toLocaleString('ko-KR')} setIsOpenReservation={setIsOpenReservation} />
+        <PTReservation id={id} price={trainer.price.toLocaleString('ko-KR')} setIsOpenReservation={setIsOpenReservation} />
       )}
       <div className="pt-detail-container box-shadow">
         <img src="" alt="gym_img" className="pt-detail-gymImg" />
@@ -41,7 +50,7 @@ const PTDetail = () => {
           </div>
 
           <div className="pt-detail-btns">
-            <button onClick={() => setIsOpenReservation(true)}>
+            <button onClick={handleReservationModal}>
               <img src={Calendar} alt="" /> 예약하기
             </button>
           </div>
