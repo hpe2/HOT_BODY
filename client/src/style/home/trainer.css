@@ -1,0 +1,188 @@
+
+.mini1_news,
+.mini1_p,
+.mini2_news,
+.mini3_news,
+.mini4_news {
+  width: 50%;
+}
+
+.all {
+  display: flex;
+}
+.trainer_container {
+  width: 100%;
+  height: 600px;
+  margin-top: 10px;
+}
+
+.trainer_container .heroes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.trainer_container .heroes .hero:hover {
+  transform: scale(1.3) skewX(-14deg);
+  z-index: 1;
+  opacity: 50%;
+
+}
+.hero.active {
+  transform: scale(1.8); /* 기본 크기보다 10% 더 크게 */
+}
+
+.trainer_container .heroes .hero {
+  position: relative;
+  width: 250px;
+  height: 280px;
+  margin: 4px;
+  border: 3px solid white;
+  border-radius: 10px;
+  box-sizing: border-box;
+  overflow: hidden;
+  background-color: rgb(70, 70, 70);
+  transform: skewX(-14deg);
+  transition: transform 0.1s, background-color 0.6s;
+}
+
+.trainer_container .heroes .hero .trainer_image {
+  width: 140%;
+  height: 140%;
+  background-repeat: no-repeat;
+  background-position: -50px -20px;
+  background-size: cover;
+  transition: opacity 0.5s ease;
+  opacity: 1; 
+  transform: skewX(14deg);
+}
+
+.trainer_container .heroes .hero:hover .trainer_image {
+  opacity: 0.5; 
+  
+}
+
+.hero-description,
+.hover-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  opacity: 0;  
+  transition: opacity 0.5s ease;
+}
+
+.hero:hover .hero-description,
+.hero:hover .hover-text {
+  opacity: 1; 
+}
+
+.hero:hover .hover-text {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+.trainer_container .heroes .hero:nth-child(1) .trainer_image {
+  background-image: url("../../public/images/trainer/health1.jpg");
+}
+.trainer_container .heroes .hero:nth-child(2) .trainer_image {
+  background-image: url("../../public/images/trainer/health2.jpg");
+}
+.trainer_container .heroes .hero:nth-child(3) .trainer_image {
+  background-image: url("../../public/images/trainer/health3.jpg");
+}
+.trainer_container .heroes .hero:nth-child(4) .trainer_image {
+  background-image: url("../../public/images/trainer/health4.jpg");
+}
+.trainer_container .heroes .hero:nth-child(5) .trainer_image {
+  background-image: url("../../public/images/trainer/health5.jpg");
+}
+.trainer_container .heroes .hero:nth-child(6) .trainer_image {
+  background-image: url("../../public/images/trainer/health6.jpg");
+}
+.trainer_container .heroes .hero:nth-child(7) .trainer_image {
+  background-image: url("../../public/images/trainer/health7.jpg");
+}
+.trainer_container .heroes .hero:nth-child(8) .trainer_image {
+  background-image: url("../../public/images/trainer/health8.jpg");
+}
+.trainer_container .heroes .hero:nth-child(9) .trainer_image {
+  background-image: url("../../public/images/trainer/health9.jpg");
+}
+.trainer_container .heroes .hero:nth-child(10) .trainer_image {
+  background-image: url("../../public/images/trainer/health10.jpg");
+}
+
+.heroes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 1200px;
+  width: 100%;
+  overflow: visible; /* 수정된 부분 */
+}
+.hero {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.hero .image {
+  width: 100%;
+  height: 100%;
+  background-color: gray;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.3s ease;
+}
+
+.hero .hero-description {
+  position: absolute;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  transition: opacity 0.3s ease-in-out;
+  pointer-events: none;
+  bottom: 0;  
+  left: 0;
+  opacity: 0;  
+  transform: translateY(100%); 
+}
+
+.hero:hover .hero-description {
+  opacity: 1;
+  transform: translateY(0); 
+}
+
+
+.hero.clicked {
+  transform: scale(3) skewX(-14deg) !important ; /* .hero 요소의 크기를 확대합니다. */
+  margin-top: 250px !important;
+}
+
+.hero.clicked .image {
+  transform: scale(1); /* 이미지는 원래 크기로 유지됩니다. */
+}
+
+.hero.clicked .hero-description {
+  display: block;
+  transform: scale(2); /* 중복되는 스타일을 여기에 추가합니다. */
+  font-size: 0.3rem;
+  height: 400px;
+  padding-left: 100px;
+  width: 250px;
+}
+.bt{
+  cursor: pointer;
+}

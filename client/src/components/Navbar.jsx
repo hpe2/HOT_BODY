@@ -21,8 +21,12 @@ const navLinks = [
     menuName: "모임",
   },
   {
-    link: "/subscribe",
+    link: "/sub",
     menuName: "구독",
+  },
+  {
+    link: "/event",
+    menuName: "이벤트",
   },
 ];
 

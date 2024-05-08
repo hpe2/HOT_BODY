@@ -1,0 +1,179 @@
+.pt-detail-wrap {
+    background-color: #f8f8f8;
+    padding-bottom: 5rem;
+}
+
+.pt-detail-container {
+    background-color: white;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-bottom: 2rem;
+}
+
+.pt-detail-profile-wrap {
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.pt-detail-star {
+    width: 20px;
+}
+
+.flex-col{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.flex-align{
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+}
+
+.pt-detail-gymImg {
+    background-color: gray;
+    height: 300px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.pt-detail-profile {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pt-detail-profile p{
+    font-size: 0.9rem;
+    color: #585858;
+}
+
+.pt-detail-profieImg {
+    background-color: gray;
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+}
+
+.pt-detail-btns {
+    display: flex;
+    gap: 1rem;
+}
+
+.pt-detail-btns button{
+    border: none;
+    background: transparent;
+    border: 1px solid #a40000;
+    color: #a40000;
+    display: flex;
+    align-items: center;
+    padding: 0.25rem 1rem;
+    border-radius: 5px;
+    gap: 0.25rem;
+    font-weight: 600;
+}
+
+.pt-detail-btns img {
+    width: 20px;
+}
+
+.pt-detail-descript {
+    padding: 2rem;
+}
+
+.pt-detail-descript p{
+    background-color: rgb(240, 240, 240);
+    padding: 2rem;
+    border-radius: 10px;
+    line-height: 1.75rem;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border: 1px solid rgb(206, 206, 206);
+    margin-top: 1rem;
+}
+
+.pt-detail-speciality,
+.pt-detail-certifications,
+.pt-detail-reviews {
+    padding: 2rem;
+}
+
+.pt-detail-speciality h3,
+.pt-detail-certifications h3{
+    border-bottom: 1px solid #a40000;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.pt-detail-speciality-list,
+.pt-detail-certification-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.pt-detail-speciality-list li,
+.pt-detail-certification-list li {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.pt-detail-speciality-list img,
+.pt-detail-certification-list img {
+    width: 20px;
+}
+
+.pt-detail-reviews img {
+    width: 30px;
+}
+
+.pt-detail-review-header {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+/* pt detail 말풍선 */
+.pt-detail-review-lists {
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px;
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.pt-detail-review {
+    position: relative;
+    background-color: white;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all 200ms ease-in-out;
+}
+
+.pt-detail-review:hover{
+    transform: scale(1.05);
+}
+
+.pt-detail-review-user {
+    background-color: #a40000;
+    color: white;
+    padding: 1rem;
+}
+
+.pt-detail-review-text {
+    display: flex;
+    flex-direction: column;
+    padding: 1.75rem 1.75rem 2.5rem;
+}
+
+.comma {
+    transform: scale(-1, -1)
+}

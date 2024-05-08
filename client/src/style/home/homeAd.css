@@ -1,5 +1,5 @@
 .home-ad-container{
-  margin-top: 2.5rem;
+  margin: 2.5rem 0 6rem 0;
   display: flex;
   padding: 1rem 0;
   gap: 2rem;
@@ -26,32 +26,22 @@
 
 .home-ad-content{
   flex: 5;
-  background-color: #656565;
+  background-color: #ae5b5b;
   color: white;
   border-radius: 20px 0 0 20px;
   padding: 2rem 3rem;
 }
 
 .home-ad-content-title {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
   font-weight: 500;
 }
 
 .home-ad-content p{
   font-size: 0.9rem;
   color: #eaeaea;
-  margin-top: 0.25rem;
+  margin-top: 0.35rem;
 }
-
-.home-ad-link-btn {
-  border: none;
-  background-color: #fff;
-  padding: 0.5rem 3rem;
-  border-radius: 100px;
-  color: rgb(74, 74, 74);
-  margin-top: 3rem;
-}
-
 
 .home-ad-second{
   background-color: #656565;

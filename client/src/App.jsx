@@ -16,13 +16,20 @@ import 'react-toastify/ReactToastify.css';
 import CustomerServicePage from "./pages/user/CustomerServicePage";
 import CommunityPostDetail from './pages/root/community/CommunityPostDetail';
 import CommunityEditPost from './pages/root/community/CommunityEditPost';
-import GroupCreate from './pages/root/group/GroupCreate';
+import Terms from "./pages/root/pt/Terms";
+import Privacy from "./pages/root/pt/Privacy";
+import PTReservation from "./pages/root/pt/PTReservation";
+import Subscribe from "./pages/root/pt/Subscribe";
 import Group from './pages/root/group/Group';
+import GroupCreate from './pages/root/group/GroupCreate';
 import GroupDetail from './pages/root/group/GroupDetail';
 import GroupMeetingCreate from './pages/root/group/GroupMeetingCreate';
 import Home from "./pages/root/home/Home";
 import Footer from "./components/Footer";
-
+import PTMain from './pages/root/pt/PTMain';
+import PTDetail from './pages/root/pt/PTDetail';
+import PTResiger from './pages/root/pt/PTRegister';
+import SubMain from "./pages/root/sub/SubMain";
 
 
 const App = () => {
@@ -52,6 +59,13 @@ const App = () => {
             <Route path="/profile/point" element={<Point />} />
             <Route path="/gogaek" element={<CustomerServicePage />} />
           </Route>
+          
+          {/*membership*/}
+          < Route path="/terms" element={<Terms />} />
+          < Route path="/privacy" element={<Privacy />} />
+          < Route path="/pt/reservation" element={<PTReservation />} />
+          < Route path="/subscribe" element={<Subscribe />} />
+
           {/* auth */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
@@ -61,6 +75,16 @@ const App = () => {
           <Route path='/group/create' element={<GroupCreate />} />
           <Route path='/group/detail/:id' element={<GroupDetail />} /> 
           <Route path='/group/meeting/create/:id' element={<GroupMeetingCreate />} /> 
+
+          {/* PT */}
+          <Route path='/pt' element={<PTMain />} />
+          <Route path='/pt/detail/:id' element={<PTDetail />} />
+          <Route path='/pt/register' element={<PTResiger />} />
+
+
+          {/* Sub */}
+          <Route path="/sub/main/:type2" element={<SubMain />} />
+          <Route path="/sub" element={<SubMain />} />
 
         </Routes>
         <Footer />

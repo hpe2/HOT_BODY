@@ -40,10 +40,25 @@
   width: 20px;
 }
 
+.group-banner-img-container{
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.group-banner-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
 .group-banner-image{
   background-color: #8c8c8c;
   width: 100%;
-  object-fit: contain; 
+  object-fit: cover; 
   height: 100%;
 }
 

@@ -5,6 +5,7 @@ import PlusIcon from '/public/images/plus.svg'
 import Travel from '/public/images/travel.jpeg'
 import Hobby from '/public/images/hobby.jpeg'
 import WorkOut from '/public/images/workout.jpeg'
+import GroupBanner from '/public/images/GroupHobby.jpg';
 
 import {useNavigate} from 'react-router-dom'
 import {useGetGroups} from '../../../Queries/queriesAndMutations';
@@ -41,7 +42,10 @@ const Group = () => {
 
         {/* 배너 */}
         <div className="group-main-banner">
-          <div className='group-banner-image'>Banner Image</div>
+          <div className="group-banner-img-container">
+            <img src={GroupBanner} alt='banner' className='group-banner-image' />
+            <div className='group-banner-img-overlay' />
+          </div>
           <div className='group-banner-menu'>
             <h1>{categories[category].name}</h1>
             <ul>

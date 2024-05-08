@@ -47,10 +47,6 @@ const userSchema = mongoose.Schema({
     groupMeeting: {
       type: [String],
       default: []
-    },
-    PT: {
-      type: [String],
-      default: []
     }
   },
   wrote: [String],
@@ -63,14 +59,13 @@ const userSchema = mongoose.Schema({
     purpose: String,
   },
   PTReservation: [{
-    trainerId: mongoose.Schema.Types.ObjectId,
-    askedAt: Date,
-    wantAt: Date,
+    trainerId: String,
+    date: String,
     time: String,
-    location: String
+    price: String,
+    process: String
   }],
   coupon: [{
-    couponId: mongoose.Schema.Types.ObjectId,
     title: String,
     expire: Date,
     content: String

@@ -1,0 +1,134 @@
+.pt-reservation-wrap {
+  position: fixed;
+  top: 0;
+  z-index: 999;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pt-reservation-container {
+  position: relative;
+  font-family: "Arial", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: auto;
+}
+
+.react-datepicker {
+  margin-bottom: 16px;
+  border: none; /* 달력의 테두리를 없애기 위함 */
+}
+
+.react-datepicker__navigation {
+  top: 20px; /* 화살표 위치 조정 */
+}
+
+.react-datepicker__current-month {
+  font-size: 1.2em; /* 현재 월 텍스트 크기 */
+}
+
+.react-datepicker__day--selected,
+.react-datepicker__day--in-selecting-range,
+.react-datepicker__day--in-range {
+  background-color: #a40000; /* 선택된 날짜의 배경색 */
+  color: #fff;
+}
+
+.time-slots-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.time-slot {
+  padding: 8px 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.time-slot.selected {
+  background-color: #a40000;
+  color: #fff;
+}
+
+.pt-reservation-close {
+  align-self: flex-end;
+  border: none;
+  padding: 0.2rem 0.5rem;
+  border: 1px solid #a40000;
+  background: none;
+  color: #a40000;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+  width: fit-content;
+}
+
+.pt-reservation-price {
+  width: 100%;
+  text-align: center;
+  margin-top: 1.5rem;
+}
+
+.pt-reservation-notice {
+  font-size: 0.75rem;
+  width: 100%;
+  color: gray;
+  text-align: center;
+  padding-bottom: 1rem;
+  margin: 0.5rem 0 1.5rem 0;
+  border-bottom: 1px solid #a40000;
+}
+
+/* 반응형 디자인을 위한 추가 스타일 */
+@media (max-width: 768px) {
+  .pt-reservation-container {
+    width: 90%;
+  }
+
+  .time-slots-container {
+    flex-direction: column;
+  }
+
+  .time-slot {
+    width: 100%;
+    margin-bottom: 8px;
+  }
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.pt-reservation-button{
+  border: none;
+  background-color: #a40000;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.pt-reservation-button:disabled {
+  background-color: #a4000067;
+}

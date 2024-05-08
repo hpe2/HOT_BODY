@@ -56,7 +56,11 @@ const Login = () => {
             </li>
           </ul>
 
+
+       
+
           <img src={Logo} alt="logo" className="auth-logo" />
+
 
           <form className="auth-form" onSubmit={handleLogin}>
             <AuthInput

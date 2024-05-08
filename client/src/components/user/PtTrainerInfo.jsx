@@ -1,18 +1,19 @@
-import React, { useState, useRef } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useRef, useState } from 'react'
 import { useUserContext } from '../../context/AuthContext';
-import { IoIosArrowForward } from "react-icons/io";
-import PtChat from './PtChat';
 
-const PtTrainerInfo = ({image, trainer}) => {
-  const {user} = useUserContext(); //
-  const [modalOpen, setModalOpen] = useState(false);
-  const modalBackground = useRef();
-  const navigate = useNavigate();
-  const toggleChatModal = () => {
-    setModalOpen(!modalOpen);
-  };
+const purposeList = [
+  {value: 'diet', text:'다이어트'},
+  {value: 'bulk', text:'체중증가'},
+  {value: 'muscle', text:'근력 강화(건강)'},
+  {value: 'health', text:'체력'},
+  {value: 'balance', text:'체형 교정'},
+  {value: 'physicalCare', text:'재활/통증 케어'},
+  {value: 'bodyProfile', text:'바프'},
+  {value: 'competition', text:'대회 준비'},
+]
 
+const PtTrainerInfo = ({setPtEdit}) => {
+  const {user} = useUserContext(); //PersonalInfo 필요
 
   return (
 
