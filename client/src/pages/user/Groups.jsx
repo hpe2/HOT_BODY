@@ -27,16 +27,6 @@ const Groups = () => {
             </div>
           </div>
         </div>
-        <div className="container">
-          <div className="group">
-            <h1>내 모임</h1>
-            <div className="boxContainer">
-            {GroupList.map((groups) => (
-              groups.mine === true ? <GroupInfo image={groups.image} title={groups.title} location={groups.location} member={groups.member} meeting={groups.meeting}/> : ""
-            ))}
-            </div>
-          </div>
-        </div>
       </section>
     </>
   )

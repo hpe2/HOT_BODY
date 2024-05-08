@@ -1,5 +1,7 @@
 import React, { useRef, useState } from 'react'
 import { useUserContext } from '../../context/AuthContext';
+import { IoIosArrowForward } from "react-icons/io";
+
 
 const purposeList = [
   {value: 'diet', text:'다이어트'},
@@ -12,7 +14,7 @@ const purposeList = [
   {value: 'competition', text:'대회 준비'},
 ]
 
-const PtTrainerInfo = ({setPtEdit}) => {
+const PtTrainerInfo = ({image,trainer}) => {
   const {user} = useUserContext(); //PersonalInfo 필요
 
   return (
@@ -32,18 +34,6 @@ const PtTrainerInfo = ({setPtEdit}) => {
           <IoIosArrowForward />
         </div>
         </div>
-      {
-      modalOpen &&
-      <div className={'modal-container'} ref={modalBackground} onClick={(e) => {
-        if (e.target === modalBackground.current) {
-          setModalOpen(false);
-        }
-      }}>
-        <div className={'modal-content'}>
-            <PtChat isOpen={modalOpen} onClose={toggleChatModal} />
-          </div>
-        </div>
-      }
     </div>
   )
 }
