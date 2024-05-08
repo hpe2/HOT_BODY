@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { VscRefresh } from "react-icons/vsc";
 import {toast} from 'react-toastify';
-
+import Logo from "./../../../public/images/logo.png";
 
 const CardGame = ({point}) => {
   const generateWinningCardIndex = () => {
@@ -18,7 +18,7 @@ const CardGame = ({point}) => {
   initialCards[winningCardIndex].isWinner = true;
 
   const [cards, setCards] = useState(initialCards);
-  const [availableAttempts, setAvailableAttempts] = useState(10);
+  const [availableAttempts, setAvailableAttempts] = useState(20);//point
 
   const handleClick = (cardId) => {
     if (availableAttempts < 1) {
@@ -40,7 +40,7 @@ const CardGame = ({point}) => {
       if (updatedCards[cardId - 1].isWinner === true) {
         setTimeout(() => {
           toast.info('당첨입니다! 축하합니다!');
-        }, 500); // 애니메이션이 끝난 후 1초 후에 알림 표시
+        }, 500); // 당첨 후 처리
       }
     }
   };
@@ -68,9 +68,15 @@ const CardGame = ({point}) => {
           className={`cardWrapper ${card.isFlipped ? 'flipped' : ''}`}
           onClick={() => handleClick(card.id)}
         >
-          <div className="card">
-            <div className="back"></div>
-            <div className="front">{card.isFlipped && (card.isWinner ? '당첨!' : '미당첨')}</div>
+          <div className="card" >
+            <div className="back" style={{ backgroundColor: card.isWinner && card.isFlipped ? '#ffcece' : '#fff' }}>{card.isFlipped && (card.isWinner ? '당첨!' : '미당첨')}</div>
+            <div className="front">
+              <img
+                src={Logo}
+                alt="logo"
+                className="logo"
+              />
+            </div>
           </div>
         </div>
       ))}

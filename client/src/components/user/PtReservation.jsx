@@ -3,7 +3,7 @@ import { useUserContext } from '../../context/AuthContext';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 
 
-const PtReservation = ({ image,trainer, At, time, location, text, price }) => {
+const PtReservation = ({ image, trainer, At, time, location, text, price }) => {
   const [isAllVaild, setIsAllVaild] = useState(true);
   const PanelDrop = (e) => {
     e.stopPropagation()
@@ -17,7 +17,7 @@ const PtReservation = ({ image,trainer, At, time, location, text, price }) => {
     <div className="ptField">
       <div className='ptInnerContainer'>
         <div className='imageContainer'>
-          <img src="" alt={image} className='ptImage'/>
+          <img src={image} alt='trainer' className='ptImage'/>
         </div>
         <div className='ptStatus'>
           <h2 className='trainerName'>{trainer} 선생님</h2>

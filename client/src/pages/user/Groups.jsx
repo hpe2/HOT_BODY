@@ -22,7 +22,7 @@ const Groups = () => {
             <h1>가입한 모임</h1>
             <div className="boxContainer">
             {GroupList.map((groups) => (
-              groups.mine === false ? <GroupInfo image={groups.image} title={groups.title} location={groups.location} member={groups.member} meeting={groups.meeting}/> : ""
+              <GroupInfo image={groups.image} title={groups.title} location={groups.location} member={groups.member} meeting={groups.meeting}/>
             ))}
             </div>
           </div>

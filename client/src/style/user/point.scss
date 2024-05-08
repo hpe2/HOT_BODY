@@ -3,6 +3,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 440px;
+	margin-bottom: 8rem;
 }
 .pointContainer {
 	display: flex;
@@ -42,10 +43,17 @@
 			padding: 16px;
 			
 			.pointImage{
+				display: flex;
+				align-items: center;
 				height: 150px;
 				width: 150px;
-				background-color: #A6A6A6;
+				border: 1px solid #cccccc;
+				background-color: #f5f5f5;
 				border-radius: 1.4rem;
+				.image{
+					height: 50%;
+					width: 100%;
+				}
 			}
 			.point, .coupon {
 				display: flex;
@@ -66,20 +74,19 @@
 				}
 			}
 			}
-				.buttons{
-					display: flex;
-					height: 100%;
-					border: none;
-					border-radius:1px;
-					padding: 2rem;
-				}
-				
-				.checkPoint {
-					display: flex;
-					justify-content:space-between;
-					transition:all 0.6s;
-					padding: 1rem;
-				}
+			.buttons{
+				display: flex;
+				height: 100%;
+				border: none;
+				border-radius:1px;
+				padding: 2rem;
+			}
+			
+			.checkPoint {
+				display: flex;
+				justify-content:space-between;
+				padding: 1rem;
+			}
 			}
 			.panel-checkPoint, .panel-coupon{
 				overflow: hidden; 
@@ -209,48 +216,64 @@
 		margin: 0.2rem;
 		position: flex;
 		perspective: 1000px;
+		transition: transform 0.6s ease;
+		transform-style: preserve-3d;
+	}
+	.flipped .card{
+		transform-style: preserve-3d;
+		transform: rotateY(180deg);
 	}
 	.card {
+		cursor: pointer;
 		position: relative;
 		width: 100%;
 		height: 100%;
 		transition: all 0.3s;
+		border-radius: 20px;
 		perspective-origin: center;
 		transform-style: preserve-3d;
 		color: white;
 		font-size: 2rem;
 	}
 }
-.cardWrapper:hover .card{
+.cardWrapper .card .front:hover {
 	transform: rotateY(-20deg);
+	transform-style: preserve-3d;
+	perspective-origin: center;
+	transition: all 0.2s;
+	box-shadow: 0 6px 8px -1px rgb(100 0 0 / 0.2), 0 2px 4px -2px rgb(100 0 0 / 0.2);
 }
-.cardWrapper .flipped .card {
-	transform: rotateY(200deg);
-}
+
 .front, .back {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 }
 	.front {
-		background-color: #A40000; /* 앞면의 배경색 */
-		color: white; /* 앞면의 텍스트 색상 */
+		background-color: #353535; /* 앞면의 배경색 */
+		color: rgb(255, 249, 249); /* 앞면의 텍스트 색상 */
 		border-radius: 20px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		backface-visibility: hidden;
+		box-shadow: 0 6px 8px -1px rgba(100, 0, 0, 0.1), 0 2px 4px -2px rgb(100 0 0 / 0.1);
+		.logo{
+			scale: 1.7;
+		}
 	}
 	
-	.back {
+	.card .back {
 		transform: rotateY(180deg);
-		background-color: skyblue;
-		backface-visibility: hidden;
+		background-color: #fff;
+		color: #A40000;
+		border: 1px solid #A40000;
 		border-radius: 20px;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		backface-visibility: hidden;
+		box-shadow: 0 6px 8px -1px rgba(100, 0, 0, 0.1), 0 2px 4px -2px rgb(100 0 0 / 0.1);
 	}
 
 .card-controll{

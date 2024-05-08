@@ -15,43 +15,36 @@ const purposeList = [
 const PtTrainerInfo = ({setPtEdit}) => {
   const {user} = useUserContext(); //PersonalInfo 필요
 
-  const handlePurpose = (value) => {
-    const purpose = purposeList.filter((list) => {
-      console.log(list.value, value);
-      return list.value === value
-    })[0]
-    console.log(purpose)
-    return purpose.text;
-  }
-  
-    return (
-    <form className="formField">
-      <div className='inputNote personalHeight'>
-        <span>키</span>
-        <span className='inputContent'>{user.personalInfo.height ? `${user.personalInfo.height} cm` : '정보 없음'}</span>
-      </div>
-      <div className='inputNote'>
-        <span>체중</span>
-        <span className='inputContent'>{user.personalInfo.weight ? `${user.personalInfo.weight} kg` : '정보 없음'}</span>
-      </div>
-      <div className='inputNote'>
-        <span>나이</span>
-        <span className='inputContent'>{user.personalInfo.age ? `${user.personalInfo.age} 살` : '정보 없음'}</span>
-      </div>
-      <div className='inputNote'>
-        <span>성별</span>
-        <span className='inputContent'>{user.personalInfo.gender ? user.personalInfo.gender : '정보 없음'}</span>
-      </div>
-      <div className='inputNote'>
-        <span>연락처</span>
-        <span className='inputContent'>{user.personalInfo.phone ? user.personalInfo.phone : '정보 없음'}</span>
-      </div>
-      <div className='inputNote'>
-        <span>운동목적</span>
-        <span className='inputContent'>{user.personalInfo.purpose ? handlePurpose(user.personalInfo.purpose) : '정보 없음'}</span>
-      </div>
-      <button className='ProfileEditButton' onClick={() => {setPtEdit(true)}}>수정하기</button>
-    </form>
+  return (
+
+    <div className="ptField">
+      <div className='lowPtInnerContainer'>
+        <div className='leftContainer'>
+          <div className='imageContainer'>
+            <img src={image} alt="trainer" className='ptImage'/>
+          </div>
+          <div className='ptTrainerStatus'>
+            <h1>{trainer} 선생님</h1>
+            <span className='detail' onClick={() => navigate(`/profile/pt/${trainer}`)}>프로필 상세보기 <IoIosArrowForward /></span>
+          </div>
+        </div>
+        <div className='buttons' onClick={() => setModalOpen(true)}>
+          <IoIosArrowForward />
+        </div>
+        </div>
+      {
+      modalOpen &&
+      <div className={'modal-container'} ref={modalBackground} onClick={(e) => {
+        if (e.target === modalBackground.current) {
+          setModalOpen(false);
+        }
+      }}>
+        <div className={'modal-content'}>
+            <PtChat isOpen={modalOpen} onClose={toggleChatModal} />
+          </div>
+        </div>
+      }
+    </div>
   )
 }
 
