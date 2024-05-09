@@ -1,31 +1,16 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import UserNavbar from "../../components/user/InnerNavbar";
 import "../../style/user/profile.scss";
-import { IoIosArrowForward } from "react-icons/io";
-import { useUserContext } from "../../context/AuthContext";
 import ProfileForm from "../../components/user/ProfileForm";
+import { useUserContext } from "../../context/AuthContext";
 import ProfileFormUpdate from "../../components/user/ProfileFormUpdate";
 import ProfileHealthInfoUpdate from "../../components/user/ProfileHealthInfoUpdate";
 import ProfileHealthInfo from "../../components/user/ProfileHealthInfo";
-import UserMemberPurchaseList from "../../components/user/UserMemberPurchaseList"
 
 const Profile = () => {
-  const { user } = useUserContext();
   const [isEdit, setIsEdit] = useState(false);
   const [ptEdit, setPtEdit] = useState(false);
-  const [isMember, setIsMember] = useState(true);
-  const [isAllVaild, setIsAllVaild] = useState(true);
-  const PurchaseList = [
-    {date: '2024/04/24', text:'HotBody+ 월간 멤버십', price:'₩4,900'},
-    {date: '2024/04/24', text:'HotBody+ 월간 멤버십', price:'₩4,900'},
-  ]
-  const PanelDrop = (e) => {
-    e.stopPropagation()
-      if(isAllVaild === false){
-          setIsAllVaild(true);
-          }else{setIsAllVaild(false)};
-  }
+  const {user} = useUserContext();
 
   return (
     <div className="profileContent">
@@ -50,23 +35,13 @@ const Profile = () => {
             <div className="formField">
               <span>
                 <label htmlFor="membership">Hot Body+</label>
-                <span>{/* user.membership */isMember === true ? "구독중" : "미구독"}</span>
+                <span>{user.membership ? "구독중" : "미구독"}</span>
               </span>
-              <div className= "purchase" onClick={PanelDrop}>
-                <label htmlFor="purchase">결제 내역</label>
-                  <IoIosArrowForward />
-              </div>
-              <div className={`panel-purchase ${isAllVaild ? '' : 'dropdown'}`}>
-                  {isMember ? (
-                  PurchaseList.map((purchase) => (<UserMemberPurchaseList purchase={purchase} />))
-                ) : (
-                  <p className='animateLoading'>멤버십 가입내역이 없습니다.</p>
-                )}
-              </div>
+
             </div>
           </div>
           <Link to="/subscribe" className="link">
-            <button className="mebershipBtn">구독하기</button>
+            <button className="mebershipBtn">{user.membership ? '구독 해제' : '구독하기'}</button>
           </Link>
         </div>
       </section>

@@ -71,6 +71,17 @@ export const updateUserBodyInfo = async (bodyInfo) => {
     return err;
   }
 }
+
+// 유저가 가입한 모임 조회
+export const getAllJoinedGroup = async (ids) => {
+  try{
+    const response = await axios.get(`/api/user/getAllGroups?ids=${ids}`);
+    return response.data.groups;
+  }catch(err){
+    return err;
+  }
+}
+
 // #endregion
 // user =====================================================================
 

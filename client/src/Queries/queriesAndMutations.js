@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser, getAllJoinedGroup } from "./API";
 
 // auth =====================================================================
 
@@ -39,6 +39,15 @@ export const useUpdateUserAccount = () => {
 export const useUpdateUserBodyInfo = () => {
   return useMutation({
     mutationFn: (bodyInfo) => updateUserBodyInfo(bodyInfo)
+  })
+}
+
+// 유저가 가입한 모임 조회
+export const useGetAllJoinedGroup = (ids) => {
+  return useQuery({
+    queryFn: () => getAllJoinedGroup(ids),
+    queryKey: ['GET_ALL_JOINED_GROUPS', ids[0]],
+    enabled: !!ids,
   })
 }
 
@@ -169,7 +178,8 @@ export const useRegisterTrainer = () => {
 export const useGetTrainerDetail = (id) => {
   return useQuery({
     queryFn: () => getTrainerDetail(id),
-    queryKey: ['GET_TRAINER_DETAIL_BY_ID', id]
+    queryKey: ['GET_TRAINER_DETAIL_BY_ID', id],
+    enabled: !!id,
   })
 }
 

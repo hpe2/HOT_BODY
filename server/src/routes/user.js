@@ -3,6 +3,7 @@ const auth = require("../middleware/auth");
 const router = express.Router();
 const CommunityPost = require('../models/CommunityPost')
 const User = require("../models/User");
+const Group = require("../models/Group");
 
 
 // 유저가 쓴 글 불러오기
@@ -31,7 +32,7 @@ router.post("/updateAccount", auth, async (req, res) => {
     return res.status(200).send(userData)
   }catch(err){
     return res.status(400).send({ message: `유저 정보를 수정하는데 실패했습니다. 다시 시도해주세요. ${err}` });
-   }
+  }
 })
 
 // 유저 신체 정보 수정
@@ -44,9 +45,16 @@ router.post("/updateBodyInfo", auth, async (req, res) => {
   }
 })
 
-// 응모권 포인트 구매시 응모권 + 1, 포인트 차감
-
-// personInfo 수정
+router.get("/getAllGroups", auth, async (req, res) => {
+  try{
+    const groups = await Group.find(
+      {_id: {$in : req.query.ids.split(',')}}
+    )
+    return res.status(200).send({message: `모임 조회에 성공했습니다.`, groups});
+  }catch(err){
+    return res.status(400).send({ message: `가입한 모임을 조회하는데 실패 했습니다. 다시 시도해주세요. ${err}`});
+  }
+})
 
 
 

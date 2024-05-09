@@ -32,7 +32,7 @@ const PTDetail = () => {
   return (
     <div className="pt-detail-wrap">
       {isOpenReservation && (
-        <PTReservation id={id} price={trainer.price.toLocaleString('ko-KR')} setIsOpenReservation={setIsOpenReservation} />
+        <PTReservation id={id} img={trainer.ptProfileImage} price={trainer.price.toLocaleString('ko-KR')} setIsOpenReservation={setIsOpenReservation} />
       )}
       <div className="pt-detail-container box-shadow">
         <img src={Gym} alt="gym_img" className="pt-detail-gymImg" />
@@ -40,7 +40,7 @@ const PTDetail = () => {
         {/* 트레이너 프로필 */}
         <div className="pt-detail-profile-wrap flex-align">
           <div className="pt-detail-profile">
-            <img src="" alt="pt_profile" className="pt-detail-profieImg" />
+            <img src={trainer.ptProfileImage} alt="pt_profile" className="pt-detail-profieImg" />
             <div className="flex-col">
               <h3>{trainer.ptProfileName} 트레이너</h3>
               <p>{trainer.location.address}</p>

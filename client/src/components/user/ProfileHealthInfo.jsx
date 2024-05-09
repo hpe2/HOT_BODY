@@ -13,14 +13,12 @@ const purposeList = [
 ]
 
 const PtInfoUpdate = ({setPtEdit}) => {
-  const {user} = useUserContext(); //PersonalInfo 필요
+  const {user} = useUserContext(); 
 
   const handlePurpose = (value) => {
     const purpose = purposeList.filter((list) => {
-      console.log(list.value, value);
       return list.value === value
     })[0]
-    console.log(purpose)
     return purpose.text;
   }
   

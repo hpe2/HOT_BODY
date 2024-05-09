@@ -63,8 +63,11 @@ const userSchema = mongoose.Schema({
     date: String,
     time: String,
     price: String,
+    trainerImg: String,
+    trainerName: String,
     process: String
   }],
+  trainerId: String,
   coupon: [{
     title: String,
     expire: Date,
