@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 import "./../../style/user/CustomerServicePage.scss"
-import SearchBar from '../../components/user/SearchBar';
+import SearchBar from '../../components/user/CustomerServiceSearchBar';
 import CustomerServiceQnAs from '../../components/user/CustomerServiceQnAs';
 
 

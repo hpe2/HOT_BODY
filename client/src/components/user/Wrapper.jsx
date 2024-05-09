@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "../../style/user/wrapper.scss";
 import { Outlet, useNavigate } from "react-router-dom";
-import UserNavbar from './UserNavbar';
+import UserNavbar from './InnerNavbar';
 import { useUserContext } from '../../context/AuthContext';
 import {toast} from 'react-toastify';
 

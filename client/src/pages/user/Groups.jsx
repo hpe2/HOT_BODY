@@ -32,6 +32,7 @@ const Groups = () => {
 
   return (
     <>
+
       {isFetching ? (
         <h1>참여 모임을 조회하는 중입니다. . .</h1>
       ) : (

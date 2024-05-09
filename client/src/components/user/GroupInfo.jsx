@@ -22,10 +22,6 @@ const GroupInfo = ({image, title, location, member, meeting}) => {
         </div>
       </div>
       <div className='buttons'>
-        <button className={'modal-open-btn'} onClick={() => setModalOpen(true)}>
-          추진모임<br/>
-          {meeting}
-        </button>
       <div className='groupArrow' onClick={() => navigate(`/profile/group/${title}`)}>
         <IoIosArrowForward />
       </div>

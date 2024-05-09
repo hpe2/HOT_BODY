@@ -1,5 +1,6 @@
 import "../../style/user/pt.scss";
 import { useUserContext } from "../../context/AuthContext";
+
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useGetTrainerDetail } from "../../Queries/queriesAndMutations";
@@ -25,6 +26,7 @@ const Pt = () => {
     if (process == "waiting") return "수락 대기";
     else if (process == "accepted") return "예약 확정";
   };
+
 
   return (
     <div className="user-pt-wrap flex-col">
@@ -77,6 +79,7 @@ const Pt = () => {
                   </p>
                 </div>
               </div>
+
             </div>
           </>
           <>

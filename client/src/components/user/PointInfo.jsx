@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { useUserContext } from '../../context/AuthContext';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import UserMemberPurchaseList from './UserMemberPurchaseList';
-import CardGame from './CardGame';
+import PointCardGame from './PointCardGame';
+import Logo from './../../../public/images/logo.png'
 
 
 
@@ -32,7 +33,9 @@ const PointInfo = () => {
     <>
     <div className="pointField">
       <div className='point'>
-        <img src="" alt="이미지" className='pointImage'/>
+        <div className='pointImage'>
+          <img src={Logo} alt="이미지" className='image'/>
+        </div>
         <div className='pointStatus'>
           <span>현재 보유한 포인트</span>
           <h1>{user.point}</h1>
@@ -51,15 +54,11 @@ const PointInfo = () => {
         }}>
           <div className={'card-modal-content'}>
             <div className='card-modal-boxContainer'>
-              <CardGame point={user.point}/>
+              <PointCardGame point={user.point}/>
             <div className='data'>
               <div className='card-modal-inner-boxContainer'>
                 현재 보유 포인트
                 <span>{user.point}</span>
-              </div>
-              <div className='card-modal-inner-boxContainer'>
-                응모내역
-                  <div><span>{history.prize}</span><span>{history.time}</span></div>
               </div>
               <button className={'card-modal-close-btn'} onClick={() => setModalOpen(false)}>
                 모달 닫기
@@ -78,7 +77,7 @@ const PointInfo = () => {
           {user.point > 0 ? (
           PointList.map((purchase) => (<UserMemberPurchaseList purchase={purchase} />))
         ) : (
-          <p className='animateLoading'>적립내역이 없습니다.</p>
+          <p>적립내역이 없습니다.</p>
         )}
       </div>
     </div>

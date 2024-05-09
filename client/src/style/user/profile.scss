@@ -3,6 +3,7 @@
 	box-sizing: border-box;
 	width: 100%;
 	min-width: 440px;
+	margin-bottom: 8rem;
 }
 
 .profileContainer {
@@ -153,6 +154,7 @@
 		grid-template-columns: 2fr 0.2fr;
 		grid-template-rows: (2, minmax(200px, auto));
 		gap: 0.2rem;
+		
 		:nth-child(2), :nth-child(1){
 			padding: 1rem;
 			grid-column: 1 / 3;
@@ -177,11 +179,12 @@
 		.purchase {
 				display: flex;
 				justify-content:space-between;
+				overflow: hidden; 
 			}
 		.panel-purchase{
 			overflow: hidden; 
 			height: 0;
-			transition:all 0.4s;
+			transition: 0.4s;	
 			tr{
 				padding: 1rem 2rem;
 				border-bottom: 1px solid #d1d1d1;
@@ -189,9 +192,9 @@
 			}
 		}
 		.dropdown{
-			transition:all 0.4s;
 			display: block;
 			height: auto;
+			
 		}
 		button {
 			display: flex;
