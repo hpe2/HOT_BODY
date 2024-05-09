@@ -1,45 +1,82 @@
-import React, { useState } from "react";
 import "../../style/user/group.scss";
 import { useUserContext } from "../../context/AuthContext";
-import GroupInfo from "../../components/user/GroupInfo";
+import { useGetAllJoinedGroup } from "../../Queries/queriesAndMutations";
 
+import Travel from "/public/images/travel.jpeg";
+import Hobby from "/public/images/hobby.jpeg";
+import WorkOut from "/public/images/workout.jpeg";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 const Groups = () => {
-  const {user} = useUserContext();
-  const [pointDetail, setPointDetail] = useState(false);
-  const GroupList = [
-    {image:"/public/images/soccerball.png", title: '풋살모임👍⚽', mine:false, location:'전국', member:'149', meeting:'4'},
-    {image:"/public/images/BM.png", title: '배드민턴 동호회🏸', mine:false, location:'전국', member:'129', meeting:'4'},
-    {image:"/public/images/HPE.png", title: 'HPE모임', mine:false, location:'강남', member:'4', meeting:'0'},
-    {image:"/public/images/emoji.png", title: '운동같이 합시다', mine:true, location:'강서', member:'1', meeting:'0'},
-  ]
+  const navigate = useNavigate();
+  const { user } = useUserContext();
+  const { data: groups, isFetching } = useGetAllJoinedGroup(
+    user && user.join.group.length > 0 ? user.join.group : null
+  );
+
+  const categoryInKor = (category) => {
+    if (category === "hobby") return "취미";
+    else if (category === "workout") return "운동";
+  };
+
+  const selectImgByCategory = (category) => {
+    if (category === "all" || category === "workout") return WorkOut;
+    else if (category === "hobby") return Hobby;
+    else return Travel;
+  };
+
+  useEffect(() => {
+    if (!user) navigate("/");
+  }, [user]);
 
   return (
     <>
-      <section className="groupContent">
-        <div className="groupContainer">
-          <div className="group">
-            <h1>가입한 모임</h1>
-            <div className="boxContainer">
-            {GroupList.map((groups) => (
-              groups.mine === false ? <GroupInfo image={groups.image} title={groups.title} location={groups.location} member={groups.member} meeting={groups.meeting}/> : ""
-            ))}
-            </div>
-          </div>
+      {isFetching ? (
+        <h1>참여 모임을 조회하는 중입니다. . .</h1>
+      ) : (
+        <div className="flex-col">
+          <h3>가입한 모임</h3>
+          <ul className="box-shadow flex-col user-group-lists">
+            {groups.length > 0 ? (
+              groups.map((group) => (
+                <li key={group._id}>
+                  <div className="flex-between font-sm">
+                    <p className="user-group-category">
+                      {categoryInKor(group.category)}
+                    </p>
+                    <p
+                      className="point-color"
+                      style={{cursor: 'pointer'}}
+                      onClick={() => navigate(`/group/detail/${group._id}`)}
+                    >
+                      상세정보 보기 &#8640;
+                    </p>
+                  </div>
+
+                    <div className="flex-align" style={{gap: '1.75rem'}}>
+                      <img
+                        className="user-group-img"
+                        src={selectImgByCategory(group.category)}
+                      />
+                      <div className="flex-col">
+                        <p>그룹명 : {group.title}</p>
+                        <p>그룹장 : {group.leaderName}</p>
+                        <p>
+                          멤버 : {group.members.length}/{group.memberLimit}
+                        </p>
+                      </div>
+                    </div>
+                </li>
+              ))
+            ) : (
+              <p>아직 가입한 모임이 없습니다.</p>
+            )}
+          </ul>
         </div>
-        <div className="container">
-          <div className="group">
-            <h1>내 모임</h1>
-            <div className="boxContainer">
-            {GroupList.map((groups) => (
-              groups.mine === true ? <GroupInfo image={groups.image} title={groups.title} location={groups.location} member={groups.member} meeting={groups.meeting}/> : ""
-            ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      )}
     </>
-  )
+  );
 };
 
 export default Groups;
