@@ -1,294 +1,352 @@
 .ptContent {
-	flex-wrap: nowrap;
-	box-sizing: border-box;
-	width: 100%;
-	min-width: 440px;
+  flex-wrap: nowrap;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 440px;
 }
+
 .ptContainer {
-	display: flex;
-	padding-top: 80px;
+  display: flex;
+  padding-top: 80px;
+  width: 100%;
+  gap: 12px;
+}
+
+.user-pt-title {
+	margin-top: 3rem;
+}
+
+.user-pt-wrap {
+  margin-top: 2rem;
+}
+
+.pt-reservation-lists{
+	padding: 1.25rem 1.25rem 0 1.25rem;
+	border-radius: 10px;
 	width: 100%;
-	gap: 12px;
+	min-width: 780px;
+}
+
+.pt-reservation-lists li{
+	border-bottom: 1px solid #cacaca;
+	padding-bottom: 2rem;
+	margin-bottom: 1.5rem;
+}
+
+.pt-reservation-lists li:last-child {
+	border: none;
+}
+
+.user-pt-detail-link {
+	cursor: pointer;
+	color: #a40000;
+}
+
+.user-pt-confirm-btn {
+  border: none;
+  color: rgb(113, 113, 113);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.user-pt-trainer {
+	display: flex;
+	flex-direction: column;
+	justify-self: self-start;
+}
+
+.user-pt-trainer p{
+	color: rgb(97, 97, 97);
+}
+
+.user-pt-trainer-img{
+	width: 130px;
+	height: 130px;
+	border-radius: 100%;
+	margin-right: 1rem;
+}
+
+.pt-process-state {
+	background-color: #a40000;
+	color: white;
+	font-size: small;
+	padding: 0 1rem;
+	border-radius: 0.5rem;
 }
 
 .pt {
-	position: relative;
-	width: 100%;
-	height: 100%;
-    line-height: 200%;
-	
-	h1 {
-		display: flex;
-		font-size: 21px;
-		font-weight: 500;
-		margin-bottom: 0.8rem ;
-	}
-	.boxContainer{
-		display: block;
-		border: 1px solid #C1C1C1;
-		background-color: white;
-		box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  		border: 1px solid #ebebeb;
-		border-radius: 10px;
-		padding: 0 1rem;
-		margin-bottom: 1rem;
-		line-height: 140%;
-		&:last-child{
-			margin-bottom: 5rem;
-		}
-		.ptField {
-			display: flex;
-			align-items: center;
-			flex-direction: column;
-			width: 100%;
-			padding: 16px;
-			.ptInnerContainer{
-				display: flex;
-				width: 100%;
-				align-items: center;
-			}
-			.lowPtInnerContainer{
-				display: flex;
-				justify-content: space-between;
-				width: 100%;
-				align-items: center;
-			}
-			.leftContainer{
-				display: flex;
-			}
-			.ptTitle{
-				display: flex;
-				align-items: center;
-				padding: 1rem;
-			}
-			.imageContainer{
-				display: flex;
-				height: 8rem;
-				width: 8rem;
-				background-color: #D9D9D9;
-				border-radius: 4rem;
-				justify-content: center;
-				align-items: center;
-				margin-right: 3rem;
-				.ptImage{
-					height: 5rem;
-					width: 5rem;
-					display: block;
-				}
-			}
-			.ptStatus {
-				display: flex;
-				align-items: center;
-				padding: 2rem;
-				span {
-					font-size: 1.2rem;
-					padding: 1rem 0;
-					margin-right: 2rem;
-				}
-				.trainerName {
-					font-size: 2rem;
-					color: #9b9b9b;
-					margin-right: 4rem;
-				}
-			}
-			.ptTrainerStatus{
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				padding: 2rem;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  line-height: 200%;
 
-				.detail{
-					cursor: pointer;
-					display: flex;
-					align-items: center;
-				}
-			}
-		}
-		
-		.buttons{
-			display: flex;
-			align-items: center;
-			height: 100%;
-			border: none;
-			border-radius:1px;
-			padding: 2rem;
-			.groupArrow{
-				cursor: pointer;
-				font-size: 1.4rem;
-				padding: 2rem;
-				margin-left: 4rem;
-			}
-		}
-		
-		.checkPoint {
-			display: flex;
-			width: 100%;
-			justify-content:space-between;
-			transition:all 0.6s;
-			padding: 1rem;
-		}
-	}
-	.panel-checkPoint{
-		overflow: hidden;
-		display: flex;
-		height: 0;
-		transition:all 0.4s;
-	}
-	.dropdown{
-		padding: 1rem;
-		display: flex;
-		height: auto;
-	}
+  h1 {
+    display: flex;
+    font-size: 21px;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+  }
+  .boxContainer {
+    display: block;
+    border: 1px solid #c1c1c1;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border: 1px solid #ebebeb;
+    border-radius: 10px;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    line-height: 140%;
+    &:last-child {
+      margin-bottom: 5rem;
+    }
+    .ptField {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      width: 100%;
+      padding: 16px;
+      .ptInnerContainer {
+        display: flex;
+        width: 100%;
+        align-items: center;
+      }
+      .lowPtInnerContainer {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+      }
+      .leftContainer {
+        display: flex;
+      }
+      .ptTitle {
+        display: flex;
+        align-items: center;
+        padding: 1rem;
+      }
+      .imageContainer {
+        display: flex;
+        height: 8rem;
+        width: 8rem;
+        background-color: #d9d9d9;
+        border-radius: 4rem;
+        justify-content: center;
+        align-items: center;
+        margin-right: 3rem;
+        .ptImage {
+          height: 5rem;
+          width: 5rem;
+          display: block;
+        }
+      }
+      .ptStatus {
+        display: flex;
+        align-items: center;
+        padding: 2rem;
+        span {
+          font-size: 1.2rem;
+          padding: 1rem 0;
+          margin-right: 2rem;
+        }
+        .trainerName {
+          font-size: 2rem;
+          color: #9b9b9b;
+          margin-right: 4rem;
+        }
+      }
+      .ptTrainerStatus {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 2rem;
+
+        .detail {
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      border: none;
+      border-radius: 1px;
+      padding: 2rem;
+      .groupArrow {
+        cursor: pointer;
+        font-size: 1.4rem;
+        padding: 2rem;
+        margin-left: 4rem;
+      }
+    }
+
+    .checkPoint {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      transition: all 0.6s;
+      padding: 1rem;
+    }
+  }
+  .panel-checkPoint {
+    overflow: hidden;
+    display: flex;
+    height: 0;
+    transition: all 0.4s;
+  }
+  .dropdown {
+    padding: 1rem;
+    display: flex;
+    height: auto;
+  }
 }
 
-	
+.modal-open-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  cursor: pointer;
+  color: #c1c1c1;
+  width: 100%;
+  height: 4.5rem;
+  margin: 0;
+  padding: 1rem;
+  border: 1px solid #c1c1c1;
+  border-radius: var(--rounded-normal);
+  line-height: 140%;
+  font-size: 1.1rem;
+  font-weight: 400;
 
-	.modal-open-btn {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		background-color: #fff;
-		cursor: pointer;
-		color: #c1c1c1;
-		width: 100%;
-		height: 4.5rem;
-		margin: 0;
-		padding: 1rem;
-		border: 1px solid #c1c1c1;
-		border-radius: var(--rounded-normal);
-		line-height: 140%;
-		font-size: 1.1rem;
-		font-weight: 400;
-		
-			&:hover{
-				background-color: #f3f3f3;
-				color: #a3a3a3;
-			}
-		}
-		.modal-open-button{
-			cursor: pointer;
-			background-color: #000000;
-			width: 24rem;
-			height: 4rem;
-		}
-		.modal-close-btn {
-			border: 1px solid #c1c1c1;
-			border-radius: var(--rounded-normal);
-			height: 3rem;
-			background-color: #fff;
-			color: #9b9b9b;
-			text-decoration: underline;
-		}
-		.modal-container {
-			z-index: 999;
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			top: 0;
-			left: 0;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			background: rgba(0, 0, 0, 0.5);
-		}
-		
-		.modal-content {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			background-color: #ffffff;
-			width:50rem;
-			height: 40rem;
-			padding: 1.5rem;
-			border-radius: 1rem;
+  &:hover {
+    background-color: #f3f3f3;
+    color: #a3a3a3;
+  }
+}
+.modal-open-button {
+  cursor: pointer;
+  background-color: #000000;
+  width: 24rem;
+  height: 4rem;
+}
+.modal-close-btn {
+  border: 1px solid #c1c1c1;
+  border-radius: var(--rounded-normal);
+  height: 3rem;
+  background-color: #fff;
+  color: #9b9b9b;
+  text-decoration: underline;
+}
+.modal-container {
+  z-index: 999;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
 
-			.chatHeader{
-				display: flex;
-				width: 90%;
-				justify-content:space-between;
-			}
-			.chat-messages{
-				background-color: #A40000;
-				width: 90%;
-				.messages{
-					float: right;
-				}
-			}
-			.chat-input-container {
-				width: 90%;
-				margin-top: 1rem;
-				display: flex;
-				
-				.chatting {
-					padding: 10px;
-					width: 100%;
-					border: 1px solid #ccc;
-					border-radius: 5px;
-					margin-right: 10px;
-				}	
-				
-			}
-			.chat-input-container button {
-				padding: 10px 20px;
-				font-size: 16px;
-				cursor: pointer;
-				background-color: #A40000;
-				color: #fff;
-				border: none;
-				border-radius: 5px;
-			}
-			
-			.chat-input-container button:hover {
-				background-color: #A40000;
-			}
-		}
-		.modal-content-button {
-			cursor: pointer;
-			background-color: #A40000;
-			color: #fff;
-			font-size: 1.4rem;
-			font-weight: 400;
-			border: none;
-			border-radius: 0.6rem;
-			width: 24rem;
-			height: 4rem;
-			margin-top: 1rem;
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  width: 50rem;
+  height: 40rem;
+  padding: 1.5rem;
+  border-radius: 1rem;
 
-		}
-		.modal-boxContainer {
-			display: block;
-			border: 1px solid #C1C1C1;
-			box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-			border-radius: 10px;
-			padding: 2rem;
-		}
-		.close-btn {
-			color: #aaa;
-			float: right;
-			font-size: 28px;
-			font-weight: bold;
-			cursor: pointer;
-		  }
-		  
-		  .close-btn:hover,
-		  .close-btn:focus {
-			color: black;
-			text-decoration: none;
-			cursor: pointer;
-		  }
-		  
-		  /* 채팅 메시지 스타일 */
-		  .chat-messages {
-			max-height: 200px; /* 최대 높이 지정 */
-			overflow-y: auto; /* 스크롤바 표시 */
-		  }
-		  
-		  .message {
-			background-color: #f2f2f2;
-			padding: 10px;
-			margin: 5px 0;
-			border-radius: 5px;
-		  }
-		  
-		  /* 입력란 및 전송 버튼 스타일 */
-		  
+  .chatHeader {
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+  }
+  .chat-messages {
+    background-color: #a40000;
+    width: 90%;
+    .messages {
+      float: right;
+    }
+  }
+  .chat-input-container {
+    width: 90%;
+    margin-top: 1rem;
+    display: flex;
+
+    .chatting {
+      padding: 10px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-right: 10px;
+    }
+  }
+  .chat-input-container button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #a40000;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+  }
+
+  .chat-input-container button:hover {
+    background-color: #a40000;
+  }
+}
+.modal-content-button {
+  cursor: pointer;
+  background-color: #a40000;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 400;
+  border: none;
+  border-radius: 0.6rem;
+  width: 24rem;
+  height: 4rem;
+  margin-top: 1rem;
+}
+.modal-boxContainer {
+  display: block;
+  border: 1px solid #c1c1c1;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  border-radius: 10px;
+  padding: 2rem;
+}
+.close-btn {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 채팅 메시지 스타일 */
+.chat-messages {
+  max-height: 200px; /* 최대 높이 지정 */
+  overflow-y: auto; /* 스크롤바 표시 */
+}
+
+.message {
+  background-color: #f2f2f2;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+}
+
+/* 입력란 및 전송 버튼 스타일 */

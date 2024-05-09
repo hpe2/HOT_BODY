@@ -169,7 +169,8 @@ export const useRegisterTrainer = () => {
 export const useGetTrainerDetail = (id) => {
   return useQuery({
     queryFn: () => getTrainerDetail(id),
-    queryKey: ['GET_TRAINER_DETAIL_BY_ID', id]
+    queryKey: ['GET_TRAINER_DETAIL_BY_ID', id],
+    enabled: !!id,
   })
 }
 

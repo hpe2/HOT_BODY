@@ -19,7 +19,8 @@ router.get("/", auth, async (req, res) => {
     PTReservation: req.user.PTReservation,
     coupon: req.user.coupon,
     createdAt: req.user.createdAt,
-    personalInfo: req.user.personalInfo
+    personalInfo: req.user.personalInfo,
+    trainerId: req.user.trainerId
   });
 });
 

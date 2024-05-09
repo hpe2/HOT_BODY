@@ -44,6 +44,10 @@ textarea:focus {
   justify-content: space-between;
 }
 
+.font-sm{
+  font-size: small;
+}
+
 @keyframes loading {
   0%, 100% {
     opacity: 1;

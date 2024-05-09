@@ -10,7 +10,7 @@ import { useUserContext } from '../../../context/AuthContext';
 
 registerLocale("ko", ko);
 
-const PTReservation = ({ price, setIsOpenReservation, id }) => {
+const PTReservation = ({ price, setIsOpenReservation, id, img }) => {
   const {checkAuthUser} = useUserContext();
   const {mutateAsync: reservationPt, isPending} = useReservationPT()
   const [selectedDate, setSelectedDate] = useState(null);
@@ -44,6 +44,7 @@ const PTReservation = ({ price, setIsOpenReservation, id }) => {
       date: formattedDate,
       time: selectedTime,
       price: price,
+      img
     }
     
     // 서버로 예약 정보를 전송하는 로직을 여기에 추가
