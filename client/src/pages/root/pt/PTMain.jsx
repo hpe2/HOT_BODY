@@ -14,8 +14,9 @@ const PTMain = () => {
   const [searchedResult, setSearchedResult] = useState();
   const {mutateAsync: searchPt, isPending} = useSearchPt();
   const [selectedTrainer, setSelectedTrainer] = useState();
-
   const [searchedLonLat, setSearchedLonLat] = useState();
+  const [nearBy, setNearBy] = useState(); 
+
   // 검색한 장소의 위치 정보(도로명, 위도, 경도)를 searchLocation에 저장하는 함수
   const handleSearch = async () => {
     if (debouncedSearch) {
@@ -40,6 +41,9 @@ const PTMain = () => {
     const result = await searchPt(searchedLonLat);
     if(result.status == 200){
       setSearchedResult(result.data)
+      const formData = result.data.map(arr => {
+        setNearBy([...nearBy, {lat: arr.location.lat, lon: arr.location.lon}]);
+      })
     }else{
       setSearchedResult(null);
     }
@@ -48,6 +52,8 @@ const PTMain = () => {
 
   // debouncedSearch이 갱신 될 때마다 트레이너 리스트 fetching  
   useEffect(() => {
+    setNearBy([]);
+    setIsDetailOpen(false);
     if(debouncedSearch) handleSearch();
   }, [debouncedSearch])
 
@@ -85,7 +91,7 @@ const PTMain = () => {
         )}
       </div>
 
-      <KakaoMap />
+      <KakaoMap searchedLonLat={searchedLonLat} nearBy={nearBy} />
     </div>
   );
 };

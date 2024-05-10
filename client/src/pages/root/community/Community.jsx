@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import SearchIcon from "/images/searchIcon.svg";
 import PenIcon from "/images/pen.svg";
-import bannerAll from '/images/banner-all.jpeg'
 import "../../../style/community/community.css";
 import PostList from "../../../components/community/PostList";
 import PostListSkeleton from "../../../components/community/PostListSkeleton";
 import { useGetCommunityPostsByCategory } from "../../../Queries/queriesAndMutations";
+import Banner from '/images/communityBanner.jpg'
 
 const categories = [
   { category: "all", name: "전체" },
@@ -15,15 +14,10 @@ const categories = [
   { category: "QA", name: "Q & A" },
 ];
 
-const bannerImgs = [
-  bannerAll,
-]
 
 const Community = () => {
   const navigate = useNavigate();
   const [category, setCategoray] = useState(0);
-  const [searchTerm, setSearchTerm] = useState("");
-  const [imageIdx, setImageIdx] = useState(0);
   const { isFetching, data: posts } = useGetCommunityPostsByCategory(
     categories[category].category
   );
@@ -39,9 +33,9 @@ const Community = () => {
     <div className="community-container">
 
       <div className="community-banner">
-        <img src={bannerAll} alt="banner" className="banner-img" />
+        <img src={Banner} alt="banner" className="banner-img" />
         <div className="banner-img-overlay" />
-        <div className="searchWrap">
+        {/* <div className="searchWrap">
           <img src={SearchIcon} alt="icon" className="searchIcon" />
           <input
             className="searchInput"
@@ -49,7 +43,7 @@ const Community = () => {
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           ></input>
-        </div>
+        </div> */}
 
         <ul className="community-category">
           {categories.map((categorylist, idx) => (
