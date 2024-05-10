@@ -1,5 +1,5 @@
 import '../../style/home/homeAd.css';
-import Profile from '/public/images/man-profile.jpeg'
+import Profile from '/images/man-profile.jpeg'
 
 const HomeAdFirst = () => {
   return (

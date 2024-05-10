@@ -10,7 +10,7 @@ const Trainers = () => {
       age: 50,
       appearances: "홍대 피트니스",
       cleanSheets: 280,
-      imageUrl: "../../public/images/trainer/health2.jpg",
+      imageUrl: "/images/trainer/health2.jpg",
     },
     {
       name: "정모찌",
@@ -18,7 +18,7 @@ const Trainers = () => {
       age: 10,
       appearances: "건대 피트니스",
       cleanSheets: 550,
-      imageUrl: "../../public/images/trainer/health3.jpg",
+      imageUrl: "/images/trainer/health3.jpg",
     },
     {
       name: "박모찌",
@@ -26,7 +26,7 @@ const Trainers = () => {
       age: 32,
       appearances: "강북 피트니스",
       cleanSheets: 450,
-      imageUrl: "../../public/images/trainer/health4.jpg",
+      imageUrl: "/images/trainer/health4.jpg",
     },
     {
       name: "최모찌",
@@ -34,7 +34,7 @@ const Trainers = () => {
       age: 25,
       appearances: "강서 피트니스",
       cleanSheets: 540,
-      imageUrl: "../../public/images/trainer/health5.jpg",
+      imageUrl: "/images/trainer/health5.jpg",
     },
     {
       name: "양모찌",
@@ -42,7 +42,7 @@ const Trainers = () => {
       age: 31,
       appearances: "이태원 피트니스",
       cleanSheets: 520,
-      imageUrl: "../../public/images/trainer/health6.jpg",
+      imageUrl: "/images/trainer/health6.jpg",
     },
     {
       name: "걍모찌",
@@ -50,7 +50,7 @@ const Trainers = () => {
       age: 50,
       appearances: "노량진 피트니스",
       cleanSheets: 50,
-      imageUrl: "../../public/images/trainer/health7.jpg",
+      imageUrl: "/images/trainer/health7.jpg",
     },
     {
       name: "추모찌",
@@ -58,7 +58,7 @@ const Trainers = () => {
       age: 40,
       appearances: "한강 피트니스",
       cleanSheets: 510,
-      imageUrl: "../../public/images/trainer/health8.jpg",
+      imageUrl: "/images/trainer/health8.jpg",
     },
     {
       name: "대모찌",
@@ -66,7 +66,7 @@ const Trainers = () => {
       age: 3000,
       appearances: "신도림 피트니스",
       cleanSheets: 540,
-      imageUrl: "../../public/images/trainer/health9.jpg",
+      imageUrl: "/images/trainer/health9.jpg",
     }
   ];
 

@@ -4,7 +4,7 @@ import { useUserContext } from '../../context/AuthContext';
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import UserMemberPurchaseList from './UserMemberPurchaseList';
 import PointCardGame from './PointCardGame';
-import Logo from './../../../public/images/logo.png'
+import Logo from '/images/logo.png'
 
 
 

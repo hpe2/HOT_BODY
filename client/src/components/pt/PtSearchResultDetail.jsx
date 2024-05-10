@@ -1,9 +1,9 @@
 import PtSearchResultDetailInfo from './PtSearchResultDetailInfo';
-import Clock from "/public/images/clock.svg";
-import Gym from "/public/images/gym.svg";
-import Coin from "/public/images/coin.svg";
+import Clock from "/images/clock.svg";
+import Gym from "/images/gym.svg";
+import Coin from "/images/coin.svg";
 import {useNavigate} from 'react-router-dom';
-import GymBanner from '/public/images/gym.jpg'
+import GymBanner from '/images/gym.jpg'
 
 const PtSearchResultDetail = ({setIsDetailOpen, selectedTrainer}) => {
   const navigate = useNavigate();

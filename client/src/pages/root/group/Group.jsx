@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import GroupListItem from '../../../components/group/GroupListItem';
 import '../../../style/group/groupMain.css';
-import PlusIcon from '/public/images/plus.svg'
-import Travel from '/public/images/travel.jpeg'
-import Hobby from '/public/images/hobby.jpeg'
-import WorkOut from '/public/images/workout.jpeg'
-import GroupBanner from '/public/images/GroupHobby.jpg';
+import PlusIcon from '/images/plus.svg'
+import Travel from '/images/travel.jpeg'
+import Hobby from '/images/hobby.jpeg'
+import WorkOut from '/images/workout.jpeg'
+import GroupBanner from '/images/GroupHobby.jpg';
 
 import {useNavigate} from 'react-router-dom'
 import {useGetGroups} from '../../../Queries/queriesAndMutations';

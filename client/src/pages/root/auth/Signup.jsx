@@ -3,11 +3,11 @@ import { useNavigate } from "react-router-dom";
 import { useSignUp } from "../../../Queries/queriesAndMutations";
 import { toast } from "react-toastify";
 import AuthInput from "../../../components/auth/AuthInput";
-import AuthBanner from "/public/images/auth-banner.jpg";
-import Logo from "/public/images/logo.png";
-import Profile from "/public/images/user-profile.svg";
-import LockIcon from "/public/images/lock.svg";
-import MailIcon from "/public/images/mail-gray.svg";
+import AuthBanner from "/images/auth-banner.jpg";
+import Logo from "/images/logo.png";
+import Profile from "/images/user-profile.svg";
+import LockIcon from "/images/lock.svg";
+import MailIcon from "/images/mail-gray.svg";
 
 const Signup = () => {
   const navigate = useNavigate();

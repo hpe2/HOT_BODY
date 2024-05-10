@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 import '../../style/home/homeBanner.css';
-import Community from '/public/images/community.jpeg';
-import PT from '/public/images/man-back.jpeg';
-import Group from '/public/images/group.jpeg';
-import Event from '/public/images/event.jpeg';
+import Community from '/images/community.jpeg';
+import PT from '/images/man-back.jpeg';
+import Group from '/images/group.jpeg';
+import Event from '/images/event.jpeg';
 import {useNavigate} from 'react-router-dom';
 import HomeSliderCard from './HomeSliderCard';
 

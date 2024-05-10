@@ -1,10 +1,10 @@
 import {useParams, useNavigate} from 'react-router-dom';
 import '../../../style/group/groupDetail.css';
-import CheckIcon from '/public/images/check.svg';
-import PeopleIcon from '/public/images/people.svg'
-import CalendarIcon from '/public/images/calendar.svg'
-import LocationIcon from '/public/images/location.svg'
-import BeatIcon from '/public/images/beat.svg'
+import CheckIcon from '/images/check.svg';
+import PeopleIcon from '/images/people.svg'
+import CalendarIcon from '/images/calendar.svg'
+import LocationIcon from '/images/location.svg'
+import BeatIcon from '/images/beat.svg'
 import GroupMeetingList from '../../../components/group/GroupMeetingList';
 import { useGetGroupDetail, useJoinGroup } from '../../../Queries/queriesAndMutations';
 import {toast} from 'react-toastify';

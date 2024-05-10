@@ -1,4 +1,4 @@
-import Comma from "/public/images/comma.svg";
+import Comma from "/images/comma.svg";
 
 const PtDetailReview = () => {
   return (
