@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import "../../../style/pt/ptMain.css";
-import Search from "/images/searchIcon-white.svg";
+import SearchWhite from "/images/searchIcon-white.svg";
+import SearchGray from "/images/searchIcon-gray.svg";
 import PtSearchResult from "../../../components/pt/PtSearchResult";
 import KakaoMap from "../../../components/pt/KakaoMap";
 import PtSearchResultDetail from "../../../components/pt/PtSearchResultDetail";
@@ -41,7 +42,7 @@ const PTMain = () => {
     const result = await searchPt(searchedLonLat);
     if(result.status == 200){
       setSearchedResult(result.data)
-      const formData = result.data.map(arr => {
+      result.data.map(arr => {
         setNearBy([...nearBy, {lat: arr.location.lat, lon: arr.location.lon}]);
       })
     }else{
@@ -58,17 +59,18 @@ const PTMain = () => {
   }, [debouncedSearch])
 
   useEffect(() => {
+    if(!searchedLonLat || !searchValue) return setSearchedResult(null);
     if(searchedLonLat) handleSearchResult();
-  }, [searchedLonLat])
+  }, [searchedLonLat, searchValue])
 
   return (
     <div className="pt-main-container box-shadow">
       <div className="pt-search-container">
         <div className="pt-search-wrap">
           <div className="pt-search-input">
-            <img src={Search} alt="search_icon" />
+            <img src={SearchWhite} alt="search_icon" />
             <input
-              placeholder="위치를 입력해주세요."
+              placeholder="도로명을 입력해주세요."
               value={searchValue}
               onChange={(e) => setSearchValue(e.target.value)}
             />
@@ -81,8 +83,19 @@ const PTMain = () => {
             <PtSearchResult trainer={result} setIsDetailOpen={setIsDetailOpen} key={result._id} setSelectedTrainer={setSelectedTrainer} />
           ))}
           {searchedResult && searchedResult.length == 0 &&
-            <p>해당 지역 근처에 트레이너 없습니다. <br/>다른 주소를 입력해보세요.</p>
+            <div className="flex-col flex-align" style={{marginTop: '6rem', gap: '1.5rem'}}>
+              <img src={SearchGray} alt="search-icon" style={{width: '80px'}} />
+              <h2 style={{color: '#999', textAlign: 'center'}}>해당 지역 근처에 트레이너 없습니다. 
+              <br/>다른 주소를 입력해보세요.</h2>
+            </div>
           }
+
+          {!searchValue && (
+            <div className="flex-col flex-align" style={{marginTop: '6rem', gap: '1.5rem'}}>
+              <img src={SearchGray} alt="search-icon" style={{width: '80px'}} />
+              <h2 style={{color: '#999'}}>검색 창에 올바른 도로명을 입력하세요</h2>
+            </div>
+          )}
           
         </ul>
 
