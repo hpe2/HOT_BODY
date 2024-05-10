@@ -11,7 +11,7 @@ const SubMain = () => {
         <a href="#content1">
           <video style={{ width: "100%", height: "auto" }} muted autoPlay loop>
             <source
-              src="../../public/images/sub_HOTBODY.mp4"
+              src="/images/sub_HOTBODY.mp4"
               type="video/mp4"
             />
           </video>

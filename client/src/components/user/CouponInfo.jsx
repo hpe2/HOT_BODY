@@ -2,7 +2,7 @@ import React, { Link,useRef, useState } from 'react'
 import { IoIosArrowDown, IoIosArrowUp  } from "react-icons/io";
 import { useUserContext } from '../../context/AuthContext';
 import CouponInfoDetail from './CouponInfoDetail';
-import Logo from './../../../public/images/logo.png'
+import Logo from '/images/logo.png'
 
 const PointInfo = () => {
   const {user} = useUserContext(); //PersonalInfo 필요

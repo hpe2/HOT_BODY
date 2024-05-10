@@ -1,4 +1,4 @@
-import PeopleIcon from '/public/images/people.svg';
+import PeopleIcon from '/images/people.svg';
 import {useNavigate} from 'react-router-dom';
 
 const GroupListItem = ({group, img}) => {

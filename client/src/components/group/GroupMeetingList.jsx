@@ -1,6 +1,6 @@
-import CalendarIcon from '/public/images/calendar.svg';
-import LocationIcon from '/public/images/location.svg';
-import CheckIcon from '/public/images/check.svg';
+import CalendarIcon from '/images/calendar.svg';
+import LocationIcon from '/images/location.svg';
+import CheckIcon from '/images/check.svg';
 
 const GroupMeetingList = () => {
   return (

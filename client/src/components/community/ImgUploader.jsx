@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import ImgIcon from '../../../public/images/imgFile.svg';
+import ImgIcon from '/images/imgFile.svg';
 
 const ImgUploader = ({image, setImage}) => {
   const [preview, setPreview] = useState(null);

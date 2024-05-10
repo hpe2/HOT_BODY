@@ -1,8 +1,8 @@
 import "../../../style/pt/ptDetail.css";
-import Calendar from "/public/images/calendar-point.svg";
-import Chat from "/public/images/message.svg";
-import Check from '/public/images/check.svg';
-import Badge from '/public/images/badge.svg';
+import Calendar from "/images/calendar-point.svg";
+import Chat from "/images/message.svg";
+import Check from '/images/check.svg';
+import Badge from '/images/badge.svg';
 import PtDetailReview from '../../../components/pt/PtDetailReview';
 import { useParams } from 'react-router-dom';
 import { useGetTrainerDetail } from '../../../Queries/queriesAndMutations';
@@ -10,7 +10,7 @@ import { useState } from 'react';
 import PTReservation from './PTReservation';
 import { useUserContext } from '../../../context/AuthContext';
 import {toast} from 'react-toastify';
-import Gym from '/public/images/gym.jpg';
+import Gym from '/images/gym.jpg';
 
 const PTDetail = () => {
   const {isAuthenticated} = useUserContext()

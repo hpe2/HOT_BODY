@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { VscRefresh } from "react-icons/vsc";
 import {toast} from 'react-toastify';
-import Logo from "./../../../public/images/logo.png";
+import Logo from "/images/logo.png";
 
 const CardGame = ({point}) => {
   const generateWinningCardIndex = () => {

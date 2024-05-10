@@ -1,6 +1,6 @@
 import "../style/footer.css";
-import MailIcon from '/public/images/mail.svg';
-import TelIcon from '/public/images/phone.svg';
+import MailIcon from '/images/mail.svg';
+import TelIcon from '/images/phone.svg';
 
 const Footer = () => {
   return (

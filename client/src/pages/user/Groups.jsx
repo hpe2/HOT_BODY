@@ -2,9 +2,9 @@ import "../../style/user/group.scss";
 import { useUserContext } from "../../context/AuthContext";
 import { useGetAllJoinedGroup } from "../../Queries/queriesAndMutations";
 
-import Travel from "/public/images/travel.jpeg";
-import Hobby from "/public/images/hobby.jpeg";
-import WorkOut from "/public/images/workout.jpeg";
+import Travel from "/images/travel.jpeg";
+import Hobby from "/images/hobby.jpeg";
+import WorkOut from "/images/workout.jpeg";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 

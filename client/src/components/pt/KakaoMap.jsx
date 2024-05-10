@@ -1,11 +1,10 @@
 import { useEffect } from 'react'
 
-const KakaoMap = ({searchLocation, searchResult}) => {
+const KakaoMap = ({searchedLonLat, nearBy}) => {
   // 위도 - 기준 서울 시청
-  const latVal = searchLocation?.lat ? searchLocation?.lat : 37.5664056;
+  const latVal = searchedLonLat?.lat ? searchedLonLat?.lat : 37.5664056;
   // 경도 - 기준 서울 시청
-  const lonVal = searchLocation?.lon ? searchLocation?.lon : 126.9778222;
-
+  const lonVal = searchedLonLat?.lon ? searchedLonLat?.lon : 126.9778222;
 
   // marker 좌표 
   const markers = [
@@ -47,8 +46,8 @@ const KakaoMap = ({searchLocation, searchResult}) => {
       position: new window.kakao.maps.LatLng(latVal, lonVal)
     })
 
-    if(searchResult){
-      searchResult.map(location => {
+    if(nearBy){
+      nearBy.map(location => {
         const marker = new window.kakao.maps.LatLng(location.lat, location.lon)
         markers.push(marker);
       })
@@ -59,7 +58,7 @@ const KakaoMap = ({searchLocation, searchResult}) => {
     setMarkers(map);
 
 
-  }, [searchLocation, searchResult])
+  }, [searchedLonLat, nearBy])
 
   return (
     <div className='map' id='map'>
