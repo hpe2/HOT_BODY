@@ -1,9 +1,5 @@
-import BadgeIcon from '/images/badge.svg'
-import ThumbIcon from '/images/thumbsup.svg'
-
 const PostListSkeleton = () => {
   return (
-    // .animateLoading
     <li className="postList animateLoading">
       <div className='postListSkeletonImg' />
       <div className="postContent postContentSkeleton">

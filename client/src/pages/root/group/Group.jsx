@@ -9,6 +9,7 @@ import GroupBanner from '/images/GroupHobby.jpg';
 
 import {useNavigate} from 'react-router-dom'
 import {useGetGroups} from '../../../Queries/queriesAndMutations';
+import PostListSkeleton from '../../../components/community/PostListSkeleton';
 
 const categories = [
   { category: "all", name: "전체" },
@@ -22,19 +23,11 @@ const Group = () => {
   const [category, setCategoray] = useState(0);
   const {data: groups, isFetching} = useGetGroups(categories[category].category);
 
-  if(isFetching){
-    return (
-      <h1>로딩중. . .</h1>
-    )
-  }
-
   const selectImgByCategory = (category) => {
     if(category === 'all' || category === 'workout') return WorkOut;
     else if(category === 'hobby') return Hobby;
     else return Travel
   }
-
-  console.log(groups);
 
   return (
     <div className='group-main-wrap'>
@@ -72,9 +65,13 @@ const Group = () => {
 
         {/* 내용 */}
         <div className="group-main-content">
-          {groups.map(group => (
-            <GroupListItem group={group} img={selectImgByCategory(group.category)} />
-          ))}
+          {isFetching ? (
+            <PostListSkeleton />
+          ): (
+            groups.map(group => (
+              <GroupListItem group={group} img={selectImgByCategory(group.category)} />
+            ))
+          )}
         </div>
 
 

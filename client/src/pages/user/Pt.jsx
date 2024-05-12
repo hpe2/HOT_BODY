@@ -39,7 +39,7 @@ const Pt = () => {
         등급 입니다.
       </h1>
       {user.userType === "general" && (
-        <button onClick={() => navigate("/pt/register")}>
+        <button onClick={() => navigate("/pt/register")} className="user-profile-pt-regist-btn">
           트레이너 등록하기
         </button>
       )}
@@ -119,7 +119,7 @@ const Pt = () => {
         </div>
       )}
 
-      {user?.PTReservation?.length > 0 && (
+      {user?.PTReservation?.length > 0 ? (
         <>
           <h3 className="user-pt-title">예약 요청 현황</h3>
           <ul className="flex-col box-shadow pt-reservation-lists">
@@ -151,6 +151,13 @@ const Pt = () => {
                 </div>
               </li>
             ))}
+          </ul>
+        </>
+      ) : (
+        <>
+          <h3 className="user-pt-title">예약 요청 현황</h3>
+          <ul className="flex-col box-shadow pt-reservation-lists" style={{paddingBottom: '1.25rem'}}>
+            아직 예약 내역이 없습니다.
           </ul>
         </>
       )}

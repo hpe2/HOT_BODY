@@ -34,8 +34,7 @@ export const signIn = async (userInfo) => {
 // 현재 로그인 한 유저의 정보 불러오기
 export const getCurrentUser = async () => {
   try {
-    const response = await axios.get("/api/auth/");
-    //  response.data 에는 유저 정보가 담겨 있습니다.
+    const response = await axios.get("/api/auth");
     return response.data;
   } catch (err) {
     return err;
@@ -212,6 +211,16 @@ export const joinGroup = async (groupId) => {
     return response;
   }catch(err){
     return err.response;
+  }
+}
+
+// 모임 약속 생성
+export const createNewMeeting = async ({groupId, meetingData}) => {
+  try{
+    const response = await axios.post(`/api/group/createNewMeeting?groupId=${groupId}`, meetingData);
+    return response;
+  }catch(err){
+    return err;
   }
 }
 

@@ -104,4 +104,16 @@ router.post('/join', auth, async (req, res) => {
   }
 })
 
+// 모임의 약속 생성
+router.post('/createNewMeeting', auth, async (req, res) => {
+  try{
+    const {groupId} = req.query;
+    console.log(groupId);
+
+    return res.status(200).send({message: `약속을 성공적으로 생성했습니다.`});
+  }catch(err){
+    return res.status(400).send({message: `모임 약속 생성에 실패 했습니다. ${err}`});
+  }
+})
+
 module.exports = router;

@@ -12,7 +12,7 @@ const Groups = () => {
   const navigate = useNavigate();
   const { user } = useUserContext();
   const { data: groups, isFetching } = useGetAllJoinedGroup(
-    user && user.join.group.length > 0 ? user.join.group : null
+    user && user.join.group.length ? user.join.group : null
   );
 
   const categoryInKor = (category) => {
@@ -39,7 +39,7 @@ const Groups = () => {
         <div className="flex-col">
           <h3>가입한 모임</h3>
           <ul className="box-shadow flex-col user-group-lists">
-            {groups.length > 0 ? (
+            {groups && groups.length > 0 ? (
               groups.map((group) => (
                 <li key={group._id}>
                   <div className="flex-between font-sm">

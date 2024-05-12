@@ -107,13 +107,14 @@ router.post('/likePost', auth, async (req, res) => {
     const {id} = req.body
     const post = await CommunityPost.findOne({_id: id});
 
-    if(!post) return res.status(401).send({message: `좋아요 할 수 없는 글입니다.`})
+    if(!post) return res.status(401).send({message: `좋아요 할 수 없는 글입니다.`});
+    
     // 이미 해당 글에 좋아요를 눌렀는지 확인
     let duplicate = false;
     post.likes.forEach(userId => {
       if(userId == req.user._id) {
         duplicate = true;
-        return;
+        return; // 
       }
     })
 
