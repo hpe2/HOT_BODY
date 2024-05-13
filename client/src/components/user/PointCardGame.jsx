@@ -18,7 +18,7 @@ const CardGame = ({point}) => {
   initialCards[winningCardIndex].isWinner = true;
 
   const [cards, setCards] = useState(initialCards);
-  const [availableAttempts, setAvailableAttempts] = useState(20);//point
+  const [availableAttempts, setAvailableAttempts] = useState(point);//point
 
   const handleClick = (cardId) => {
     if (availableAttempts < 1) {
