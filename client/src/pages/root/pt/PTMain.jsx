@@ -89,7 +89,6 @@ const PTMain = () => {
               <br/>다른 주소를 입력해보세요.</h2>
             </div>
           }
-
           {!searchValue && (
             <div className="flex-col flex-align" style={{marginTop: '6rem', gap: '1.5rem'}}>
               <img src={SearchGray} alt="search-icon" style={{width: '80px'}} />

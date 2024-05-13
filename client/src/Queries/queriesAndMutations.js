@@ -46,8 +46,8 @@ export const useUpdateUserBodyInfo = () => {
 export const useGetAllJoinedGroup = (ids) => {
   return useQuery({
     queryFn: () => getAllJoinedGroup(ids),
-    queryKey: ['GET_ALL_JOINED_GROUPS', ids[0]],
     enabled: !!ids,
+    queryKey: ['GET_ALL_JOINED_GROUPS'],
   })
 }
 
@@ -160,7 +160,8 @@ export const useJoinGroup = (id) => {
   return useMutation({
     mutationFn: (groupId) => joinGroup(groupId),
     onSuccess: () => queryClient.invalidateQueries({
-      queryKey: ['GET_GROUP_DETAIL', id]
+      queryKey: ['GET_GROUP_DETAIL', id],
+      queryKey: ['GET_ALL_JOINED_GROUPS'],
     })
   })
 }

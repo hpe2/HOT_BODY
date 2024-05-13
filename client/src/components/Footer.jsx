@@ -1,8 +1,18 @@
 import "../style/footer.css";
 import MailIcon from '/images/mail.svg';
 import TelIcon from '/images/phone.svg';
+import {useNavigate} from 'react-router-dom';
+
+const links = [
+  {list: '커뮤니티', link: '/community'},
+  {list: 'PT', link: '/pt'},
+  {list: '모임', link: '/group'},
+  {list: '구독', link: '/sub'},
+  {list: '마이페이지', link: '/profile/account'}
+]
 
 const Footer = () => {
+  const navigate = useNavigate();
   return (
     <div className="footer-wrap">
       <div className="footer-container">
@@ -11,12 +21,9 @@ const Footer = () => {
 
           <div className="footer-mid">
             <ul className="footer-menu-lists">
-              <li>About</li>
-              <li>Community</li>
-              <li>PT</li>
-              <li>Group</li>
-              <li>Subscribe</li>
-              <li>Profile</li>
+              {links.map(link => (
+                <li onClick={() => navigate(`${link.link}`)}>{link.list}</li>
+              ))}
             </ul>
             <p>&copy; 2024 All right reserved by hot body</p>
           </div>
