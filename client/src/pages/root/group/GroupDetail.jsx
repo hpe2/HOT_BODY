@@ -26,10 +26,10 @@ const GroupDetail = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const {isAuthenticated} = useUserContext();
   const [date, setDate] = useState('');
+  const [time, setTime] = useState('');
   const [tags, setTags] = useState('');
   const [locate, setLocate] = useState('');
   /* const {mutateAsync: createMeeting, isPending} = useCreateGroup(); */
-
 
   useEffect(() => {
     if(!isAuthenticated){
@@ -148,13 +148,27 @@ const GroupDetail = () => {
             <div className='group-meetings-modal-boxContainer'>
             <div className='data'>
               <div className='group-meetings-modal-inner-boxContainer'>
-              <h1>약속 만들기</h1>
-                <div className='group-creation-input date group-description'>
-                  <p>날짜</p>
-                  <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+              <h1 className='meeting-title'>약속 만들기</h1>
+              <div className='meeting-upper'>
+                <div className='meeting-upper-left'>
+                  <div className='group-creation-input date group-description'>
+                    <p>날짜</p>
+                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
+                  </div>
+                  <div className='group-creation-input time group-description'>
+                    <p>시간</p>
+                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)}/>
+                  </div>
                 </div>
-                <GroupInput value={locate} setValue={setLocate} text='위치' />
-                <GroupInput value={tags} setValue={setTags} text='태그' />
+                <div className='meeting-upper-right'>
+                  <span className='day'>{date.slice(5,7)}월</span>
+                  <span className='date'>{date.slice(8,11)}</span>
+                  <span className='time'>{time.split(':') >= 1200?"오후":"오전"}{time}시</span>
+                </div>
+              </div>
+              <GroupInput value={locate} setValue={setLocate} text='위치' />
+              <GroupInput value={tags} setValue={setTags} text='태그' />           
+              <p className='info'>*허위 생성시 노출률이 감소합니다</p>
               </div>
               <button className='group-meetings-modal-btn' onClick={handleSubmit}>{/* {isPending ? 'Processing. . .' : */} 등록하기</button>
               <button className={'group-meetings-modal-close-btn'} onClick={() => setModalOpen(false)}>
