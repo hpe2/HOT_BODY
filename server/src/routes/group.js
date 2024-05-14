@@ -66,9 +66,14 @@ router.get('/detail', async (req, res) => {
     const {id} = req.query;
     const group = await Group.findOne({_id: id});
     if(!group) return res.status(401).send({message: '존재하지 않는 모임입니다.'});
-    return res.status(200).send(group);
+
+    const meetings = await Meeting.find(
+      {_id: { $in : group.meetings }}
+    )
+
+    return res.status(200).send({group, meetings});
   }catch(err){
-    return res.status(400).send({message: '모임을 불러오는데 실패했습니다.'})
+    return res.status(400).send({message: `모임을 불러오는데 실패했습니다. ${err}`})
   }
 })
 
@@ -109,8 +114,6 @@ router.post('/join', auth, async (req, res) => {
 router.post('/createNewMeeting', auth, async (req, res) => {
   try{
     const {groupId} = req.query;
-    console.log('groupId:', groupId);
-    console.log(req.body);
 
     // 유효한 모임인지 확인
     const group = await Group.findOne({_id: groupId});
@@ -142,6 +145,7 @@ router.post('/createNewMeeting', auth, async (req, res) => {
   }catch(err){
     return res.status(400).send({message: `약속 생성에 실패 했습니다. ${err}`});
   }
-})
+});
+
 
 module.exports = router;

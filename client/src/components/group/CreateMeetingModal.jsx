@@ -3,7 +3,7 @@ import GroupInput from "./GroupInput";
 import { useCreateNewMeeting } from '../../Queries/queriesAndMutations';
 
 const CreateMeetingModal = ({groupId, setModalOpen}) => {
-  const {mutateAsync: createMeeting, isPending} = useCreateNewMeeting();
+  const {mutateAsync: createMeeting, isPending} = useCreateNewMeeting(groupId);
 
   const [date, setDate] = useState('');
   const [time, setTime] = useState('');
@@ -19,8 +19,8 @@ const CreateMeetingModal = ({groupId, setModalOpen}) => {
       tags,
     }
 
-    const response = await createMeeting({groupId, meetingData});
-    console.log(response);
+    await createMeeting({groupId, meetingData});
+    setModalOpen(false);
   }
 
   return (
