@@ -1,4 +1,4 @@
-import {useParams, useNavigate} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import '../../../style/group/groupDetail.css';
 import CheckIcon from '/images/check.svg';
 import PeopleIcon from '/images/people.svg'
@@ -8,51 +8,21 @@ import BeatIcon from '/images/beat.svg'
 import GroupMeetingList from '../../../components/group/GroupMeetingList';
 import { useGetGroupDetail, useJoinGroup } from '../../../Queries/queriesAndMutations';
 import {toast} from 'react-toastify';
-import { useState, useRef, useEffect } from 'react';
-import GroupMeetingMore from '../../../components/group/GroupMeetingMore';
-import GroupInput from '../../../components/group/GroupInput';
+import { useState, useRef } from 'react';
 import { useUserContext } from '../../../context/AuthContext';
+import CreateMeetingModal from '../../../components/group/CreateMeetingModal';
 
 
 const GroupDetail = () => {
   const {id} = useParams();
-  const {data: group, isFetching} = useGetGroupDetail(id);
+  const {data, isFetching} = useGetGroupDetail(id);
   const {mutateAsync: joinGroup, isPending: isJoinning} = useJoinGroup(id);
-  const navigate = useNavigate();
-  const [isOpen, setIsOpen] = useState(false);
   
   //추가
   const modalBackground = useRef();
   const [modalOpen, setModalOpen] = useState(false);
-  const {isAuthenticated} = useUserContext();
-  const [date, setDate] = useState('');
-  const [time, setTime] = useState('');
-  const [tags, setTags] = useState('');
-  const [locate, setLocate] = useState('');
-  /* const {mutateAsync: createMeeting, isPending} = useCreateGroup(); */
+  const {user} = useUserContext();
 
-  useEffect(() => {
-    if(!isAuthenticated){
-      toast.info('로그인 한 사용자만 이용할 수 있는 기능입니다.');
-    }
-  }, [])
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const meetingData = {
-      date,
-      locate,
-      tags,
-    }
-    console.log(meetingData)
-    /* const res = await createMeeting(meetingData); */
-    if(/* res.status === 200 */meetingData){
-      toast.info('약속을 성공적으로 생성했습니다.');
-      navigate('/group');
-    }else{
-      toast.info('약속을 생성하는데 실패했습니다.');
-    }
-  }
 
   if(isFetching){
     return (
@@ -60,28 +30,29 @@ const GroupDetail = () => {
     )
   }
 
+
   const handleJoinGroup = async () => {
     const response = await joinGroup(id);
     toast.info(response.data.message);
   }
 
+  console.log(data);
 
   return (
     <div className='group-detail-wrap'>
-      {isOpen && <GroupMeetingMore />}
       <div className="group-detail-container box-shadow">
 
         <div className="group-detail-banner">
           <div className="group-detail-header box-shadow">
             <div className="group-detail-leader">
               <img src="" alt='leader-img' />
-              <p>{group.leaderName}</p>
+              <p>{data.group.leaderName}</p>
             </div>
             <div className="group-detail-info">
-              <h2>{group.title}</h2>
+              <h2>{data.group.title}</h2>
               <div className='group-detail-info-member'>
                 <img src={PeopleIcon} alt='members' />
-                <p>{group.members.length}/{group.memberLimit}명</p>
+                <p>{data.group.members.length}/{data.group.memberLimit}명</p>
               </div>
             </div>
           </div>
@@ -90,7 +61,7 @@ const GroupDetail = () => {
         <div className="group-detail-content">
 
           <ul className="group-detail-tags">
-            {group.tags.split(',').map(tag => (
+            {data.group.tags.split(',').map(tag => (
               <li>
                 <img src={CheckIcon} alt='check_icon' />
                 {tag}
@@ -99,15 +70,21 @@ const GroupDetail = () => {
           </ul>
 
           <div className="group-detail-recent-meeting">
-            <h3>이 그룹에서 최근 등록된 약속 !</h3>
-            <p><img src={CalendarIcon} alt="CalendarIcon" />2024-04-25</p>
-            <p><img src={LocationIcon} alt="LocationIcon" />수원역 앙기모짐</p>
-            <p><img src={BeatIcon} alt='BeatIcon' />그룹 활동 횟수 : 24 회</p>
+            <h3>최근 등록 약속</h3>
+            {data.meetings.length > 0 ? (
+              <>
+                <p><img src={CalendarIcon} alt="CalendarIcon" />{data.meetings[0].date} &nbsp; ({data.meetings[0].time})</p>
+                <p><img src={LocationIcon} alt="LocationIcon" />{data.meetings[0].location}</p>
+                <p><img src={BeatIcon} alt='BeatIcon' />그룹 활동 횟수 : {data.meetings.length} 회</p>
+              </>
+            ): (
+              <p style={{margin: '2rem 0'}} >아직 등록된 약속이 없습니다. 첫 약속을 생성 해보세요!</p>
+            )}
           </div>
 
           <div className="group-detail-desc">
             <h3>모임 상세 설명 </h3>
-            <p>{group.description}</p>
+            <p>{data.group.description}</p>
           </div>
 
           <div className="group-detail-meeting-wrap">
@@ -118,15 +95,17 @@ const GroupDetail = () => {
               </div>
               
               <div>
-                <p className='more-group-meetings' onClick={() => setModalOpen(true)/* navigate(`/group/meeting/create/${group._id}`) */}>
+                {data.group.members.includes(user._id) && (
+                  <p className='more-group-meetings' onClick={() => setModalOpen(true)}>
                   약속 만들기 &nbsp; +	
                 </p>
+                )}
               </div>
             </div>
             <ul className='group-detail-meeting-lists'>
-              <GroupMeetingList />
-              <GroupMeetingList />
-              <GroupMeetingList />
+              {data.meetings.map(meeting => (
+                <GroupMeetingList meeting={meeting} />
+              ))}
             </ul>
           </div>
 
@@ -144,39 +123,7 @@ const GroupDetail = () => {
             setModalOpen(false);
           }
         }}>
-          <div className={'group-meetings-modal-content'}>
-            <div className='group-meetings-modal-boxContainer'>
-            <div className='data'>
-              <div className='group-meetings-modal-inner-boxContainer'>
-              <h1 className='meeting-title'>약속 만들기</h1>
-              <div className='meeting-upper'>
-                <div className='meeting-upper-left'>
-                  <div className='group-creation-input date group-description'>
-                    <p>날짜</p>
-                    <input type="date" value={date} onChange={(e) => setDate(e.target.value)}/>
-                  </div>
-                  <div className='group-creation-input time group-description'>
-                    <p>시간</p>
-                    <input type="time" value={time} onChange={(e) => setTime(e.target.value)}/>
-                  </div>
-                </div>
-                <div className='meeting-upper-right'>
-                  <span className='day'>{date.slice(5,7)}월</span>
-                  <span className='date'>{date.slice(8,11)}</span>
-                  <span className='time'>{time.split(':') >= 1200?"오후":"오전"}{time}시</span>
-                </div>
-              </div>
-              <GroupInput value={locate} setValue={setLocate} text='위치' />
-              <GroupInput value={tags} setValue={setTags} text='태그' />           
-              <p className='info'>*허위 생성시 노출률이 감소합니다</p>
-              </div>
-              <button className='group-meetings-modal-btn' onClick={handleSubmit}>{/* {isPending ? 'Processing. . .' : */} 등록하기</button>
-              <button className={'group-meetings-modal-close-btn'} onClick={() => setModalOpen(false)}>
-                닫기
-              </button>
-            </div>
-            </div>
-          </div>
+          <CreateMeetingModal groupId={id} setModalOpen={setModalOpen} />
         </div>
       }
     </div>

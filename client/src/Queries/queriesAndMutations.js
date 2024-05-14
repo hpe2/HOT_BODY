@@ -1,5 +1,5 @@
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser, getAllJoinedGroup } from "./API";
+import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser, getAllJoinedGroup, createNewMeeting, getGroupMeetings } from "./API";
 
 // auth =====================================================================
 
@@ -164,7 +164,27 @@ export const useJoinGroup = (id) => {
       queryKey: ['GET_ALL_JOINED_GROUPS'],
     })
   })
+};
+
+// 모임 약속 생성
+export const useCreateNewMeeting = (groupId) => {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: ({groupId, meetingData}) => createNewMeeting({groupId, meetingData}),
+    onSuccess: () => queryClient.invalidateQueries({
+      queryKey: ['GET_GROUP_DETAIL', groupId],
+    })
+  })
 }
+
+// 특정 모임의 약속 조회
+export const useGetGroupMeetings = (groupId) => {
+  return useQuery({
+    queryFn: () => getGroupMeetings(groupId),
+    enabled: !!groupId
+  })
+}
+
 
 // pt =====================================================================
 

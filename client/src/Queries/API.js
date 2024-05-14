@@ -224,6 +224,16 @@ export const createNewMeeting = async ({groupId, meetingData}) => {
   }
 }
 
+// 특정 모임의 약속 조회
+export const getGroupMeetings = async (groupId) => {
+  try{
+    const response = await axios.get(`/api/group/getGroupMeetings?groupId=${groupId}`);
+    return response;
+  }catch(err){
+    return err;
+  }
+}
+
 // #endregion
 // group =====================================================================
 
