@@ -1,6 +1,7 @@
 const express = require("express");
 const User = require("../models/User");
 const Group = require("../models/Group");
+const Meeting = require("../models/Meeting");
 const auth = require("../middleware/auth");
 const router = express.Router();
 
@@ -108,11 +109,38 @@ router.post('/join', auth, async (req, res) => {
 router.post('/createNewMeeting', auth, async (req, res) => {
   try{
     const {groupId} = req.query;
-    console.log(groupId);
+    console.log('groupId:', groupId);
+    console.log(req.body);
 
-    return res.status(200).send({message: `약속을 성공적으로 생성했습니다.`});
+    // 유효한 모임인지 확인
+    const group = await Group.findOne({_id: groupId});
+    if(!group) return res.status(400).send({message: '찾을 수 없는 모임입니다.'});
+
+    const meetingData = {
+      joinMember: [req.user._id],
+      date: req.body.date,
+      time: req.body.time,
+      location: req.body.location,
+      tags: req.body.tags
+    }
+
+    // 새로운 약속 만들기
+    const meeting = new Meeting(meetingData);
+    await meeting.save();
+
+    // 그룹에 새 약속 정보 넣기
+    const updatedGroup = await Group.findOneAndUpdate(
+      {_id: groupId},
+      {$push: {meetings: meeting._id}},
+      {new: true}
+    )
+
+    if(!updatedGroup) return res.status(400).send({message: `약속 생성에 실패 했습니다,`});
+
+
+    return res.status(200).send({message: `약속을 성공적으로 생성했습니다.`, updatedGroup});
   }catch(err){
-    return res.status(400).send({message: `모임 약속 생성에 실패 했습니다. ${err}`});
+    return res.status(400).send({message: `약속 생성에 실패 했습니다. ${err}`});
   }
 })
 

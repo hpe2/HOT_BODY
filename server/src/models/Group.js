@@ -23,12 +23,7 @@ const GroupSchema = mongoose.Schema({
     members: {
         type: [String]
     },
-    meetings: [{
-        joinMember: [String],
-        date: String,
-        location: String,
-        tags: String
-    }],
+    meetings: [String],
     memberLimit: {
         type: Number,
         default: 10,
