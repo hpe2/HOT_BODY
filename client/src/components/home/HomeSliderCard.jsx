@@ -1,5 +1,5 @@
 
-const HomeSliderCard = ({img, link, category, text, totalText, totalNum}) => {
+const HomeSliderCard = ({img, link, category, text, totalText}) => {
   return (
     <li className="home-banner-slider-img box-shadow">
       <img src={img} alt={img} />
@@ -10,7 +10,7 @@ const HomeSliderCard = ({img, link, category, text, totalText, totalNum}) => {
         <p>
           {text}
           <br />
-          {totalText} &nbsp; <strong>{totalNum}</strong>
+          {totalText}&nbsp;<strong>10</strong>개 이상
         </p>
       </div>
     </li>

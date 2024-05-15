@@ -16,9 +16,10 @@
   font-size: 0.95rem;
 }
 
-.logo {
+.nav-logo {
   width: 150px;
   object-fit: cover;
+  cursor: pointer;
 }
 
 .linkWrap {
