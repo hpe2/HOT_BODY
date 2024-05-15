@@ -11,7 +11,7 @@
 
 .group-detail-banner{
     position: relative;
-    background-color: rgb(80, 80, 80);
+    background-color: #a40000;
     height: 250px;
     display: flex;
     align-items: center;
@@ -42,12 +42,21 @@
     gap: 0.5rem;
 }
 
-.group-detail-leader img {
-    background-color: black;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
+.group-detail-leader-icon {
+  width: 50px;
+  height: 50px;
+  background-color: #c20606;
+  border-radius: 100%;
 }
+
+.group-detail-leader img {
+  background-color: #c20606;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+}
+
 
 .group-detail-info {
     display: flex;

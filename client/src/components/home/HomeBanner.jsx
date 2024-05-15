@@ -99,7 +99,6 @@ const HomeBanner = () => {
               category='커뮤니티'
               text='다양한 정보를 찾으시나요?'
               totalText='현재 커뮤니티에 등록 된 게시글'
-              totalNum={'123 개'}
             />
 
             <HomeSliderCard 
@@ -117,7 +116,6 @@ const HomeBanner = () => {
               category='모임'
               text='모임를 찾으시나요?'
               totalText='현재 개설된 모임'
-              totalNum={'123 개'}
             />
             
             <li className='home-banner-slider-img'>

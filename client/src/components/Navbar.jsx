@@ -42,7 +42,7 @@ const Navbar = () => {
       <img
         src={Logo}
         alt="logo"
-        className="logo"
+        className="nav-logo"
         onClick={() => navigate("/")}
       />
 
