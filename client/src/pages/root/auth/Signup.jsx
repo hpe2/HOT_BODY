@@ -35,9 +35,7 @@ const Signup = () => {
       setPassword("");
       navigate("/login");
     } else {
-      if (res.response.data.message)
-        return toast.info(res.response.data.message);
-      else toast.info("회원가입에 실패했습니다.");
+      return toast.info(`회원가입에 실패했습니다. ${res.response.data.message}`);
     }
   };
 

@@ -10,10 +10,11 @@ import AuthInput from "../../../components/auth/AuthInput";
 import { useUserContext } from "../../../context/AuthContext";
 import { useSignIn } from "../../../Queries/queriesAndMutations";
 import {toast} from 'react-toastify';
+import ErrorPage from "../../error/ErrorPage";
 
 const Login = () => {
   const navigate = useNavigate();
-  const { mutateAsync: login, isPending } = useSignIn();
+  const { mutateAsync: login, isPending, isError, error } = useSignIn();
   const [userId, setUserId] = useState("");
   const [password, setPassword] = useState("");
   const { checkAuthUser } = useUserContext();
@@ -32,10 +33,11 @@ const Login = () => {
       checkAuthUser();
       navigate("/");
     } else {
-      if(res.response.data.message) return toast.info(res.response.data.message);
-      else toast.info('로그인 실패했습니다.');
+      return toast.info(`로그인에 실패했습니다. ${res.response.data.message}`);
     }
   };
+
+  if(isError) return <ErrorPage error={error} />
 
   return (
     <div className="auth-wrap">

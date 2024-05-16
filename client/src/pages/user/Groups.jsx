@@ -12,7 +12,7 @@ const Groups = () => {
   const navigate = useNavigate();
   const { user } = useUserContext();
   const { data: groups, isFetching } = useGetAllJoinedGroup(
-    user && user.join.group.length ? user.join.group : null
+    user.join.group.length > 0 ? user.join.group : null
   );
 
   const categoryInKor = (category) => {
@@ -27,7 +27,7 @@ const Groups = () => {
   };
 
   useEffect(() => {
-    if (!user) navigate("/");
+    if (!user._id) navigate("/");
   }, [user]);
 
   return (

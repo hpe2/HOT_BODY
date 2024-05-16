@@ -10,6 +10,8 @@ import GroupBanner from '/images/GroupHobby.jpg';
 import {useNavigate} from 'react-router-dom'
 import {useGetGroups} from '../../../Queries/queriesAndMutations';
 import PostListSkeleton from '../../../components/community/PostListSkeleton';
+import ErrorPage from '../../error/ErrorPage';
+import GroupListSkeleton from '../../../components/group/GroupListSkeleton';
 
 const categories = [
   { category: "all", name: "전체" },
@@ -21,12 +23,16 @@ const categories = [
 const Group = () => {
   const navigate = useNavigate();
   const [category, setCategoray] = useState(0);
-  const {data: groups, isFetching} = useGetGroups(categories[category].category);
+  const {data: response, isFetching, error, isError} = useGetGroups(categories[category].category);
 
   const selectImgByCategory = (category) => {
     if(category === 'all' || category === 'workout') return WorkOut;
     else if(category === 'hobby') return Hobby;
     else return Travel
+  }
+
+  if(isError){
+    return <ErrorPage error={error} />
   }
 
   return (
@@ -66,9 +72,16 @@ const Group = () => {
         {/* 내용 */}
         <div className="group-main-content">
           {isFetching ? (
-            <PostListSkeleton />
+            <>
+              <GroupListSkeleton />
+              <GroupListSkeleton />
+              <GroupListSkeleton />
+              <GroupListSkeleton />
+              <GroupListSkeleton />
+              <GroupListSkeleton />
+            </>
           ): (
-            groups.map(group => (
+            response.map(group => (
               <GroupListItem group={group} img={selectImgByCategory(group.category)} />
             ))
           )}

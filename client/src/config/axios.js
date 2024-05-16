@@ -22,7 +22,7 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   function (err) {
-    if (err.response.data === "jwt expired") {
+    if (err.response && err.response.data === "jwt expired") {
       localStorage.removeItem("accessToken");
       window.location.reload();
     }
