@@ -165,6 +165,14 @@
     border-bottom: 1px solid #a40000;
 }
 
+.groupList {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 0.75rem;
+    border-bottom: none;
+}
+
 .postList:last-child{
     border-bottom: none;
 }

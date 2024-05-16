@@ -1,5 +1,9 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient, QueryErrorResetBoundary, QueryClient } from "@tanstack/react-query";
 import { signIn, signUp, createCommunityPost, getCommunityPostsByCategory, getCommunityPostByUser, updateUserAccount, updateUserBodyInfo, getCommunityPostDetail, likeCommunityPost, replyCommunityPost, deleteReply, editCommunityPost, deleteCommunityPost, createGroup, getGroups, getGroupDetail, joinGroup, registerTrainer, getTrainerDetail, searchPt, reservationPT, getCurrentUser, getAllJoinedGroup, createNewMeeting, getGroupMeetings } from "./API";
+import {ErrorBoundary} from 'react-error-boundary';
+
+const queryClient = new QueryClient();
+
 
 // auth =====================================================================
 
@@ -58,7 +62,7 @@ export const useGetAllJoinedGroup = (ids) => {
 export const useGetCommunityPostsByCategory = (category) => {
   return useQuery({
     queryFn: () => getCommunityPostsByCategory(category),
-    queryKey: ['GET_COMMUNITY_POSTS', category]
+    queryKey: ['GET_COMMUNITY_POSTS', category],
   })
 }
 

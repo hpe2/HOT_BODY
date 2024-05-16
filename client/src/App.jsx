@@ -29,11 +29,15 @@ import PTMain from './pages/root/pt/PTMain';
 import PTDetail from './pages/root/pt/PTDetail';
 import PTResiger from './pages/root/pt/PTRegister';
 import SubMain from "./pages/root/sub/SubMain";
+import ErrorPage from "./pages/error/ErrorPage";
+import { ErrorBoundary } from "react-error-boundary";
 
 
 const App = () => {
   return (
-    <>
+    <ErrorBoundary 
+      FallbackComponent={ErrorPage}
+    >
       <ToastContainer
         position="bottom-right"
         theme="light"
@@ -86,7 +90,7 @@ const App = () => {
 
         </Routes>
         <Footer />
-    </>
+    </ErrorBoundary>
   );
 };
 

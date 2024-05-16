@@ -6,10 +6,18 @@ import axios from "../config/axios";
 export const signUp = async (userInfo) => {
   try {
     const response = await axios.post("/api/auth/signup", userInfo);
-    if (response.status !== 200) throw Error;
-    return response;
+    if(response.status == 200){
+      return response;
+    }
   } catch (err) {
-    return err;
+    const errResponse = {
+      response: {
+        data : {
+          message: err.message
+        }
+      }
+    }
+    return errResponse;
   }
 };
 
@@ -17,11 +25,19 @@ export const signUp = async (userInfo) => {
 export const signIn = async (userInfo) => {
   try {
     const response = await axios.post("/api/auth/signin", userInfo);
-    if (response.status !== 200) throw Error;
-    localStorage.setItem("accessToken", response.data.accessToken);
-    return response;
+    if(response.status == 200){
+      localStorage.setItem("accessToken", response.data.accessToken);
+      return response;
+    }
   } catch (err) {
-    return err;
+    const errResponse = {
+      response: {
+        data : {
+          message: err.message
+        }
+      }
+    }
+    return errResponse;
   }
 };
 
@@ -91,9 +107,9 @@ export const getAllJoinedGroup = async (ids) => {
 export const getCommunityPostsByCategory = async (category) => {
   try{
     const response = await axios.get(`/api/community/getPosts?category=${category}`);
-    return response.data;
+    return response;
   }catch(err){
-    return err;
+    throw Error(err);
   }
 }
 
@@ -190,7 +206,7 @@ export const getGroups = async (category) => {
     const response = await axios.get(`/api/group/getGroups?category=${category}`);
     return response.data;
   }catch(err){
-    return err;
+    throw Error(err);
   }
 }
 
@@ -267,6 +283,7 @@ export const searchPt = async (lonLat) => {
     const response = await axios.get(`/api/pt/search?lon=${lonLat.lon}&lat=${lonLat.lat}`);
     return response;
   }catch(err){
+    console.log(err);
     return err.response;
   }
 }
