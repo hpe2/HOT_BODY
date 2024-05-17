@@ -2,6 +2,7 @@ import Logo from "/images/logo.png";
 import { NavLink, useNavigate } from "react-router-dom";
 import "../style/navbar.css";
 import { useUserContext } from "../context/AuthContext";
+import {toast} from 'react-toastify';
 
 const navLinks = [
   {
@@ -34,7 +35,8 @@ const Navbar = () => {
     setUser({});
     setIsAuthenticated(false);
     localStorage.removeItem("accessToken");
-    window.location.reload();
+    navigate('/');
+    toast.info('로그아웃 되었습니다.');
   };
 
   return (

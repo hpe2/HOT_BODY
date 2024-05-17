@@ -6,6 +6,7 @@ import PostList from "../../../components/community/PostList";
 import PostListSkeleton from "../../../components/community/PostListSkeleton";
 import { useGetCommunityPostsByCategory } from "../../../Queries/queriesAndMutations";
 import Banner from '/images/communityBanner.jpg'
+import ErrorPage from "../../error/ErrorPage";
 
 const categories = [
   { category: "all", name: "전체" },
@@ -18,7 +19,7 @@ const categories = [
 const Community = () => {
   const navigate = useNavigate();
   const [category, setCategoray] = useState(0);
-  const { isFetching, data: posts } = useGetCommunityPostsByCategory(
+  const { data : response, isFetching, error, isError } = useGetCommunityPostsByCategory(
     categories[category].category
   );
 
@@ -29,21 +30,16 @@ const Community = () => {
     if (category === "QA") return "Q&A";
   };
 
+  if(isError) {
+    return <ErrorPage error={error} />
+  }
+
   return (
     <div className="community-container">
 
       <div className="community-banner">
         <img src={Banner} alt="banner" className="banner-img" />
         <div className="banner-img-overlay" />
-        {/* <div className="searchWrap">
-          <img src={SearchIcon} alt="icon" className="searchIcon" />
-          <input
-            className="searchInput"
-            placeholder="찾으시는 글이 있으신가요?"
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          ></input>
-        </div> */}
 
         <ul className="community-category">
           {categories.map((categorylist, idx) => (
@@ -66,7 +62,7 @@ const Community = () => {
         <div className="postHeader">
           <div className="title">
             <h1>{categories[category].name} 글 보기 </h1>
-            <span className="postsNum">{posts?.length}</span>
+            <span className="postsNum">{response?.data?.length}</span>
           </div>
           <button onClick={() => navigate("/community/write")}>
             <img src={PenIcon} alt="pen" className="penIcon" />
@@ -81,17 +77,15 @@ const Community = () => {
               <PostListSkeleton />
               <PostListSkeleton />
             </>
-          ) : posts.length === 0 ? (
+          ) : response?.data?.length === 0 ? (
             <p className="noPostsResult">
               {`${categoryInKor(categories[category].category)}`}에 관한 글이
               없습니다. 첫 글을 작성 해보세요.
             </p>
           ) : (
-            <>
-              {posts.map((post) => (
-                <PostList post={post} key={post._id} />
-              ))}
-            </>
+            response?.data?.map((post) => (
+              <PostList post={post} key={post._id} />
+            ))
           )}
         </ul>
       </div>

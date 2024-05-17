@@ -31,6 +31,7 @@ const GroupDetail = () => {
   }
 
   const handleJoinGroup = async () => {
+    if(!user._id) return toast.info('로그인 사용자에게만 제공되는 기능입니다.')
     const response = await joinGroup(id);
     toast.info(response.data.message);
   };
