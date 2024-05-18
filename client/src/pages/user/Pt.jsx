@@ -88,7 +88,7 @@ const Pt = () => {
               className="box-shadow pt-reservation-lists"
               style={{ padding: "1.5rem 1.5rem 0", borderRadius: "10px" }}
             >
-              {trainer?.reservations.length > 0 &&
+              {trainer?.reservations.length > 0 ?
                 trainer?.reservations.map((list, idx) => (
                   <li className="flex-between" key={idx}>
                     <div className="flex-col">
@@ -113,7 +113,9 @@ const Pt = () => {
                       )}
                     </div>
                   </li>
-                ))}
+                )): (
+                  <p style={{paddingBottom: '1.5rem'}}>아직 PT 신청이 없습니다.</p>
+                )}
             </ul>
           </>
         </div>
