@@ -223,6 +223,41 @@
   - 해당 모임에 가입한 유저들에게만 제공되는 기능
   - 약속 생성 시 상세 페이지에서 바로 업데이트 되어 확인 가능
 
+<br/><br/>
+
+#### [ 마이페이지 - 계정 정보 ]
+|   계정 정보 수정  |  상세(신체) 정보 수정 |
+| :------------: | :--------------: |
+| ![my_account]  | ![my_detailInfo] |
+
+- 계정 정보 수정 기능
+  - 수정 가능한 정보는 이름, 이메일, 아이디
+  - 수정하려면 비밀번호를 입력해야 하며, 일치해야 함
+- 상세 정보 수정
+  - 사용자의 신체 정보를 수정할 수 있다
+  - 키, 체중, 나이, 성별, 연락처, 운동목적에 대한 내용이 있음
+
+#### [ 마이페이지 - 쓴 글 조회 / PT 예약 조회 / 참여 모임 조회 / 포인트 조회 ]
+|    쓴 글 조회    |   PT 예약 조회 |
+| :------------: | :----------: |
+| ![mypage_wrote]| ![mypage_pt] |
+
+|   참여 모임 조회   |  포인트 조회 페이지  |
+| :-------------: | :-------------: |
+| ![mypage_group] | ![mypage_point] |
+
+- 쓴 글 조회 기능
+>  - 유저는 wrote 배열 속성을 갖는데, 배열의 요소는 글의 고유한 _id 값
+>  - 사용자가 글 조회 페이지로 이동 시, wrote 배열을 순회하며 _id값에 해당하는 모든 글을 찾음
+>  - 특정 글을 클릭하면 해당 글의 상세 페이지로 이동
+-  PT 예약 조회 기능
+> - 일반 등급 유저일 경우, 트레이너 등록 기능과 자신이 예약한 PT 목록 조회 가능
+>  - 트레이너 등급 유저는 자신의 트레이너 정보, PT 신청 내역, 예약한 PT 목록 조회 가능
+- 참여 모임 조회
+>  - 사용자의 join 배열 내부에 group 속성이 있으며, group 속성은 그룹의 고유한 _id 값을 요소로 갖는 배열이다
+>  - 해당 페이지에 접근하면 group의 요소의 모든 그룹 정보를 요청하는 API 호출
+
+<br/><br/>
 
 <br/><br/><br/>
 
@@ -257,3 +292,9 @@
 [community_detail_02]: client/public/images/readme/community_detail_two.gif
 [pt_register]: client/public/images/readme/pt_create.gif
 [pt_mypage]: client/public/images/readme/mypage_pt.png
+[my_account]: client/public/images/readme/mypage_account.gif
+[my_detailInfo]: client/public/images/readme/mypage_detailInfo.gif
+[mypage_wrote]: client/public/images/readme/mypage_wrote.png
+[mypage_pt]: client/public/images/readme/mypage_pt.gif
+[mypage_group]: client/public/images/readme/mypage_group.png
+[mypage_point]: client/public/images/readme/mypage_point.png
