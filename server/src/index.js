@@ -23,6 +23,17 @@ mongoose
   .then(() => console.log(`MongoDB is connected`))
   .catch((err) => console.error(err));
 
+app.get("/", async (req, res) => {
+  try{
+    res.json({
+      status: 200,
+      message: "server is running successfully"
+    })
+  }catch(error){
+    console.error(error);
+    return res.status(500).send("Server error");
+  }
+})
 
 app.use("/api/auth", authRouter);
 app.use('/api/community', communityRouter);
